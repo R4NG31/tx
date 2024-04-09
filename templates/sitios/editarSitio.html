@@ -1,0 +1,32 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<div class="content-body">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-12 col-xxl-12">
+        <div id = "alert-box"></div>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Editar Sitios</h2>
+          </div>
+          <div class="card-body">
+            <div id="alert-box"></div>
+            <form method="POST">
+              {% csrf_token %}
+              {{sitios_form.as_p}}
+              
+            </form>
+            <div id="cancel-box">
+              <button id="cancel-btn" type="submit" class="btn btn-danger light btn-sl-sm">
+                <span class="me-2"><i class="fa fa-times"></i></span>Guardar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+{% block javascripts %}
+{% endblock javascripts %}

@@ -1,0 +1,42 @@
+{% extends "layout/base.html" %}
+{% block title%}Subir Archivo{% endblock title%}
+{% block content %}
+<body>
+  <div class="page">
+      <!-- Start::app-content -->
+      <div class="main-content app-content">
+        <div class="container-fluid">
+            <!-- Start:: row-2 -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                Cargar Archivo Filtro
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form data-single="true" method="post" action="{% url 'cargarFiltroSitios' %}" class="dropzone">
+                              {% csrf_token %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End:: row-2 -->
+        </div>
+    </div>
+      <!-- End::app-content -->
+  </div>
+  <!-- Scroll To Top -->
+  <div class="scrollToTop">
+      <span class="arrow"><i class="ri-arrow-up-s-fill fs-20"></i></span>
+  </div>
+  <div id="responsive-overlay"></div>
+  <!-- Scroll To Top -->
+</body>
+
+{% endblock content %}
+{% block javascripts %}
+
+{% endblock javascripts %}

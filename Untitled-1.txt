@@ -1,0 +1,6 @@
+sudo podman run --name demowebapp -p 10.150.153.31:8449:8449 localhost/txserverdemo-1.0
+
+empaquetar contenedor 
+
+podman save localhost/txserver0.0 -o  tx.tar.gz
+sudo podman load -i tx.tar.gz

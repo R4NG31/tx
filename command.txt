@@ -1,0 +1,10 @@
+git branch -M master 
+git push -u origin master           
+
+SECRET_KEY=django-insecure-3e-i5g+pr_b&5g!!1@q%pb0kdtip4)blvton124q7y#mvu6_*b
+DB_HOST=10.150.153.31
+DB_NAME=transporte
+DB_USER=root
+DB_PASSWORD=secret
+DB_PORT=3306
+podman run -p 8000:8000 --name testServer  --network podman localhost/txserver    
