@@ -93,10 +93,13 @@
                                 <a href="javascript:void(0)">Utilities</a>
                             </li>
                             <li class="slide">
-                                <a href="helpers.html" class="side-menu__item">Cargar Archivo</a>
+                                <a href="{% url 'cargarProyeccion' %}" class="side-menu__item">Cargar Archivo Completo</a>
                             </li>
                             <li class="slide">
-                                <a href="position.html" class="side-menu__item">Listar Proyección</a>
+                                <a href="{% url 'cargarFiltroProyeccion' %}" class="side-menu__item">Cargar Filtro Proyección</a>
+                            </li>
+                            <li class="slide">
+                                <a href="{% url 'listarProyeccion' %}" class="side-menu__item">Listar Proyección</a>
                             </li>
                         </ul>
                     </li>
@@ -111,16 +114,16 @@
                         </a>
                         <ul class="slide-menu child1">
                             <li class="slide">
-                                <a href="helpers.html" class="side-menu__item">Cargar Archivo</a>
+                                <a href="{% url 'cargarMigracion' %}" class="side-menu__item">Cargar Archivo</a>
                             </li>
                             <li class="slide">
-                                <a href="position.html" class="side-menu__item">Listar Migración</a>
+                                <a href="{% url 'cargarFiltroMigracion' %}" class="side-menu__item">Cargar Archivo Filtro</a>
+                            </li>
+                            <li class="slide">
+                                <a href="{% url 'listarMigracion' %}" class="side-menu__item">Listar Migración</a>
                             </li>
                         </ul>
                     </li>
-                    <!-- End::slide -->
-
-                    <!-- Start::slide -->
                     <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
                             <i class="bx bx-layer side-menu__icon"></i>
@@ -129,15 +132,16 @@
                         </a>
                         <ul class="slide-menu child1">
                             <li class="slide">
-                                <a href="helpers.html" class="side-menu__item">Cargar Archivo</a>
+                                <a href="{% url 'cargarMigracion' %}" class="side-menu__item">Cargar Archivo</a>
                             </li>
                             <li class="slide">
-                                <a href="position.html" class="side-menu__item">Listar Microondas</a>
+                                <a href="{% url 'cargarFiltroMigracion' %}" class="side-menu__item">Cargar Filtro Archivo</a>
+                            </li>
+                            <li class="slide">
+                                <a href="{% url 'listarMigracion' %}" class="side-menu__item">Listar Microondas</a>
                             </li>
                         </ul>
                     </li>
-                    <!-- End::slide -->
-                    <!-- Start::slide -->
                     <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
                             <i class="bx bx-bar-chart-square side-menu__icon"></i>
@@ -146,21 +150,18 @@
                         </a>
                         <ul class="slide-menu child1">
                             <li class="slide">
-                                <a href="helpers.html" class="side-menu__item">Cargar Archivo</a>
+                                <a href="{% url 'cargarCarrier' %}" class="side-menu__item">Cargar Archivo</a>
                             </li>
                             <li class="slide">
-                                <a href="position.html" class="side-menu__item">Listar Carriers</a>
+                                <a href="{% url 'cargarFiltroCarrier' %}" class="side-menu__item">Cargar Archivo</a>
+                            </li>
+                            <li class="slide">
+                                <a href="{% url 'listarCarrier' %}" class="side-menu__item">Listar Carriers</a>
                             </li>
                         </ul>
                     </li>
-                    <!-- End::slide -->
             </ul>
                 <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24"> <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path> </svg></div>
             </nav>
-            <!-- End::nav -->
-
         </div>
-        <!-- End::main-sidebar -->
-
     </aside>
-    <!-- End::app-sidebar -->

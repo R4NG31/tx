@@ -23,9 +23,19 @@ urlpatterns = [
     path('listarProyeccion/', views.listarProyeccion, name='listarProyeccion'),
 
     path('cargarMigracion/', views.cargarMigracion, name='cargarMigracion'),
+    path('cargarFiltroMigracion/', views.cargarFiltroMigracion, name='cargarFiltroMigracion'),
+    path('listarMigracion/', views.listarMigracion, name='listarMigracion'),
+
+
     path('cargarMicroondas/', views.cargarMicroondas, name='cargarMicroondas'),
-    # path('cargarMW/', views.cargarFiltroMicrondas, name='cargarMW'),
+    path('cargarFiltroMicroondas/', views.cargarFiltroMicroondas, name='cargarFiltroMicroondas'),
+    path('listarMicroondas/', views.listarMicroondas, name='listarMicroondas'),
+
     path('cargarCarrier/', views.cargarCarrier, name='cargarCarrier'),
+    path('cargarFiltroCarrier/', views.cargarFiltroCarrier, name='cargarFiltroCarrier'),
+    path('listarCarrier/', views.listarCarrier, name='listarCarrier'),
+
+
     path('cargarPon/', views.cargarPon, name='cargarPon'),
     path('cargarPanda/', views.cargarPanda, name='cargarPanda'),
     path('cargarTellus/', views.cargarTellus, name='cargarTellus'),

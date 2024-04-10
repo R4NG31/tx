@@ -1,0 +1,108 @@
+{% extends "layout/base.html" %}
+{% block content %}
+        <!-- Start::app-content -->
+        <div class="main-content app-content">
+            <div class="container-fluid">
+                <!-- Page Header -->
+                <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+                    <div class="ms-md-1 ms-0">
+                    
+                    </div>
+                </div>
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">
+                                Migración
+                            </div>
+                            
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {%if entity %}
+                                <table class="table text-nowrap table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th><strong>ID_ATT_M</strong></th>  
+                                            <th><strong>ORIGEN_TX</strong></th>  
+                                            <th><strong>TX_GRUPOS</strong></th>  
+                                            <th><strong>TX_DETALLE</strong></th>  
+                                            <th><strong>CONTROL</strong></th>  
+                                            <th><strong>FECHA</strong></th>  
+                                            <th><strong>POC</strong></th>  
+                                            <th><strong>OBSERVACIONES</strong></th>  
+                                            <th><strong>ID_PANDA</strong></th>  
+                                            <th><strong>ID_ATT</strong></th>  
+                                            <th><strong>SITE_NAME</strong></th>  
+                                            <th><strong>MARKET</strong></th>  
+                                            <th><strong>PROYECTO</strong></th>  
+                                            <th><strong>REAL_MIGRACION</strong></th>  
+                                            <th><strong>SCOPE</strong></th>  
+                                            <th><strong>PANDA</strong></th>  
+                                            <th><strong>STATUS</strong></th>  
+                                            <th><strong>TX_TYPE</strong></th>  
+                                            <th><strong>ATT_ID</strong></th>  
+                                            <th><strong>LATITUD</strong></th>  
+                                            <th><strong>LONGITUD</strong></th>  
+                                            <th><strong>ESTADO</strong></th>  
+                                            <th><strong>MUNICIPIO</strong></th>  
+                                            <th><strong>MERCADO</strong></th>  
+                                            <th><strong>REGION_CELULAR</strong></th>  
+                                            <th><strong>CLASIFICACION</strong></th>  
+                                            <th><strong>CONTROL_DE_CAMBIOS_RAN</strong></th> 
+    
+                                        </tr>
+                                    </thead>
+                                    {% else %}
+                                <div><h1>No Existen Sitios Registrados</h1></div>
+                                {% endif %}
+                                <tbody>
+                                    {% for m in entity %}
+                                    <tr>
+                                        <td>{{m.ID_ATT_M}}</td>  
+                                        <td>{{m.ORIGEN_TX}}</td>  
+                                        <td>{{m.TX_GRUPOS}}</td>  
+                                        <td>{{m.TX_DETALLE}}</td>  
+                                        <td>{{m.CONTROL}}</td>  
+                                        <td>{{m.FECHA}}</td>  
+                                        <td>{{m.POC}}</td>  
+                                        <td>{{m.OBSERVACIONES}}</td>  
+                                        <td>{{m.ID_PANDA}}</td>  
+                                        <td>{{m.ID_ATT}}</td>  
+                                        <td>{{m.SITE_NAME}}</td>  
+                                        <td>{{m.MARKET}}</td>  
+                                        <td>{{m.PROYECTO}}</td>  
+                                        <td>{{m.REAL_MIGRACION}}</td>  
+                                        <td>{{m.SCOPE}}</td>  
+                                        <td>{{m.PANDA}}</td>  
+                                        <td>{{m.STATUS}}</td>  
+                                        <td>{{m.TX_TYPE}}</td>  
+                                        <td>{{m.ATT_ID}}</td>  
+                                        <td>{{m.LATITUD}}</td>  
+                                        <td>{{m.LONGITUD}}</td>  
+                                        <td>{{m.ESTADO}}</td>  
+                                        <td>{{m.MUNICIPIO}}</td>  
+                                        <td>{{m.MERCADO}}</td>  
+                                        <td>{{m.REGION_CELULAR}}</td>  
+                                        <td>{{m.CLASIFICACION}}</td>  
+                                        <td>{{m.CONTROL_DE_CAMBIOS_RAN}}</td>  	
+                                  
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+				{% include 'sitios/paginator.html'%}
+			</div>
+        </div>
+    <script src="/static/js/jquery.min.js"></script>
+   
+        <!-- End::app-content -->
+{% endblock content %}
+{% block javascripts %}
+{% endblock javascripts %}

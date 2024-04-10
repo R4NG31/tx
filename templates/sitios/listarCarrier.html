@@ -1,0 +1,131 @@
+{% extends "layout/base.html" %}
+{% block content %}
+        <!-- Start::app-content -->
+        <div class="main-content app-content">
+            <div class="container-fluid">
+                <!-- Page Header -->
+                <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+                    <div class="ms-md-1 ms-0">
+                    
+                    </div>
+                </div>
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">
+                                Carrier
+                            </div>
+                            
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {%if entity %}
+                                <table class="table text-nowrap table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th><strong>ID_ATT_C</strong></th>  
+                                            <th><strong>TX</strong></th>  
+                                            <th><strong>TX_GRUPOS</strong></th>  
+                                            <th><strong>TX_DETALLE</strong></th>  
+                                            <th><strong>CONTROL</strong></th>  
+                                            <th><strong>FECHA_ALTA_BAJA</strong></th>  
+                                            <th><strong>POC</strong></th>  
+                                            <th><strong>OBSERVACIONES</strong></th>  
+                                            <th><strong>TX_CARRIER</strong></th>  
+                                            <th><strong>PROYECTO_FO</strong></th>  
+                                            <th><strong>SEGUNDO_PUERTO_HABILITADO</strong></th>  
+                                            <th><strong>CID_CARRIER</strong></th>  
+                                            <th><strong>REGION</strong></th>  
+                                            <th><strong>MERCADO</strong></th>  
+                                            <th><strong>PUNTA_A_NAMING_CONVECTION</strong></th>  
+                                            <th><strong>PUNTA_A_ID_SITIO</strong></th>  
+                                            <th><strong>PUNTA_A_NOMBRE_SITIO</strong></th>  
+                                            <th><strong>LATITUD_PUNTA_A</strong></th>  
+                                            <th><strong>LONGITUD_PUNTA_A</strong></th>  
+                                            <th><strong>PUNTA_B_NAMING_CONVECTION</strong></th>  
+                                            <th><strong>PUNTA_B_ID_SITIO</strong></th>  
+                                            <th><strong>PUNTA_B_NOMBRE_SITIO</strong></th>  
+                                            <th><strong>LATITUD_PUNTA_B</strong></th>  
+                                            <th><strong>LONGITUD_PUNTA_B</strong></th>  
+                                            <th><strong>CARRIER</strong></th>  
+                                            <th><strong>TIPO_ENLACE</strong></th>  
+                                            <th><strong>PROYECTO_PRINCIPAL</strong></th>  
+                                            <th><strong>FASE</strong></th>  
+                                            <th><strong>CAPACIDAD_MBPS</strong></th>  
+                                            <th><strong>ESTATUS</strong></th>  
+                                            <th><strong>ATT_ID</strong></th>  
+                                            <th><strong>TRACKER</strong></th>  
+                                            <th><strong>AT&T ID</strong></th>  
+                                            <th><strong>NOMBRE</strong></th>  
+                                            <th><strong>CONTROL_DE_CAMBIOS_RAN</strong></th>  
+                                            <th><strong>BASE_ORIGEN_TX</strong></th>  
+                                            <th><strong>GRUPOS_MEDIO_TX</strong></th>  
+                                            <th><strong>TX_DETALLE_2</strong></th>  
+                                            <th><strong>BASE_ORIGEN_PROYECCION</strong></th>  
+    
+                                        </tr>
+                                    </thead>
+                                    {% else %}
+                                <div><h1>No Existen Sitios Registrados</h1></div>
+                                {% endif %}
+                                <tbody>
+                                    {% for c in entity %}
+                                    <tr>
+                                       <td>{{c.ID_ATT_C}}</td>  
+                                       <td>{{c.TX}}</td>  
+                                       <td>{{c.TX_GRUPOS}}</td>  
+                                       <td>{{c.TX_DETALLE}}</td>  
+                                       <td>{{c.CONTROL}}</td>  
+                                       <td>{{c.FECHA_ALTA_BAJA}}</td>  
+                                       <td>{{c.POC}}</td>  
+                                       <td>{{c.OBSERVACIONES}}</td>  
+                                       <td>{{c.TX_CARRIER}}</td>  
+                                       <td>{{c.PROYECTO_FO}}</td>  
+                                       <td>{{c.SEGUNDO_PUERTO_HABILITADO}}</td>  
+                                       <td>{{c.CID_CARRIER}}</td>  
+                                       <td>{{c.REGION}}</td>  
+                                       <td>{{c.MERCADO}}</td>  
+                                       <td>{{c.PUNTA_A_NAMING_CONVECTION}}</td>  
+                                       <td>{{c.PUNTA_A_ID_SITIO}}</td>  
+                                       <td>{{c.PUNTA_A_NOMBRE_SITIO}}</td>  
+                                       <td>{{c.LATITUD_PUNTA_A}}</td>  
+                                       <td>{{c.LONGITUD_PUNTA_A}}</td>  
+                                       <td>{{c.PUNTA_B_NAMING_CONVECTION}}</td>  
+                                       <td>{{c.PUNTA_B_ID_SITIO}}</td>  
+                                       <td>{{c.PUNTA_B_NOMBRE_SITIO}}</td>  
+                                       <td>{{c.LATITUD_PUNTA_B}}</td>  
+                                       <td>{{c.LONGITUD_PUNTA_B}}</td>  
+                                       <td>{{c.CARRIER}}</td>  
+                                       <td>{{c.TIPO_ENLACE}}</td>  
+                                       <td>{{c.PROYECTO_PRINCIPAL}}</td>  
+                                       <td>{{c.FASE}}</td>  
+                                       <td>{{c.CAPACIDAD_MBPS}}</td>  
+                                       <td>{{c.ESTATUS}}</td>  
+                                       <td>{{c.ATT_ID}}</td>  
+                                       <td>{{c.TRACKER}}</td>  
+                                       <td>{{c.ATT_ID}}</td>  
+                                       <td>{{c.NOMBRE}}</td>  
+                                       <td>{{c.CONTROL_DE_CAMBIOS_RAN}}</td>  
+                                       <td>{{c.BASE_ORIGEN_TX}}</td>  
+                                       <td>{{c.GRUPOS_MEDIO_TX}}</td>  
+                                       <td>{{c.TX_DETALLE_2}}</td>  
+                                       <td>{{c.BASE_ORIGEN_PROYECCION}}</td> 
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+				{% include 'sitios/paginator.html'%}
+			</div>
+        </div>
+    <script src="/static/js/jquery.min.js"></script>
+   
+        <!-- End::app-content -->
+{% endblock content %}
+{% block javascripts %}
+{% endblock javascripts %}

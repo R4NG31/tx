@@ -1,0 +1,103 @@
+{% extends "layout/base.html" %}
+{% block content %}
+        <!-- Start::app-content -->
+        <div class="main-content app-content">
+            <div class="container-fluid">
+                <!-- Page Header -->
+                <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+                    <div class="ms-md-1 ms-0">
+                    
+                    </div>
+                </div>
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">
+                                Proyección
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {%if entity %}
+                                <table class="table text-nowrap table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th><strong>ID_ATT_P</strong></th>  
+                                            <th><strong>TX</strong></th>  
+                                            <th><strong>TX_GRUPOS_PROYECCION</strong></th>  
+                                            <th><strong>TX_DETALLE_PROYECCION</strong></th>  
+                                            <th><strong>CONTROL</strong></th>  
+                                            <th><strong>AÑO_PROYECCION</strong></th>  
+                                            <th><strong>FECHA</strong></th>  
+                                            <th><strong>POC</strong></th>  
+                                            <th><strong>OBSERVACIONES</strong></th>  
+                                            <th><strong>TRACKER</strong></th>  
+                                            <th><strong>ATT_ID</strong></th>  
+                                            <th><strong>NOMBRE</strong></th>  
+                                            <th><strong>LATITUD</strong></th>  
+                                            <th><strong>LONGITUD</strong></th>  
+                                            <th><strong>ESTADO</strong></th>  
+                                            <th><strong>MUNICIPIO</strong></th>  
+                                            <th><strong>MERCADO</strong></th>  
+                                            <th><strong>MERCADO_FO</strong></th>  
+                                            <th><strong>REGION_CELULAR</strong></th>  
+                                            <th><strong>AGREGADOR</strong></th>  
+                                            <th><strong>AÑO</strong></th>  
+                                            <th><strong>PROYECTO</strong></th>  
+                                            <th><strong>TOPOLOGIA</strong></th>  
+                                            <th><strong>SEGMENTO_IPBH</strong></th>  
+                                            <th><strong>STATUS</strong></th>  
+                                            <th><strong>TX_F</strong></th>   
+                                        </tr>
+                                    </thead>
+                                    {% else %}
+                                <div><h1>No Existen Sitios Registrados</h1></div>
+                                {% endif %}
+                                <tbody>
+                                    {% for p in entity %}
+                                     <tr>
+                                        <td>{{p.ID_ATT_P}}</td>  
+                                        <td>{{p.TX}}</td>  
+                                        <td>{{p.TX_GRUPOS_PROYECCION}}</td>  
+                                        <td>{{p.TX_DETALLE_PROYECCION}}</td>  
+                                        <td>{{p.CONtdOL}}</td>  
+                                        <td>{{p.AÑO_PROYECCION}}</td>  
+                                        <td>{{p.FECHA}}</td>  
+                                        <td>{{p.POC}}</td>  
+                                        <td>{{p.OBSERVACIONES}}</td>  
+                                        <td>{{p.tdACKER}}</td>  
+                                        <td>{{p.ATT_ID}}</td>  
+                                        <td>{{p.NOMBRE}}</td>  
+                                        <td>{{p.LATITUD}}</td>  
+                                        <td>{{p.LONGITUD}}</td>  
+                                        <td>{{p.ESTADO}}</td>  
+                                        <td>{{p.MUNICIPIO}}</td>  
+                                        <td>{{p.MERCADO}}</td>  
+                                        <td>{{p.MERCADO_FO}}</td>  
+                                        <td>{{p.REGION_CELULAR}}</td>  
+                                        <td>{{p.AGREGADOR}}</td>  
+                                        <td>{{p.AÑO}}</td>  
+                                        <td>{{p.PROYECTO}}</td>  
+                                        <td>{{p.TOPOLOGIA}}</td>  
+                                        <td>{{p.SEGMENTO_IPBH}}</td>  
+                                        <td>{{p.STATUS}}</td>  
+                                        <td>{{p.TX_F}}</td> 
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+				{% include 'sitios/paginator.html'%}
+			</div>
+        </div>
+    <script src="/static/js/jquery.min.js"></script>
+   
+        <!-- End::app-content -->
+{% endblock content %}
+{% block javascripts %}
+{% endblock javascripts %}

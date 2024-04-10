@@ -12,16 +12,13 @@
                     <div class="card custom-card">
                         <div class="card-header">
                             <div class="card-title">
-                                Cargar Archivo Filtro
+                                Cargar Archivo
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{% url 'cargarMigracion'%}" class="dropzone" method="POST" id="MyDropZone">
-                                {% csrf_token %}
-                                <div class="fallback">
-                                  <input name="file" type="file" multiple>
-                                </div>
-                              </form>
+                            <form data-single="true" method="post" action="{% url 'cargarFiltroMicroondas' %}" class="dropzone">
+                              {% csrf_token %}
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -38,6 +35,10 @@
   <div id="responsive-overlay"></div>
   <!-- Scroll To Top -->
 </body>
+
+
+
 {% endblock content %}
 {% block javascripts %}
+
 {% endblock javascripts %}

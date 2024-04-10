@@ -1,0 +1,101 @@
+{% extends "layout/base.html" %}
+{% block content %}
+        <!-- Start::app-content -->
+        <div class="main-content app-content">
+            <div class="container-fluid">
+                <!-- Page Header -->
+                <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+                    <div class="ms-md-1 ms-0">
+                    
+                    </div>
+                </div>
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">
+                                Agregadores
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {%if entity %}
+                                <table class="table text-nowrap table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th><strong>ID_ATT_A</strong></th>  		
+                                            <th><strong>TX_A</strong></th>  	
+                                            <th><strong>TX_GRUPOS_A</strong></th>  	
+                                            <th><strong>TX_DETALLE_A</strong></th>  	
+                                            <th><strong>CONTROL</strong></th>  	
+                                            <th><strong>FECHA</strong></th>  	
+                                            <th><strong>POC</strong></th>	 	
+                                            <th><strong>OBSERVACIONES</strong></th>  	
+                                            <th><strong>TRACKER</strong></th>	 	
+                                            <th><strong>ID_ATT</strong></th>  	
+                                            <th><strong>NOMBRE</strong></th>  	
+                                            <th><strong>LATITUD</strong></th>	 	
+                                            <th><strong>LONGITUD</strong></th>  	
+                                            <th><strong>ESTADO</strong></th>  	
+                                            <th><strong>MUNICIPIO</strong></th>  	
+                                            <th><strong>MERCADO</strong></th>	 	
+                                            <th><strong>MERCADO_FO</strong></th>  	
+                                            <th><strong>REGION_CELULAR</strong></th>  	
+                                            <th><strong>AGREGADOR</strong></th>  	
+                                            <th><strong>AÑO</strong></th>	 	
+                                            <th><strong>PROYECTO</strong></th>  	
+                                            <th><strong>TOPOLOGIA</strong></th>  	
+                                            <th><strong>SEGMENTO_IPBH</strong></th>  	
+                                            <th><strong>STATUS</strong></th>  	
+                                            <th><strong>TX_FO</strong></th> 
+                                        </tr>
+                                    </thead>
+                                    {% else %}
+                                <div><h1>No Existen Sitios Registrados</h1></div>
+                                {% endif %}
+                                <tbody>
+                                    {% for a in entity %}
+                                    <tr>
+                                        <td>{{a.ID_ATT_A}}</td>  		
+                                        <td>{{a.TX_A}}</td>  	
+                                        <td>{{a.TX_GRUPOS_A}}</td>  	
+                                        <td>{{a.TX_DETALLE_A}}</td>  	
+                                        <td>{{a.CONTROL}}</td>  	
+                                        <td>{{a.FECHA}}</td>  	
+                                        <td>{{a.POC}}</td>	 	
+                                        <td>{{a.OBSERVACIONES}}</td>  	
+                                        <td>{{a.TRACKER}}</td>	 	
+                                        <td>{{a.ID_ATT}}</td>  	
+                                        <td>{{a.NOMBRE}}</td>  	
+                                        <td>{{a.LATITUD}}</td>	 	
+                                        <td>{{a.LONGITUD}}</td>  	
+                                        <td>{{a.ESTADO}}</td>  	
+                                        <td>{{a.MUNICIPIO}}</td>  	
+                                        <td>{{a.MERCADO}}</td>	 	
+                                        <td>{{a.MERCADO_FO}}</td>  	
+                                        <td>{{a.REGION_CELULAR}}</td>  	
+                                        <td>{{a.AGREGADOR}}</td>  	
+                                        <td>{{a.AÑO}}</td>	 	
+                                        <td>{{a.PROYECTO}}</td>  	
+                                        <td>{{a.TOPOLOGIA}}</td>  	
+                                        <td>{{a.SEGMENTO_IPBH}}</td>  	
+                                        <td>{{a.STATUS}}</td>  	
+                                        <td>{{a.TX_FO}}</td>  	
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+				{% include 'sitios/paginator.html'%}
+			</div>
+        </div>
+    <script src="/static/js/jquery.min.js"></script>
+   
+        <!-- End::app-content -->
+{% endblock content %}
+{% block javascripts %}
+{% endblock javascripts %}

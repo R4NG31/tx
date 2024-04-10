@@ -16,7 +16,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{% url 'cargarMigracion'%}" class="dropzone" method="POST" id="MyDropZone">
+                            <form action="{% url 'cargarFiltroMigracion'%}" class="dropzone" method="POST" id="MyDropZone">
                                 {% csrf_token %}
                                 <div class="fallback">
                                   <input name="file" type="file" multiple>

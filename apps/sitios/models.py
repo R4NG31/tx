@@ -237,7 +237,7 @@ class FiltroFibraOptica(models.Model):
         db_table = "tb1_Filtro_Fibra_Optica"
 
 class AGG(models.Model):
-    ATT_ID_A = models.TextField(primary_key=True,max_length = 50, blank=False, null = False)		
+    ID_ATT_A = models.TextField(primary_key=True,max_length = 50, blank=False, null = False)		
     TX_A = models.TextField(max_length = 50, blank=False, null = False)	
     TX_GRUPOS_A = models.TextField(max_length = 50, blank=False, null = False)	
     TX_DETALLE_A = models.TextField(max_length = 50, blank=False, null = False)	
@@ -337,7 +337,7 @@ class FiltroProyeccion(models.Model):
         db_table = 'tb1_Filtro_Proyeccion'
 
 class Migracion(models.Model):
-    ID_ATT_M = models.TextField(max_length = 50, blank=False, null = False)	
+    ID_ATT_M = models.TextField(primary_key=True,max_length = 50, blank=False, null = False)	
     ORIGEN_TX = models.TextField(max_length = 50, blank=False, null = False)
     TX_GRUPOS = models.TextField(max_length = 50, blank=False, null = False)
     TX_DETALLE = models.TextField(max_length = 50, blank=False, null = False)
@@ -367,8 +367,41 @@ class Migracion(models.Model):
     class Meta:
         db_table = 'migracion'  
 
+class FiltroMigracion(models.Model):
+    ID_ATT_M = models.TextField(primary_key=True,max_length = 50, blank=False, null = False)	
+    ORIGEN_TX = models.TextField(max_length = 50, blank=False, null = False)
+    TX_GRUPOS = models.TextField(max_length = 50, blank=False, null = False)
+    TX_DETALLE = models.TextField(max_length = 50, blank=False, null = False)
+    CONTROL = models.TextField(max_length = 50, blank=False, null = False)
+    FECHA = models.TextField(max_length = 50, blank=False, null = False)
+    POC	= models.TextField(max_length = 50, blank=False, null = False)
+    OBSERVACIONES = models.TextField(max_length = 50, blank=False, null = False)
+    ID_PANDA = models.TextField(max_length = 50, blank=False, null = False)
+    ID_ATT = models.TextField(max_length = 50, blank=False, null = False)
+    SITE_NAME = models.TextField(max_length = 50, blank=False, null = False)
+    MARKET = models.TextField(max_length = 50, blank=False, null = False)
+    PROYECTO = models.TextField(max_length = 50, blank=False, null = False)
+    REAL_MIGRACION = models.TextField(max_length = 50, blank=False, null = False)
+    SCOPE = models.TextField(max_length = 50, blank=False, null = False)
+    PANDA = models.TextField(max_length = 50, blank=False, null = False)
+    STATUS = models.TextField(max_length = 50, blank=False, null = False)
+    TX_TYPE	= models.TextField(max_length = 50, blank=False, null = False)
+    ATT_ID = models.TextField(max_length = 50, blank=False, null = False)
+    LATITUD	= models.TextField(max_length = 50, blank=False, null = False)
+    LONGITUD = models.TextField(max_length = 50, blank=False, null = False)
+    ESTADO = models.TextField(max_length = 50, blank=False, null = False)
+    MUNICIPIO = models.TextField(max_length = 50, blank=False, null = False)
+    MERCADO	= models.TextField(max_length = 50, blank=False, null = False)
+    REGION_CELULAR = models.TextField(max_length = 50, blank=False, null = False)
+    CLASIFICACION = models.TextField(max_length = 50, blank=False, null = False)
+    CONTROL_DE_CAMBIOS_RAN = models.TextField(max_length = 50, blank=False, null = False)
+
+    CONTROL_DE_CAMBIOS_RAN 	
+    class Meta:
+        db_table = 'tb1_Filtro_Migracion'  
+
 class MW(models.Model):
-    ATT_ID_MW = models.TextField(max_length = 50, blank=False, null = False)
+    ATT_ID_MW = models.TextField(primary_key=True,max_length = 50, blank=False, null = False)
     TX_MW = models.TextField(max_length = 50, blank=False, null = False)  
     TX_GRUPOS_MW = models.TextField(max_length = 50, blank=False, null = False)   
     TX_DETALLE_MW = models.TextField(max_length = 50, blank=False, null = False)  
@@ -557,7 +590,7 @@ class MW(models.Model):
         db_table = 'microondas'    
 
 class Carrier(models.Model):
-    ID_ATT_C = models.TextField(max_length = 50, blank=False, null = False)
+    ID_ATT_C = models.TextField(primary_key=True,max_length = 50, blank=False, null = False)
     TX = models.TextField(max_length = 50, blank=False, null = False)
     TX_GRUPOS = models.TextField(max_length = 50, blank=False, null = False)
     TX_DETALLE = models.TextField(max_length = 50, blank=False, null = False)
@@ -597,7 +630,47 @@ class Carrier(models.Model):
     BASE_ORIGEN_PROYECCION = models.TextField(max_length = 50, blank=False, null = False)
     class Meta:
         db_table = 'carrier' 
-
+class FiltroCarrier(models.Model):
+    ID_ATT_C = models.TextField(primary_key=True,max_length = 50, blank=False, null = False)
+    TX = models.TextField(max_length = 50, blank=False, null = False)
+    TX_GRUPOS = models.TextField(max_length = 50, blank=False, null = False)
+    TX_DETALLE = models.TextField(max_length = 50, blank=False, null = False)
+    CONTROL = models.TextField(max_length = 50, blank=False, null = False)
+    FECHA_ALTA_BAJA = models.TextField(max_length = 50, blank=False, null = False)
+    POC = models.TextField(max_length = 50, blank=False, null = False)
+    OBSERVACIONES = models.TextField(max_length = 50, blank=False, null = False)
+    TX_CARRIER = models.TextField(max_length = 50, blank=False, null = False)
+    PROYECTO_FO = models.TextField(max_length = 50, blank=False, null = False)	
+    SEGUNDO_PUERTO_HABILITADO = models.TextField(max_length = 50, blank=False, null = False)
+    CID_CARRIER = models.TextField(max_length = 50, blank=False, null = False)
+    REGION = models.TextField(max_length = 50, blank=False, null = False)
+    MERCADO = models.TextField(max_length = 50, blank=False, null = False)
+    PUNTA_A_NAMING_CONVECTION = models.TextField(max_length = 50, blank=False, null = False)
+    PUNTA_A_ID_SITIO = models.TextField(max_length = 50, blank=False, null = False)
+    PUNTA_A_NOMBRE_SITIO = models.TextField(max_length = 50, blank=False, null = False)
+    LATITUD_PUNTA_A = models.TextField(max_length = 50, blank=False, null = False)
+    LONGITUD_PUNTA_A = models.TextField(max_length = 50, blank=False, null = False)
+    PUNTA_B_NAMING_CONVECTION = models.TextField(max_length = 50, blank=False, null = False)
+    PUNTA_B_ID_SITIO = models.TextField(max_length = 50, blank=False, null = False)
+    PUNTA_B_NOMBRE_SITIO = models.TextField(max_length = 50, blank=False, null = False)
+    LATITUD_PUNTA_B = models.TextField(max_length = 50, blank=False, null = False)
+    LONGITUD_PUNTA_B = models.TextField(max_length = 50, blank=False, null = False)
+    CARRIER	= models.TextField(max_length = 50, blank=False, null = False)
+    TIPO_ENLACE = models.TextField(max_length = 50, blank=False, null = False)
+    PROYECTO_PRINCIPAL = models.TextField(max_length = 50, blank=False, null = False)
+    FASE = models.TextField(max_length = 50, blank=False, null = False)
+    CAPACIDAD_MBPS = models.TextField(max_length = 50, blank=False, null = False)
+    ESTATUS = models.TextField(max_length = 50, blank=False, null = False)
+    TRACKER = models.TextField(max_length = 50, blank=False, null = False)
+    ATT_ID = models.TextField(max_length = 50, blank=False, null = False)
+    NOMBRE = models.TextField(max_length = 50, blank=False, null = False)
+    CONTROL_DE_CAMBIOS_RAN = models.TextField(max_length = 50, blank=False, null = False)
+    BASE_ORIGEN_TX = models.TextField(max_length = 50, blank=False, null = False)
+    GRUPOS_MEDIO_TX = models.TextField(max_length = 50, blank=False, null = False)
+    TX_DETALLE_2 = models.TextField(max_length = 50, blank=False, null = False)
+    BASE_ORIGEN_PROYECCION = models.TextField(max_length = 50, blank=False, null = False)
+    class Meta:
+        db_table = 'tb1_carrier' 
 class Pon(models.Model):
     ID_ATT_PON = models.TextField() 	
     TX_PON = models.TextField()	
