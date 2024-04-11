@@ -1,0 +1,118 @@
+{% extends "layout/base.html" %}
+{% block content %}
+        <!-- Start::app-content -->
+        <div class="main-content app-content">
+            <div class="container-fluid">
+                <!-- Page Header -->
+                <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+                    <div class="ms-md-1 ms-0"></div>
+                </div>
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">
+                                Tellus
+                            </div>
+                            
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {%if entity %}
+                                <table class="table text-nowrap table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th><strong>SYSTEM_ID</strong></th>  
+                                            <th><strong>SITE</strong></th>  
+                                            <th><strong>NAME</strong></th>  
+                                            <th><strong>GSM</strong></th>  
+                                            <th><strong>UMTS</strong></th>  
+                                            <th><strong>LTE</strong></th>  
+                                            <th><strong>HIERARCHY</strong></th>  
+                                            <th><strong>COLLOS</strong></th>  
+                                            <th><strong>CVE_INSTALL_TYPE</strong></th>  
+                                            <th><strong>OPERATIVE_STATUS</strong></th>  
+                                            <th><strong>DATE_ONAIR</strong></th>  
+                                            <th><strong>OWNER</strong></th>  
+                                            <th><strong>ADDRESS</strong></th>  
+                                            <th><strong>MUNICIPALITY</strong></th>  
+                                            <th><strong>STATE_NAME</strong></th>  
+                                            <th><strong>MARKET</strong></th>  
+                                            <th><strong>LATITUDE</strong></th>  
+                                            <th><strong>LONGITUDE</strong></th>  
+                                            <th><strong>CELL_REGION</strong></th>  
+                                            <th><strong>CELLOWNER</strong></th>  
+                                            <th><strong>CELLOWNER_TELEPHONE</strong></th>  
+                                            <th><strong>CELLOWNER_EMAIL</strong></th>  
+                                            <th><strong>COORDINATOR</strong></th>  
+                                            <th><strong>COORDINATOR_TELEPHONE</strong></th>  
+                                            <th><strong>COORDINATOR_EMAIL</strong></th>  
+                                            <th><strong>MANAGER</strong></th>  
+                                            <th><strong>MANAGER_TELEPHONE</strong></th>  
+                                            <th><strong>MANAGER_EMAIL</strong></th>  
+                                            <th><strong>DIRECTOR</strong></th>  
+                                            <th><strong>DIRECTOR_TELEPHONE</strong></th>  
+                                            <th><strong>DIRECTOR_EMAIL</strong></th>  
+                                            <th><strong>COORDINATION</strong></th>  
+                                            <th><strong>MANAGEMENT</strong></th>  
+                                            <th><strong>REGION</strong></th> 
+                                        </tr>
+                                    </thead>
+                                    {% else %}
+                                <div><h1>No Existen Sitios Registrados</h1></div>
+                                {% endif %}
+                                <tbody>
+                                    {% for t in entity %}
+                                    <tr>
+                                        <td>{{t.SYSTEM_ID}}</td>  
+                                        <td>{{t.SITE}}</td>  
+                                        <td>{{t.NAME}}</td>  
+                                        <td>{{t.GSM}}</td>  
+                                        <td>{{t.UMTS}}</td>  
+                                        <td>{{t.LTE}}</td>  
+                                        <td>{{t.HIERARCHY}}</td>  
+                                        <td>{{t.COLLOS}}</td>  
+                                        <td>{{t.CVE_INSTALL_TYPE}}</td>  
+                                        <td>{{t.OPERATIVE_STATUS}}</td>  
+                                        <td>{{t.DATE_ONAIR}}</td>  
+                                        <td>{{t.OWNER}}</td>  
+                                        <td>{{t.ADDRESS}}</td>  
+                                        <td>{{t.MUNICIPALITY}}</td>  
+                                        <td>{{t.STATE_NAME}}</td>  
+                                        <td>{{t.MARKET}}</td>  
+                                        <td>{{t.LATITUDE}}</td>  
+                                        <td>{{t.LONGITUDE}}</td>  
+                                        <td>{{t.CELL_REGION}}</td>  
+                                        <td>{{t.CELLOWNER}}</td>  
+                                        <td>{{t.CELLOWNER_TELEPHONE}}</td>  
+                                        <td>{{t.CELLOWNER_EMAIL}}</td>  
+                                        <td>{{t.COORDINATOR}}</td>  
+                                        <td>{{t.COORDINATOR_TELEPHONE}}</td>  
+                                        <td>{{t.COORDINATOR_EMAIL}}</td>  
+                                        <td>{{t.MANAGER}}</td>  
+                                        <td>{{t.MANAGER_TELEPHONE}}</td>  
+                                        <td>{{t.MANAGER_EMAIL}}</td>  
+                                        <td>{{t.DIRECTOR}}</td>  
+                                        <td>{{t.DIRECTOR_TELEPHONE}}</td>  
+                                        <td>{{t.DIRECTOR_EMAIL}}</td>  
+                                        <td>{{t.COORDINATION}}</td>  
+                                        <td>{{t.MANAGEMENT}}</td>  
+                                        <td>{{t.REGION}}</td>  
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+				{% include 'sitios/paginator.html'%}
+			</div>
+        </div>
+    <script src="/static/js/jquery.min.js"></script>
+   
+        <!-- End::app-content -->
+{% endblock content %}
+{% block javascripts %}
+{% endblock javascripts %}

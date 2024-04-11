@@ -1,0 +1,148 @@
+{% extends "layout/base.html" %}
+{% block content %}
+        <!-- Start::app-content -->
+        <div class="main-content app-content">
+            <div class="container-fluid">
+                <!-- Page Header -->
+                <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+                    <div class="ms-md-1 ms-0">
+                    
+                    </div>
+                </div>
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">
+                                Panda
+                            </div>
+                            
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {%if entity %}
+                                <table class="table text-nowrap table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th><strong>TRACKER</strong></th>  
+                                            <th><strong>NAMING_CONVENTION</strong></th>  
+                                            <th><strong>SITE_NAME</strong></th>  
+                                            <th><strong>PLACEMENT</strong></th>  
+                                            <th><strong>PROJECT</strong></th>  
+                                            <th><strong>ID_LOCATION</strong></th>  
+                                            <th><strong>ID_SITE</strong></th>  
+                                            <th><strong>PANDA_CODE</strong></th>  
+                                            <th><strong>SITE_TYPE</strong></th>  
+                                            <th><strong>STATUS</strong></th>  
+                                            <th><strong>MILESTONE</strong></th>  
+                                            <th><strong>BATCH</strong></th>  
+                                            <th><strong>MARKET</strong></th>  
+                                            <th><strong>CLUSTER</strong></th>  
+                                            <th><strong>EQUIPMENT</strong></th>  
+                                            <th><strong>YEAR_PLAN</strong></th>  
+                                            <th><strong>ISSUE_TYPE</strong></th>  
+                                            <th><strong>OWNER</strong></th>  
+                                            <th><strong>OWNER_ID</strong></th>  
+                                            <th><strong>CANDIDATE</strong></th>  
+                                            <th><strong>INSTALL_TYPE</strong></th>  
+                                            <th><strong>TOWER_TYPE</strong></th>  
+                                            <th><strong>BUILDING_HT</strong></th>  
+                                            <th><strong>TOWER_HT</strong></th>  
+                                            <th><strong>TX_TYPE</strong></th>  
+                                            <th><strong>LATITUDE</strong></th>  
+                                            <th><strong>LONGITUDE</strong></th>  
+                                            <th><strong>MUNICIPALITY</strong></th>  
+                                            <th><strong>STATE</strong></th>  
+                                            <th><strong>CONTAINER_TYPE</strong></th>  
+                                            <th><strong>SOLUTION_TYPE</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_1</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_2</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_3</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_4</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_5</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_6</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_7</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_8</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_9</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_10</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_11</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_12</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_13</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_14</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_15</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_16</strong></th>  
+                                            <th><strong>PROJECT_RELEASED_17</strong></th> 
+                                        </tr>
+                                    </thead>
+                                    {% else %}
+                                <div><h1>No Existen Sitios Registrados</h1></div>
+                                {% endif %}
+                                <tbody>
+                                    {% for p in entity %}
+                                    <tr>
+                                        <td>{{p.TRACKER}}</td>  
+                                        <td>{{p.NAMING_CONVENTION}}</td>  
+                                        <td>{{p.SITE_NAME}}</td>  
+                                        <td>{{p.PLACEMENT}}</td>  
+                                        <td>{{p.PROJECT}}</td>  
+                                        <td>{{p.ID_LOCATION}}</td>  
+                                        <td>{{p.ID_SITE}}</td>  
+                                        <td>{{p.PANDA_CODE}}</td>  
+                                        <td>{{p.SITE_TYPE}}</td>  
+                                        <td>{{p.STATUS}}</td>  
+                                        <td>{{p.MILESTONE}}</td>  
+                                        <td>{{p.BATCH}}</td>  
+                                        <td>{{p.MARKET}}</td>  
+                                        <td>{{p.CLUSTER}}</td>  
+                                        <td>{{p.EQUIPMENT}}</td>  
+                                        <td>{{p.YEAR_PLAN}}</td>  
+                                        <td>{{p.ISSUE_TYPE}}</td>  
+                                        <td>{{p.OWNER}}</td>  
+                                        <td>{{p.OWNER_ID}}</td>  
+                                        <td>{{p.CANDIDATE}}</td>  
+                                        <td>{{p.INSTALL_TYPE}}</td>  
+                                        <td>{{p.TOWER_TYPE}}</td>  
+                                        <td>{{p.BUILDING_HT}}</td>  
+                                        <td>{{p.TOWER_HT}}</td>  
+                                        <td>{{p.TX_TYPE}}</td>  
+                                        <td>{{p.LATITUDE}}</td>  
+                                        <td>{{p.LONGITUDE}}</td>  
+                                        <td>{{p.MUNICIPALITY}}</td>  
+                                        <td>{{p.STATE}}</td>  
+                                        <td>{{p.CONTAINER_TYPE}}</td>  
+                                        <td>{{p.SOLUTION_TYPE}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_1}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_2}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_3}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_4}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_5}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_6}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_7}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_8}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_9}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_10}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_11}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_12}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_13}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_14}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_15}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_16}}</td>  
+                                        <td>{{p.PROJECT_RELEASED_17}}</td> 
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+				{% include 'sitios/paginator.html'%}
+			</div>
+        </div>
+    <script src="/static/js/jquery.min.js"></script>
+   
+        <!-- End::app-content -->
+{% endblock content %}
+{% block javascripts %}
+{% endblock javascripts %}

@@ -132,13 +132,13 @@
                         </a>
                         <ul class="slide-menu child1">
                             <li class="slide">
-                                <a href="{% url 'cargarMigracion' %}" class="side-menu__item">Cargar Archivo</a>
+                                <a href="{% url 'cargarMicroondas' %}" class="side-menu__item">Cargar Archivo</a>
                             </li>
                             <li class="slide">
-                                <a href="{% url 'cargarFiltroMigracion' %}" class="side-menu__item">Cargar Filtro Archivo</a>
+                                <a href="{% url 'cargarFiltroMicroondas' %}" class="side-menu__item">Cargar Filtro Archivo</a>
                             </li>
                             <li class="slide">
-                                <a href="{% url 'listarMigracion' %}" class="side-menu__item">Listar Microondas</a>
+                                <a href="{% url 'listarMicroondas' %}" class="side-menu__item">Listar Microondas</a>
                             </li>
                         </ul>
                     </li>
@@ -157,6 +157,90 @@
                             </li>
                             <li class="slide">
                                 <a href="{% url 'listarCarrier' %}" class="side-menu__item">Listar Carriers</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="slide has-sub">
+                        <a href="javascript:void(0);" class="side-menu__item">
+                            <i class="bx bx-bar-chart-square side-menu__icon"></i>
+                            <span class="side-menu__label">Pon</span>
+                            <i class="fe fe-chevron-right side-menu__angle"></i>
+                        </a>
+                        <ul class="slide-menu child1">
+                            <li class="slide">
+                                <a href="{% url 'cargarPon' %}" class="side-menu__item">Cargar Archivo</a>
+                            </li>
+                           
+                            <li class="slide">
+                                <a href="{% url 'listarPon' %}" class="side-menu__item">Listar Pon</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="slide has-sub">
+                        <a href="javascript:void(0);" class="side-menu__item">
+                            <i class="bx bx-bar-chart-square side-menu__icon"></i>
+                            <span class="side-menu__label">Panda</span>
+                            <i class="fe fe-chevron-right side-menu__angle"></i>
+                        </a>
+                        <ul class="slide-menu child1">
+                            <li class="slide">
+                                <a href="{% url 'cargarPanda' %}" class="side-menu__item">Cargar Archivo</a>
+                            </li>
+                           
+                            <li class="slide">
+                                <a href="{% url 'listarPanda' %}" class="side-menu__item">Listar Panda</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="slide has-sub">
+                        <a href="javascript:void(0);" class="side-menu__item">
+                            <i class="bx bx-bar-chart-square side-menu__icon"></i>
+                            <span class="side-menu__label">Tellus</span>
+                            <i class="fe fe-chevron-right side-menu__angle"></i>
+                        </a>
+                        <ul class="slide-menu child1">
+                            <li class="slide">
+                                <a href="{% url 'cargarTellus' %}" class="side-menu__item">Cargar Archivo</a>
+                            </li>
+                           
+                            <li class="slide">
+                                <a href="{% url 'listarTellus' %}" class="side-menu__item">Listar Tellus</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="slide has-sub">
+                        <a href="javascript:void(0);" class="side-menu__item">
+                            <i class="bx bx-bar-chart-square side-menu__icon"></i>
+                            <span class="side-menu__label">Semaforos</span>
+                            <i class="fe fe-chevron-right side-menu__angle"></i>
+                        </a>
+                        <ul class="slide-menu child1">
+                            <li class="slide">
+                                <a href="{% url 'cargarSemaforos' %}" class="side-menu__item">Cargar Archivo</a>
+                            </li>
+                           
+                            <li class="slide">
+                                <a href="{% url 'listarSemaforos' %}" class="side-menu__item">Listar Semaforos</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="slide has-sub">
+                        <a href="javascript:void(0);" class="side-menu__item">
+                            <i class="bx bx-bar-chart-square side-menu__icon"></i>
+                            <span class="side-menu__label">Capacidad Manual</span>
+                            <i class="fe fe-chevron-right side-menu__angle"></i>
+                        </a>
+                        <ul class="slide-menu child1">
+                            <li class="slide">
+                                <a href="{% url 'cargarCapacidadManual' %}" class="side-menu__item">Cargar Archivo sin Filtro</a>
+                            </li>
+                           
+                            <li class="slide">
+                                <a href="{% url 'cargarFiltroCapacidadManual' %}" class="side-menu__item">Cargar Archivo con Filtro</a>
+                            </li>
+                           
+                            <li class="slide">
+                                <a href="{% url 'listarCapacidadManual' %}" class="side-menu__item">Listar CapacidadManual</a>
                             </li>
                         </ul>
                     </li>

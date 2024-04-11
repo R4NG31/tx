@@ -16,16 +16,21 @@ class Home(TemplateView):
 
 #----------------------  SITIOS   ---------------------------#
 def listarSitios(request):
+    busqueda = request.POST.get("buscar")
     sitios = SitiosTotales.objects.all()
+    # if busqueda:
+    #     sitios = FibraOptica.objects.filter(
+    #         Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
+
     page = request.GET.get('page',1)
     try:
         paginator = Paginator(sitios,15)
         sitios = paginator.page(page)
     except:
         raise Http404
-    
-    data = {'entity': sitios,'paginator': paginator }
-    return render(request, "sitios/listarSitios.html", data)
+    data = {'entity':sitios,'paginator': paginator }
+
+    return render(request, "sitios/listarSitios.html",data)
 
 def crearSitios(request):
     if request.method == 'POST':
@@ -171,18 +176,18 @@ def cargarFiltroAGG(request):
 
 def listarAGG(request):
     busqueda = request.POST.get("buscar")
-    agg = AGG.objects.all()
+    agredaor = AGG.objects.all()
     # if busqueda:
-    #     agg = FibraOptica.objects.filter(
+    #     agredaor = FibraOptica.objects.filter(
     #         Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
 
     page = request.GET.get('page',1)
     try:
-        paginator = Paginator(agg,15)
-        agg = paginator.page(page)
+        paginator = Paginator(agredaor,15)
+        agredaor = paginator.page(page)
     except:
         raise Http404
-    data = {'entity':agg,'paginator': paginator }
+    data = {'entity':agredaor,'paginator': paginator }
 
     return render(request, "sitios/listarAGG.html",data)
 #----------------------  PROYECCION   ---------------------------#
@@ -199,7 +204,6 @@ def cargarProyeccion(request):
         df.to_sql(Proyeccion._meta.db_table, if_exists='replace', con=engine,index=False)
 
     return render(request, "sitios/cargarProyeccion.html")
-
 
 def cargarFiltroProyeccion(request):
     cols = [0,1,2,3,4,5,6,7,8,17,20,21,22,24]   
@@ -336,7 +340,7 @@ def listarMicroondas(request):
         raise Http404
     data = {'entity':mw,'paginator': paginator }
 
-    return render(request, "sitios/listarMigracion.html",data)
+    return render(request, "sitios/listarMicroondas.html",data)
 
 #---------------------- CARRIER   ---------------------------#
 def cargarCarrier(request):
@@ -374,18 +378,18 @@ def cargarFiltroCarrier(request):
 
 def listarCarrier(request):
     busqueda = request.POST.get("buscar")
-    carrier = Carrier.objects.all()
+    pon = Carrier.objects.all()
     # if busqueda:
-    #     carrier = FibraOptica.objects.filter(
+    #     pon = FibraOptica.objects.filter(
     #         Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
 
     page = request.GET.get('page',1)
     try:
-        paginator = Paginator(carrier,15)
-        carrier = paginator.page(page)
+        paginator = Paginator(pon,15)
+        pon = paginator.page(page)
     except:
         raise Http404
-    data = {'entity':carrier,'paginator': paginator }
+    data = {'entity':pon,'paginator': paginator }
 
     return render(request, "sitios/listarCarrier.html",data)
 
@@ -405,21 +409,54 @@ def cargarPon(request):
 
     return render(request, "sitios/cargarPon.html")
 
+def listarPon(request):
+    busqueda = request.POST.get("buscar")
+    pon = Pon.objects.all()
+    # if busqueda:
+    #     pon = FibraOptica.objects.filter(
+    #         Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
 
+    page = request.GET.get('page',1)
+    try:
+        paginator = Paginator(pon,15)
+        pon = paginator.page(page)
+    except:
+        raise Http404
+    data = {'entity':pon,'paginator': paginator }
+
+    return render(request, "sitios/listarPon.html",data)
+
+#--------------------------------- PANDA ---------------------------------#
 def cargarPanda(request):
     if request.method == 'POST':
         upload_file = request.FILES['file']
         df = pd.read_excel(upload_file, engine='openpyxl',header=0)
         df = df.replace(np.nan,' ')
+        df.rename(columns=nomColsPanda,inplace=True)
         for name in df.columns:
             df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
             df[name] = df[name].str.upper()
-        df.rename(columns=nomColsPanda,inplace=True)
         engine = create_engine(conexion(),echo=False)
         df.to_sql(Panda._meta.db_table,if_exists='replace',con=engine,index=False)
 
     return render(request, "sitios/cargarPanda.html")
 
+def listarPanda(request):
+    busqueda = request.POST.get("buscar")
+    panda = Panda.objects.all()
+    # if busqueda:
+    #     panda = FibraOptica.objects.filter(
+    #         Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
+
+    page = request.GET.get('page',1)
+    try:
+        paginator = Paginator(panda,15)
+        panda = paginator.page(page)
+    except:
+        raise Http404
+    data = {'entity':panda,'paginator': paginator }
+
+    return render(request, "sitios/listarPanda.html",data)
    
 def cargarTellus(request):
     if request.method == 'POST':
@@ -435,61 +472,54 @@ def cargarTellus(request):
 
     return render(request, "sitios/cargarTellus.html")
 
-# def cargarSemaforo(request):
-#     if request.method == 'POST':
-#         upload_file = request.FILES['file']
+def listarTellus(request):
+    busqueda = request.POST.get("buscar")
+    tellus = Tellus.objects.all()
+    # if busqueda:
+    #     tellus = FibraOptica.objects.filter(
+    #         Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
+
+    page = request.GET.get('page',1)
+    try:
+        paginator = Paginator(tellus,15)
+        tellus = paginator.page(page)
+    except:
+        raise Http404
+    data = {'entity':tellus,'paginator': paginator }
+
+    return render(request, "sitios/listarTellus.html",data)
+
+def cargarSemaforos(request):
+    if request.method == 'POST':
+        upload_file = request.FILES['file']
             
-#         df = pd.read_excel(upload_file, engine='openpyxl',header=0)
-#         df = df.replace(np.nan,' ')
-#         for name in df.columns:
-#             df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
-#             df[name] = df[name].str.upper()
-#         df.rename(columns={
-#                     'Aggregator':'AGGREGATOR',	
-#                     'Site 1':'SITE_1',	
-#                     'Site 2':'SITE_2',	
-#                     'Site 3':'SITE_3',	
-#                     'Site 4':'SITE_4',	
-#                     'Site 5':'SITE_5',	
-#                     'Site 6':'SITE_6',	
-#                     'Site 7':'SITE_7',	
-#                     'Site 8':'SITE_8',	
-#                     'Site 9':'SITE_9',	
-#                     'Site 10':'SITE_10',
-#                     'Site ID':'SITE_ID',	
-#                     'ATTID':'ATTID',	
-#                     'LINK':'LINK',	
-#                     'Tx  Actual':'TX_ACTUAL',	
-#                     'SITIOS QUE CARGA':'SITIOS_QUE_CARGA',	
-#                     'TECNOLOGIA ACTUAL':'TECNOLOGIA_ACTUAL',	
-#                     'Capacidad (Mbps)':'CAPACIDAD_MBPS',	
-#                     'Configuración':'CONFIGURACION',	
-#                     'Ancho de Banda':'ANCHO_DE_BANDA',	
-#                     'TX A':'TX_A',	
-#                     'TX B':'TX_B',	
-#                     'Utilización (Mbps)':'UTILIZACION_MBPS_1',	
-#                     'Porcentaje de Utilización Picos Maximos(%)':'PORCENTAJE_UTILIZACION_PICOS_MAXIMOS',	
-#                     'Flag H':'FLAG_H',
-#                     'Utilización (Mbps) ':'UTILIZACION_MBPS_2', 	
-#                     'Porcentaje de Utilización Picos Maximos(%) ':'PORCENTAJE_UTILIZACION_PICOS_MAXIMOS_2', 	
-#                     'Flag V':'FLAG_V',	
-#                     'Sitios':'SITIOS',	 
-#                     ' Site Floating Mercado':'SITE_FLOATING_MERCADO',	 
-#                     ' LINK FLOATING 2023 (Mbps)':'LINK_FLOATING_2023_MBPS',	 
-#                     ' FLAG FLOATING 2023 (Mbps)':'FLAG_FLOATING_2023_MBPS',	 
-#                     ' PRIORIDAD TAC FLOATING 2023 (Mbps)':'PRIORIDAD_TAC_FLOATING_2023_MBPS',	 
-#                     ' SALUD FLOATING 2023 (Mbps)':'SALUD_FLOATING_2023_MBPS',	
-#                     'PUNTO DE AFECTACION FLOATING 2023 (Mbps)':'PUNTO_AFECTACION_FLOATING_2023_MBPS',	 
-#                     ' Site Floating Municipio':'SITE_FLOATING_MUNICIPIO',	 
-#                     ' LINK FLOATING 2024 (Mbps)':'LINK_FLOATING_2024_MBPS',	 
-#                     ' FLAG FLOATING 2024 (Mbps)':'FLAG_FLOATING_2024_MBPS',	 
-#                     ' PRIORIDAD TAC FLOATING 2024 (Mbps)':'PRIORIDAD_TAC_FLOATING_2024_MBPS',	 
-#                     ' SALUD FLOATING 2024 (Mbps)':'SALUD_FLOATING_2024_MBPS',	
-#                     'PUNTO DE AFECTACION FLOATING 2024 (Mbps)':'PUNTO_DE_AFECTACION_FLOATING_2024_MBPS',},inplace=True)
+        df = pd.read_excel(upload_file, engine='openpyxl',header=0)
+        df = df.replace(np.nan,' ')
+        for name in df.columns:
+            df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
+            df[name] = df[name].str.upper()
+        df.rename(columns=nomColsSemaforo,inplace=True)
                         
-#         engine = create_engine(conexion(),echo=False)
-#         df.to_sql(Semaforos._meta.db_table,if_exists='replace',con=engine,index=False)
-#     return render(request, "sitios/cargarSemaforo.html")
+        engine = create_engine(conexion(),echo=False)
+        df.to_sql(Semaforos._meta.db_table,if_exists='replace',con=engine,index=False)
+    return render(request, "sitios/cargarSemaforos.html")
+ 
+def listarSemaforos(request):
+    busqueda = request.POST.get("buscar")
+    semaforos = Semaforos.objects.all()
+    # if busqueda:
+    #     semaforos = FibraOptica.objects.filter(
+    #         Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
+
+    page = request.GET.get('page',1)
+    try:
+        paginator = Paginator(semaforos,15)
+        semaforos = paginator.page(page)
+    except:
+        raise Http404
+    data = {'entity':semaforos,'paginator': paginator }
+
+    return render(request, "sitios/listarSemaforos.html",data)
  
 def cargarCapacidadManual(request):
     if request.method == 'POST':
@@ -504,51 +534,38 @@ def cargarCapacidadManual(request):
         df.to_sql(CapacidadManual._meta.db_table,if_exists='replace',con=engine,index=False)
     return render(request, "sitios/cargarCapacidadManual.html")
 
-# def cargarFiltroCapacidadManual(request):
-#     if request.method == 'POST':
-#         upload_file = request.FILES['file']
+def cargarFiltroCapacidadManual(request):
+    if request.method == 'POST':
+        upload_file = request.FILES['file']
             
-#         df = pd.read_excel(upload_file, engine='openpyxl',header=0)
-#         df = df.replace(np.nan, ' ')
-#         for name in df.columns:
-#             df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
-#             df[name] = df[name].str.upper()
-#         df.rename(columns={
-#                         'ID_ATT':'ID_ATT',	
-#                         'TX':'TX',	
-#                         'TX Grupos Manual':'TX_GRUPOS_MANUAL',	
-#                         'TX Detalle Manual':'TX_DETALLE_MANUAL',	
-#                         'Control':'CONTROL',	
-#                         'Fecha':'FECHA',	
-#                         'POC':'POC',	
-#                         'Observaciones':'OBSERVACIONES',	
-#                         'TRACKER':'TRACKER',	
-#                         'AT&T ID':'ATT_ID',	
-#                         'Nombre':'NOMBRE',	
-#                         'Latitud':'LATITUD',	
-#                         'Longitud':'LONGITUD',	
-#                         'Estado':'ESTADO',	
-#                         'Municipio':'MUNICIPIO',	
-#                         'Mercado':'MERCADO',	
-#                         'Region_Celular':'REGION_CELULAR',	
-#                         'Region':'REGION',	
-#                         'Vendor':'VENDOR',	
-#                         'Cobertura':'COBERTURA',	
-#                         'Tipo':'TIPO',	
-#                         'Proyecto':'PROYECTO',	
-#                         'Clasificacion':'CLASIFICACION',	
-#                         'Control de cambios RAN':'CONTROL_CAMBIOS_RAN',	
-#                         'Base Origen TX':'BASE_ORIGEN_TX',	
-#                         "Grupos \nMedio TX ":'GRUPOS_MEDIO_TX',	
-#                         'TX Detalle':'TX_DETALLE',	
-#                         'Capacidad':'CAPACIDAD',	
-#                         'Control':'CONTROL'},inplace=True)
-#         control = df['CONTROL'] != 'BAJA'
-#         df = df[control]
-#         engine = create_engine(conexion(),echo=False)
-#         df.to_sql(CapacidadManual._meta.db_table,if_exists='replace',con=engine,index=False)
-#     return render(request, "sitios/cargarCapacidadManual.html")
+        df = pd.read_excel(upload_file, engine='openpyxl',header=0)
+        df = df.replace(np.nan, ' ')
+        for name in df.columns:
+            df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
+            df[name] = df[name].str.upper()
+        df.rename(columns=nomColsCapacidadManual,inplace=True)
+        control = df['CONTROL'] != 'BAJA'
+        df = df[control]
+        engine = create_engine(conexion(),echo=False)
+        df.to_sql(FiltroCapacidadManual._meta.db_table,if_exists='replace',con=engine,index=False)
+    return render(request, "sitios/cargarFiltroCapacidadManual.html")
 
+def listarCapacidadManual(request):
+    busqueda = request.POST.get("buscar")
+    semaforos = CapacidadManual.objects.all()
+    # if busqueda:
+    #     semaforos = FibraOptica.objects.filter(
+    #         Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
+
+    page = request.GET.get('page',1)
+    try:
+        paginator = Paginator(semaforos,15)
+        semaforos = paginator.page(page)
+    except:
+        raise Http404
+    data = {'entity':semaforos,'paginator': paginator }
+
+    return render(request, "sitios/listarCapacidadManual.html",data)
 # def cargarBaseSinTx(request):
 #     if request.method == 'POST':
 #         upload_file = request.FILES['file']

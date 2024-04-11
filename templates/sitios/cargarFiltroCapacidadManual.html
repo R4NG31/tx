@@ -16,12 +16,9 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{% url 'cargarPon'%}" class="dropzone" method="POST" id="MyDropZone">
-                                {% csrf_token %}
-                                <div class="fallback">
-                                  <input name="file" type="file" multiple>
-                                </div>
-                              </form>
+                            <form data-single="true" method="post" action="{% url 'cargarFiltroCapacidadManual' %}" class="dropzone">
+                              {% csrf_token %}
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -38,10 +35,6 @@
   <div id="responsive-overlay"></div>
   <!-- Scroll To Top -->
 </body>
-
-
-
 {% endblock content %}
 {% block javascripts %}
-
 {% endblock javascripts %}

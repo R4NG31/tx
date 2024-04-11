@@ -1,0 +1,423 @@
+{% extends "layout/base.html" %}
+{% block content %}
+        <!-- Start::app-content -->
+        <div class="main-content app-content">
+            <div class="container-fluid">
+                <!-- Page Header -->
+                <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+                    <div class="ms-md-1 ms-0">
+                    
+                    </div>
+                </div>
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">
+                                Microondas
+                            </div>
+                            
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {%if entity %}
+                                <table class="table text-nowrap table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th><strong>ATT_ID_MW</strong></th>  
+                                            <th><strong>TX_MW</strong></th>    
+                                            <th><strong>TX_GRUPOS_MW</strong></th>     
+                                            <th><strong>TX_DETALLE_MW</strong></th>    
+                                            <th><strong>CONROL  </strong></th> 
+                                            <th><strong>FECHA   </strong></th> 
+                                            <th><strong>POC     </strong></th> 
+                                            <th><strong>OBSERVACIONES </strong></th> 
+                                            <th><strong>NOMBRE</strong></th> 
+                                            <th><strong>LATITUD   </strong></th> 
+                                            <th><strong>LONGITUD  </strong></th> 
+                                            <th><strong>ESTADO</strong></th> 
+                                            <th><strong>MUNICIPIO </strong></th> 
+                                            <th><strong>MERCADO   </strong></th> 
+                                            <th><strong>REGION_CELULAR</strong></th> 
+                                            <th><strong>CONTROL_DE_CAMBIOS_RAN</strong></th> 
+                                            <th><strong>PROYECTO_MIGRADOS </strong></th> 
+                                            <th><strong>REAL_MIGRACION</strong></th> 
+                                            <th><strong>TX_ORIGEN </strong></th> 
+                                            <th><strong>MEDIO_TX_GRUPOS   </strong></th> 
+                                            <th><strong>TX_DETALLE</strong></th> 
+                                            <th><strong>PANDA </strong></th> 
+                                            <th><strong>STATUS</strong></th> 
+                                            <th><strong>TX_TYPE   </strong></th> 
+                                            <th><strong>CAPACIDAD_1G  </strong></th> 
+                                            <th><strong>SITIO_A   </strong></th> 
+                                            <th><strong>SITIO_B   </strong></th> 
+                                            <th><strong>ENLACE</strong></th> 
+                                            <th><strong>TECNOLOGIA</strong></th> 
+                                            <th><strong>AGREGADOR_GRUPO   </strong></th> 
+                                            <th><strong>AGREGADOR_DETALLE </strong></th> 
+                                            <th><strong>AGREGADOR </strong></th> 
+                                            <th><strong>TRACKER   </strong></th> 
+                                            <th><strong>ATTID_1 </strong></th> 
+                                            <th><strong>SITE_A   </strong></th> 
+                                            <th><strong>SITE_B   </strong></th> 
+                                            <th><strong>LINK  </strong></th> 
+                                            <th><strong>AGREGADOR  </strong></th>
+                                            <th><strong>SITE_1</strong></th> 
+                                            <th><strong>SITE_2</strong></th> 
+                                            <th><strong>SITE_3</strong></th> 
+                                            <th><strong>SITE_4</strong></th> 
+                                            <th><strong>SITE_5</strong></th> 
+                                            <th><strong>SITE_6</strong></th> 
+                                            <th><strong>SITE_7</strong></th> 
+                                            <th><strong>SITE_8</strong></th> 
+                                            <th><strong>SITE_9</strong></th>   
+                                            <th><strong>SITE_10</strong></th>      
+                                            <th><strong>SITIOS_CARGA</strong></th>     
+                                            <th><strong>TIPO </strong></th>    
+                                            <th><strong>ATTID_2  </strong></th>  
+                                            <th><strong>TECNOLOGIA_ACTUAL  </strong></th>  
+                                            <th><strong>CAPACIDAD_MBPS   </strong></th>  
+                                            <th><strong>UTILIZACION_MBPS </strong></th>  
+                                            <th><strong>FLAG_H  </strong></th> 
+                                            <th><strong>NUMERO_DE_CERTIFICADO</strong></th>    
+                                            <th><strong>NUMERO_DE_LINK  </strong></th> 
+                                            <th><strong>IDENTIFICADOR_CERTIFICADO   </strong></th> 
+                                            <th><strong>CONCESIONARIO   </strong></th> 
+                                            <th><strong>RESPONSABLE_CONS    </strong></th> 
+                                            <th><strong>DIRECCION_CONS  </strong></th> 
+                                            <th><strong>TELEFONO_CONS   </strong></th> 
+                                            <th><strong>E_MAIL_CONS     </strong></th> 
+                                            <th><strong>USUARIO_FINAL   </strong></th> 
+                                            <th><strong>RESPONSABLE_US  </strong></th> 
+                                            <th><strong>DIRECCION_US    </strong></th> 
+                                            <th><strong>TELEFONO_US     </strong></th> 
+                                            <th><strong>E_MAIL_US   </strong></th> 
+                                            <th><strong>FECHA_SOLICITUD     </strong></th> 
+                                            <th><strong>FECHA_CONSTANCIA   </strong></th> 
+                                            <th><strong>FECHA_DE_CANCELACION    </strong></th> 
+                                            <th><strong>MOTIVO  </strong></th> 
+                                            <th><strong>NOMBRE_A    </strong></th> 
+                                            <th><strong>DOMICILIO_A     </strong></th> 
+                                            <th><strong>CIUDAD_A    </strong></th> 
+                                            <th><strong>CLAVE_ESTADO_A  </strong></th> 
+                                            <th><strong>LATITUD_GRAD_A  </strong></th> 
+                                            <th><strong>LATITUD_MIN_A   </strong></th> 
+                                            <th><strong>LATITUD_SEG_A   </strong></th> 
+                                            <th><strong>LONGITUD_GRAD_A     </strong></th> 
+                                            <th><strong>LONGITUD_MIN_A  </strong></th> 
+                                            <th><strong>LONGITUD_SEG_A  </strong></th> 
+                                            <th><strong>ASNM_A  </strong></th> 
+                                            <th><strong>AZIMUT_A    </strong></th> 
+                                            <th><strong>NOMBRE_B    </strong></th> 
+                                            <th><strong>DOMICILIO_B     </strong></th> 
+                                            <th><strong>CIUDAD_B    </strong></th> 
+                                            <th><strong>CLAVE_ESTADO_B  </strong></th> 
+                                            <th><strong>LATITUD_GRAD_B  </strong></th> 
+                                            <th><strong>LATITUD_MIN_B   </strong></th> 
+                                            <th><strong>LATITUD_SEG_B   </strong></th> 
+                                            <th><strong>LONGITUD_GRAD_B     </strong></th> 
+                                            <th><strong>LONGITUD_MIN_B  </strong></th> 
+                                            <th><strong>LONGITUD_SEG_B  </strong></th> 
+                                            <th><strong>ASNM_B  </strong></th> 
+                                            <th><strong>AZIMUT_B    </strong></th> 
+                                            <th><strong>LONGITUD_ENLACE     </strong></th> 
+                                            <th><strong>BANDA_FRECUENCIA    </strong></th> 
+                                            <th><strong>FRECUENCIA_TX   </strong></th> 
+                                            <th><strong>FRECUENCIA_RX   </strong></th> 
+                                            <th><strong>MARCA_RADIO     </strong></th> 
+                                            <th><strong>MODELO_RADIO    </strong></th> 
+                                            <th><strong>MODULACION  </strong></th> 
+                                            <th><strong>EMISION     </strong></th> 
+                                            <th><strong>ANCHO_BANDA     </strong></th> 
+                                            <th><strong>TX_PLANNED </strong></th> 
+                                            <th><strong>SEPARACION_CANAL    </strong></th> 
+                                            <th><strong>SUB_BANDA_OP    </strong></th> 
+                                            <th><strong>SEPARACION_DUPLEX   </strong></th> 
+                                            <th><strong>UMBRA_RECEPCION     </strong></th> 
+                                            <th><strong>TASA_DE_BITS_UMBRAL     </strong></th> 
+                                            <th><strong>PIRE    </strong></th> 
+                                            <th><strong>PIRE_A  </strong></th> 
+                                            <th><strong>PIRE_B  </strong></th> 
+                                            <th><strong>VELOCIDAD_TX    </strong></th> 
+                                            <th><strong>CAPACIDAD_CANALES   </strong></th> 
+                                            <th><strong>HOMOLOGACION_EQUIPO     </strong></th> 
+                                            <th><strong>CONFIGURACION_ENLACE    </strong></th> 
+                                            <th><strong>ANTENA_TIPO_A   </strong></th> 
+                                            <th><strong>ANTENA_MARCA_A  </strong></th> 
+                                            <th><strong>ANTENA_MODELO_A     </strong></th> 
+                                            <th><strong>ANTENA_DIAMETRO_A   </strong></th> 
+                                            <th><strong>ANTENA_GANANCIA_A   </strong></th> 
+                                            <th><strong>ANTENA_POLARIZACION_A   </strong></th> 
+                                            <th><strong>ANTENA_ANGULO_ABERTURA_A    </strong></th> 
+                                            <th><strong>ANTENA_ANGULO_ELEVACION_A   </strong></th> 
+                                            <th><strong>MODELO_RADIO_B  </strong></th> 
+                                            <th><strong>ANTENA_TIPO_B   </strong></th> 
+                                            <th><strong>ANTENA_MARCA_B  </strong></th> 
+                                            <th><strong>ANTENA_MODELO_B     </strong></th> 
+                                            <th><strong>ANTENA_DIAMETRO_B   </strong></th> 
+                                            <th><strong>ANTENA_GANANCIA_B   </strong></th> 
+                                            <th><strong>ANTENA_POLARIZACION_B   </strong></th> 
+                                            <th><strong>ANTENA_ANGULO_ABERTURA_B    </strong></th> 
+                                            <th><strong>ANTENA_ANGULO_ELEVACION_B   </strong></th> 
+                                            <th><strong>LINEA_MARCA_A   </strong></th> 
+                                            <th><strong>LINEA_TIPO_A    </strong></th> 
+                                            <th><strong>LINEA_LONGITUD_A     </strong></th>
+                                            <th><strong>LINEA_ATENUACION_A   </strong></th>
+                                            <th><strong>OTRAS_PERDIDAS_TX_A     </strong></th> 
+                                            <th><strong>OTRAS_PERDIDAS_RX_A     </strong></th> 
+                                            <th><strong>LINEA_MARCA_B   </strong></th> 
+                                            <th><strong>LINEA_TIPO_B    </strong></th> 
+                                            <th><strong>LINEA_LONGITUD_B    </strong></th> 
+                                            <th><strong>LINEA_ATENUACION_B  </strong></th> 
+                                            <th><strong>OTRAS_PERDIDAS_TX_B     </strong></th> 
+                                            <th><strong>OTRAS_PERDIDAS_RX_B     </strong></th> 
+                                            <th><strong>EDIFICIO_ALTURA_A   </strong></th> 
+                                            <th><strong>TORRE_ALTURA_A  </strong></th> 
+                                            <th><strong>TORRE_ANTENA_ALTURA_A   </strong></th> 
+                                            <th><strong>TORRE_TIPO_A    </strong></th> 
+                                            <th><strong>EDIFICIO_ALTURA_B  </strong></th> 
+                                            <th><strong>TORRE_ALTURA_B  </strong></th> 
+                                            <th><strong>TORRE_ANTENA_ALTURA_B   </strong></th> 
+                                            <th><strong>TORRE_TIPO_B    </strong></th> 
+                                            <th><strong>POT_TX_A    </strong></th> 
+                                            <th><strong>RX_PLANNED_A    </strong></th> 
+                                            <th><strong>POTE_TX_B   </strong></th> 
+                                            <th><strong>RX_PLANNED_B    </strong></th> 
+                                            <th><strong>NO_CHANNEL  </strong></th> 
+                                            <th><strong>CHANNEL_ID_A   </strong></th> 
+                                            <th><strong>CHANNEL_ID_B   </strong></th> 
+                                            <th><strong>OBSERVACIONES  </strong></th> 
+                                            <th><strong>CONFIGURACION   </strong></th> 
+                                            <th><strong>PROYECTO    </strong></th> 
+                                            <th><strong>SOLICITUD   </strong></th> 
+                                            <th><strong>ELLIPSE     </strong></th> 
+                                            <th><strong>GOOGLE  </strong></th> 
+                                            <th><strong>ORDEN_DE_TRABAJO    </strong></th> 
+                                            <th><strong>CONTRATISTA      </strong></th>
+                                            <th><strong>PROTOCOLO_DE_RECEPCION  </strong></th> 
+                                            <th><strong>RX_MED_A </strong></th> 
+                                            <th><strong>RX_MED_B </strong></th> 
+                                            <th><strong>GESTION </strong></th> 
+                                            <th><strong>IPLOCAL </strong></th> 
+                                            <th><strong>IP_REMOTO </strong></th> 
+                                            <th><strong>NO_SERIE_IDU_LOCAL </strong></th> 
+                                            <th><strong>NO_SERIE_ODU_LOCAL </strong></th> 
+                                            <th><strong>NO_SERIE_IDU_REMOTO  </strong></th>
+                                            <th><strong>NO_SERIE_ODU_REMOTO      </strong></th>
+                                            <th><strong>OBSERVACIONES </strong></th> 
+                                            <th><strong>INGENIERIA  </strong></th> 
+                                            <th><strong>DESMONTAJES     </strong></th> 
+                                            <th><strong>FECHA </strong></th> 
+                                            <th><strong>RESPONSABLE</strong></th> 
+                                        </tr>
+                                    </thead>
+                                    {% else %}
+                                <div><h1>No Existen Sitios Registrados</h1></div>
+                                {% endif %}
+                                <tbody>
+                                    {% for m in entity %}
+                                    <tr>
+                                        <td>{{m.ATT_ID_MW}}</td>  
+                                        <td>{{m.TX_MW}}</td>    
+                                        <td>{{m.TX_GRUPOS_MW}}</td>     
+                                        <td>{{m.TX_DETALLE_MW}}</td>    
+                                        <td>{{m.CONROL  }}</td> 
+                                        <td>{{m.FECHA   }}</td> 
+                                        <td>{{m.POC     }}</td> 
+                                        <td>{{m.OBSERVACIONES }}</td> 
+                                        <td>{{m.NOMBRE}}</td> 
+                                        <td>{{m.LATITUD   }}</td> 
+                                        <td>{{m.LONGITUD  }}</td> 
+                                        <td>{{m.ESTADO}}</td> 
+                                        <td>{{m.MUNICIPIO }}</td> 
+                                        <td>{{m.MERCADO   }}</td> 
+                                        <td>{{m.REGION_CELULAR}}</td> 
+                                        <td>{{m.CONTROL_DE_CAMBIOS_RAN}}</td> 
+                                        <td>{{m.PROYECTO_MIGRADOS }}</td> 
+                                        <td>{{m.REAL_MIGRACION}}</td> 
+                                        <td>{{m.TX_ORIGEN }}</td> 
+                                        <td>{{m.MEDIO_TX_GRUPOS   }}</td> 
+                                        <td>{{m.TX_DETALLE}}</td> 
+                                        <td>{{m.PANDA }}</td> 
+                                        <td>{{m.STATUS}}</td> 
+                                        <td>{{m.TX_TYPE   }}</td> 
+                                        <td>{{m.CAPACIDAD_1G  }}</td> 
+                                        <td>{{m.SITIO_A   }}</td> 
+                                        <td>{{m.SITIO_B   }}</td> 
+                                        <td>{{m.ENLACE}}</td> 
+                                        <td>{{m.TECNOLOGIA}}</td> 
+                                        <td>{{m.AGREGADOR_GRUPO   }}</td> 
+                                        <td>{{m.AGREGADOR_DETALLE }}</td> 
+                                        <td>{{m.AGREGADOR }}</td> 
+                                        <td>{{m.TRACKER   }}</td> 
+                                        <td>{{m.ATTID_1 }}</td> 
+                                        <td>{{m.SITE_A   }}</td> 
+                                        <td>{{m.SITE_B   }}</td> 
+                                        <td>{{m.LINK  }}</td> 
+                                        <td>{{m.AGREGADOR  }}</td>
+                                        <td>{{m.SITE_1}}</td> 
+                                        <td>{{m.SITE_2}}</td> 
+                                        <td>{{m.SITE_3}}</td> 
+                                        <td>{{m.SITE_4}}</td> 
+                                        <td>{{m.SITE_5}}</td> 
+                                        <td>{{m.SITE_6}}</td> 
+                                        <td>{{m.SITE_7}}</td> 
+                                        <td>{{m.SITE_8}}</td> 
+                                        <td>{{m.SITE_9}}</td>   
+                                        <td>{{m.SITE_10}}</td>      
+                                        <td>{{m.SITIOS_CARGA}}</td>     
+                                        <td>{{m.TIPO }}</td>    
+                                        <td>{{m.ATTID_2  }}</td>  
+                                        <td>{{m.TECNOLOGIA_ACTUAL  }}</td>  
+                                        <td>{{m.CAPACIDAD_MBPS   }}</td>  
+                                        <td>{{m.UTILIZACION_MBPS }}</td>  
+                                        <td>{{m.FLAG_H  }}</td> 
+                                        <td>{{m.NUMERO_DE_CERTIFICADO}}</td>    
+                                        <td>{{m.NUMERO_DE_LINK  }}</td> 
+                                        <td>{{m.IDENTIFICADOR_CERTIFICADO   }}</td> 
+                                        <td>{{m.CONCESIONARIO   }}</td> 
+                                        <td>{{m.RESPONSABLE_CONS    }}</td> 
+                                        <td>{{m.DIRECCION_CONS  }}</td> 
+                                        <td>{{m.TELEFONO_CONS   }}</td> 
+                                        <td>{{m.E_MAIL_CONS     }}</td> 
+                                        <td>{{m.USUARIO_FINAL   }}</td> 
+                                        <td>{{m.RESPONSABLE_US  }}</td> 
+                                        <td>{{m.DIRECCION_US    }}</td> 
+                                        <td>{{m.TELEFONO_US     }}</td> 
+                                        <td>{{m.E_MAIL_US   }}</td> 
+                                        <td>{{m.FECHA_SOLICITUD     }}</td> 
+                                        <td>{{m.FECHA_CONSTANCIA   }}</td> 
+                                        <td>{{m.FECHA_DE_CANCELACION    }}</td> 
+                                        <td>{{m.MOTIVO  }}</td> 
+                                        <td>{{m.NOMBRE_A    }}</td> 
+                                        <td>{{m.DOMICILIO_A     }}</td> 
+                                        <td>{{m.CIUDAD_A    }}</td> 
+                                        <td>{{m.CLAVE_ESTADO_A  }}</td> 
+                                        <td>{{m.LATITUD_GRAD_A  }}</td> 
+                                        <td>{{m.LATITUD_MIN_A   }}</td> 
+                                        <td>{{m.LATITUD_SEG_A   }}</td> 
+                                        <td>{{m.LONGITUD_GRAD_A     }}</td> 
+                                        <td>{{m.LONGITUD_MIN_A  }}</td> 
+                                        <td>{{m.LONGITUD_SEG_A  }}</td> 
+                                        <td>{{m.ASNM_A  }}</td> 
+                                        <td>{{m.AZIMUT_A    }}</td> 
+                                        <td>{{m.NOMBRE_B    }}</td> 
+                                        <td>{{m.DOMICILIO_B     }}</td> 
+                                        <td>{{m.CIUDAD_B    }}</td> 
+                                        <td>{{m.CLAVE_ESTADO_B  }}</td> 
+                                        <td>{{m.LATITUD_GRAD_B  }}</td> 
+                                        <td>{{m.LATITUD_MIN_B   }}</td> 
+                                        <td>{{m.LATITUD_SEG_B   }}</td> 
+                                        <td>{{m.LONGITUD_GRAD_B     }}</td> 
+                                        <td>{{m.LONGITUD_MIN_B  }}</td> 
+                                        <td>{{m.LONGITUD_SEG_B  }}</td> 
+                                        <td>{{m.ASNM_B  }}</td> 
+                                        <td>{{m.AZIMUT_B    }}</td> 
+                                        <td>{{m.LONGITUD_ENLACE     }}</td> 
+                                        <td>{{m.BANDA_FRECUENCIA    }}</td> 
+                                        <td>{{m.FRECUENCIA_TX   }}</td> 
+                                        <td>{{m.FRECUENCIA_RX   }}</td> 
+                                        <td>{{m.MARCA_RADIO     }}</td> 
+                                        <td>{{m.MODELO_RADIO    }}</td> 
+                                        <td>{{m.MODULACION  }}</td> 
+                                        <td>{{m.EMISION     }}</td> 
+                                        <td>{{m.ANCHO_BANDA     }}</td> 
+                                        <td>{{m.TX_PLANNED }}</td> 
+                                        <td>{{m.SEPARACION_CANAL    }}</td> 
+                                        <td>{{m.SUB_BANDA_OP    }}</td> 
+                                        <td>{{m.SEPARACION_DUPLEX   }}</td> 
+                                        <td>{{m.UMBRA_RECEPCION     }}</td> 
+                                        <td>{{m.TASA_DE_BITS_UMBRAL     }}</td> 
+                                        <td>{{m.PIRE    }}</td> 
+                                        <td>{{m.PIRE_A  }}</td> 
+                                        <td>{{m.PIRE_B  }}</td> 
+                                        <td>{{m.VELOCIDAD_TX    }}</td> 
+                                        <td>{{m.CAPACIDAD_CANALES   }}</td> 
+                                        <td>{{m.HOMOLOGACION_EQUIPO     }}</td> 
+                                        <td>{{m.CONFIGURACION_ENLACE    }}</td> 
+                                        <td>{{m.ANTENA_TIPO_A   }}</td> 
+                                        <td>{{m.ANTENA_MARCA_A  }}</td> 
+                                        <td>{{m.ANTENA_MODELO_A     }}</td> 
+                                        <td>{{m.ANTENA_DIAMETRO_A   }}</td> 
+                                        <td>{{m.ANTENA_GANANCIA_A   }}</td> 
+                                        <td>{{m.ANTENA_POLARIZACION_A   }}</td> 
+                                        <td>{{m.ANTENA_ANGULO_ABERTURA_A    }}</td> 
+                                        <td>{{m.ANTENA_ANGULO_ELEVACION_A   }}</td> 
+                                        <td>{{m.MODELO_RADIO_B  }}</td> 
+                                        <td>{{m.ANTENA_TIPO_B   }}</td> 
+                                        <td>{{m.ANTENA_MARCA_B  }}</td> 
+                                        <td>{{m.ANTENA_MODELO_B     }}</td> 
+                                        <td>{{m.ANTENA_DIAMETRO_B   }}</td> 
+                                        <td>{{m.ANTENA_GANANCIA_B   }}</td> 
+                                        <td>{{m.ANTENA_POLARIZACION_B   }}</td> 
+                                        <td>{{m.ANTENA_ANGULO_ABERTURA_B    }}</td> 
+                                        <td>{{m.ANTENA_ANGULO_ELEVACION_B   }}</td> 
+                                        <td>{{m.LINEA_MARCA_A   }}</td> 
+                                        <td>{{m.LINEA_TIPO_A    }}</td> 
+                                        <td>{{m.LINEA_LONGITUD_A     }}</td>
+                                        <td>{{m.LINEA_ATENUACION_A   }}</td>
+                                        <td>{{m.OTRAS_PERDIDAS_TX_A     }}</td> 
+                                        <td>{{m.OTRAS_PERDIDAS_RX_A     }}</td> 
+                                        <td>{{m.LINEA_MARCA_B   }}</td> 
+                                        <td>{{m.LINEA_TIPO_B    }}</td> 
+                                        <td>{{m.LINEA_LONGITUD_B    }}</td> 
+                                        <td>{{m.LINEA_ATENUACION_B  }}</td> 
+                                        <td>{{m.OTRAS_PERDIDAS_TX_B     }}</td> 
+                                        <td>{{m.OTRAS_PERDIDAS_RX_B     }}</td> 
+                                        <td>{{m.EDIFICIO_ALTURA_A   }}</td> 
+                                        <td>{{m.TORRE_ALTURA_A  }}</td> 
+                                        <td>{{m.TORRE_ANTENA_ALTURA_A   }}</td> 
+                                        <td>{{m.TORRE_TIPO_A    }}</td> 
+                                        <td>{{m.EDIFICIO_ALTURA_B  }}</td> 
+                                        <td>{{m.TORRE_ALTURA_B  }}</td> 
+                                        <td>{{m.TORRE_ANTENA_ALTURA_B   }}</td> 
+                                        <td>{{m.TORRE_TIPO_B    }}</td> 
+                                        <td>{{m.POT_TX_A    }}</td> 
+                                        <td>{{m.RX_PLANNED_A    }}</td> 
+                                        <td>{{m.POTE_TX_B   }}</td> 
+                                        <td>{{m.RX_PLANNED_B    }}</td> 
+                                        <td>{{m.NO_CHANNEL  }}</td> 
+                                        <td>{{m.CHANNEL_ID_A   }}</td> 
+                                        <td>{{m.CHANNEL_ID_B   }}</td> 
+                                        <td>{{m.OBSERVACIONES  }}</td> 
+                                        <td>{{m.CONFIGURACION   }}</td> 
+                                        <td>{{m.PROYECTO    }}</td> 
+                                        <td>{{m.SOLICITUD   }}</td> 
+                                        <td>{{m.ELLIPSE     }}</td> 
+                                        <td>{{m.GOOGLE  }}</td> 
+                                        <td>{{m.ORDEN_DE_TRABAJO    }}</td> 
+                                        <td>{{m.CONTRATISTA      }}</td>
+                                        <td>{{m.PROTOCOLO_DE_RECEPCION  }}</td> 
+                                        <td>{{m.RX_MED_A }}</td> 
+                                        <td>{{m.RX_MED_B }}</td> 
+                                        <td>{{m.GESTION }}</td> 
+                                        <td>{{m.IPLOCAL }}</td> 
+                                        <td>{{m.IP_REMOTO }}</td> 
+                                        <td>{{m.NO_SERIE_IDU_LOCAL }}</td> 
+                                        <td>{{m.NO_SERIE_ODU_LOCAL }}</td> 
+                                        <td>{{m.NO_SERIE_IDU_REMOTO  }}</td>
+                                        <td>{{m.NO_SERIE_ODU_REMOTO      }}</td>
+                                        <td>{{m.OBSERVACIONES }}</td> 
+                                        <td>{{m.INGENIERIA  }}</td> 
+                                        <td>{{m.DESMONTAJES     }}</td> 
+                                        <td>{{m.FECHA }}</td> 
+                                        <td>{{m.RESPONSABLE        }}</td>   	
+                                  
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+				{% include 'sitios/paginator.html'%}
+			</div>
+        </div>
+    <script src="/static/js/jquery.min.js"></script>
+   
+        <!-- End::app-content -->
+{% endblock content %}
+{% block javascripts %}
+{% endblock javascripts %}

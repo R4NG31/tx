@@ -37,11 +37,23 @@ urlpatterns = [
 
 
     path('cargarPon/', views.cargarPon, name='cargarPon'),
+    path('listarPon/', views.listarPon, name='listarPon'),
+
     path('cargarPanda/', views.cargarPanda, name='cargarPanda'),
+    path('listarPanda/', views.listarPanda, name='listarPanda'),
+
     path('cargarTellus/', views.cargarTellus, name='cargarTellus'),
+    path('listarTellus/', views.listarTellus, name='listarTellus'),
+    
     path('cargarCapacidadManual/', views.cargarCapacidadManual, name='cargarCapacidadManual'),
-    # path('cargarSemaforo/', views.cargarSemaforo, name='cargarSemaforo'),
-    #path('cargarCapacidadManual/', views.cargarFiltroCapacidadManual, name='cargarCapacidadManual'),
+
+    
+    path('cargarSemaforos/', views.cargarSemaforos, name='cargarSemaforos'),
+    path('listarSemaforos/', views.listarSemaforos, name='listarSemaforos'),
+
+    path('cargarCapacidadManual/', views.cargarCapacidadManual, name='cargarCapacidadManual'),
+    path('cargarFiltroCapacidadManual/', views.cargarFiltroCapacidadManual, name='cargarFiltroCapacidadManual'),
+    path('listarCapacidadManual/', views.listarCapacidadManual, name='listarCapacidadManual'),
     # path('cargarNOC/', views.cargarNOC, name='cargarNOC'),
     # path('cargarBaseSinTx/', views.cargarFiltroBaseSinTx, name='cargarBaseSinTx'),
 ]

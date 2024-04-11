@@ -1,0 +1,115 @@
+{% extends "layout/base.html" %}
+{% block content %}
+        <!-- Start::app-content -->
+        <div class="main-content app-content">
+            <div class="container-fluid">
+                <!-- Page Header -->
+                <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+                    <div class="ms-md-1 ms-0">
+                    
+                    </div>
+                </div>
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">
+                                Pon
+                            </div>
+                            
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {%if entity %}
+                                <table class="table text-nowrap table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th><strong>ID_ATT_PON</th>  
+                                            <th><strong>TX_PON</th>  
+                                            <th><strong>TX_GRUPOS_PON</th>  
+                                            <th><strong>TX_DETALLE_PON</th>  
+                                            <th><strong>CONTROL_PON</th>  
+                                            <th><strong>FECHA_PON</th>  
+                                            <th><strong>POC_PON</th>  
+                                            <th><strong>OBSERVACIONES_PON</th>  
+                                            <th><strong>REGION</th>  
+                                            <th><strong>CIUDAD</th>  
+                                            <th><strong>OLT_NAME_1</th>  
+                                            <th><strong>OLT_ATT_ID</th>  
+                                            <th><strong>OLT_IP</th>  
+                                            <th><strong>OLT_NAME_2</th>  
+                                            <th><strong>OLT_TYPE</th>  
+                                            <th><strong>FRAME_ID</th>  
+                                            <th><strong>SLOT_ID</th>  
+                                            <th><strong>PORT_ID</th>  
+                                            <th><strong>ONU_ID</th>  
+                                            <th><strong>ONT_NAME</th>  
+                                            <th><strong>ONT_OLD_NAME</th>  
+                                            <th><strong>SITE_ID</th>  
+                                            <th><strong>ID_ATT</th>  
+                                            <th><strong>CON_SIN_SERVICIOS</th>  
+                                            <th><strong>ONU_IP</th>  
+                                            <th><strong>ONT_TYPE</th>  
+                                            <th><strong>ONU_TYPE  
+                                            <th><strong>SN_MAC  
+                                            <th><strong>VENDOR  
+                                            <th><strong>RUNNIG_STATUS  
+                                            <th><strong>OPERATION_STATUS 
+                                            </tr>
+                                    </thead>
+                                    {% else %}
+                                <div><h1>No Existen Sitios Registrados</h1></div>
+                                {% endif %}
+                                <tbody>
+                                    {% for p in entity %}
+                                    <tr>
+                                        
+                                        <td>{{p.ID_ATT_PON}}</td>  
+                                        <td>{{p.TX_PON}}</td>  
+                                        <td>{{p.TX_GRUPOS_PON}}</td>  
+                                        <td>{{p.TX_DETALLE_PON}}</td>  
+                                        <td>{{p.CONTROL_PON}}</td>  
+                                        <td>{{p.FECHA_PON}}</td>  
+                                        <td>{{p.POC_PON}}</td>  
+                                        <td>{{p.OBSERVACIONES_PON}}</td>  
+                                        <td>{{p.REGION}}</td>  
+                                        <td>{{p.CIUDAD}}</td>  
+                                        <td>{{p.OLT_NAME_1}}</td>  
+                                        <td>{{p.OLT_ATT_ID}}</td>  
+                                        <td>{{p.OLT_IP}}</td>  
+                                        <td>{{p.OLT_NAME_2}}</td>  
+                                        <td>{{p.OLT_TYPE}}</td>  
+                                        <td>{{p.FRAME_ID}}</td>  
+                                        <td>{{p.SLOT_ID}}</td>  
+                                        <td>{{p.PORT_ID}}</td>  
+                                        <td>{{p.ONU_ID}}</td>  
+                                        <td>{{p.ONT_NAME}}</td>  
+                                        <td>{{p.ONT_OLD_NAME}}</td>  
+                                        <td>{{p.SITE_ID}}</td>  
+                                        <td>{{p.ID_ATT}}</td>  
+                                        <td>{{p.CON_SIN_SERVICIOS}}</td>  
+                                        <td>{{p.ONU_IP}}</td>  
+                                        <td>{{p.ONT_TYPE}}</td>  
+                                        <td>{{p.ONU_TYPE}}</td>   
+                                        <td>{{p.SN_MAC}}</td>   
+                                        <td>{{p.VENDOR}}</td>   
+                                        <td>{{p.RUNNIG_STATUS}}</td>   
+                                        <td>{{p.OPERATION_STATUS}}</td>  
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+				{% include 'sitios/paginator.html'%}
+			</div>
+        </div>
+    <script src="/static/js/jquery.min.js"></script>
+   
+        <!-- End::app-content -->
+{% endblock content %}
+{% block javascripts %}
+{% endblock javascripts %}

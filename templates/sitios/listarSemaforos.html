@@ -1,0 +1,129 @@
+{% extends "layout/base.html" %}
+{% block content %}
+        <!-- Start::app-content -->
+        <div class="main-content app-content">
+            <div class="container-fluid">
+                <!-- Page Header -->
+                <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+                    <div class="ms-md-1 ms-0"></div>
+                </div>
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">Semaforos</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {%if entity %}
+                                <table class="table text-nowrap table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th><strong>AGGREGATOR</strong></th>  
+                                            <th><strong>SITE_1</strong></th>  
+                                            <th><strong>SITE_2</strong></th>  
+                                            <th><strong>SITE_3</strong></th>  
+                                            <th><strong>SITE_4</strong></th>  
+                                            <th><strong>SITE_5</strong></th>  
+                                            <th><strong>SITE_6</strong></th>  
+                                            <th><strong>SITE_7</strong></th>  
+                                            <th><strong>SITE_8</strong></th>  
+                                            <th><strong>SITE_9</strong></th>  
+                                            <th><strong>SITE_10</strong></th>  
+                                            <th><strong>SITE_ID</strong></th>  
+                                            <th><strong>ATTID</strong></th>  
+                                            <th><strong>LINK</strong></th>  
+                                            <th><strong>TX_ACTUAL</strong></th>  
+                                            <th><strong>SITIOS_QUE_CARGA</strong></th>  
+                                            <th><strong>TECNOLOGIA_ACTUAL</strong></th>  
+                                            <th><strong>CAPACIDAD_MBPS</strong></th>  
+                                            <th><strong>CONFIGURACION</strong></th>  
+                                            <th><strong>ANCHO_DE_BANDA</strong></th>  
+                                            <th><strong>TX_A</strong></th>  
+                                            <th><strong>TX_B</strong></th>  
+                                            <th><strong>UTILIZACION_MBPS_1</strong></th>  
+                                            <th><strong>PORCENTAJE_UTILIZACION_PICOS_MAXIMOS</strong></th>  
+                                            <th><strong>FLAG_H</strong></th>  
+                                            <th><strong>UTILIZACION_MBPS_2</strong></th>  
+                                            <th><strong>PORCENTAJE_UTILIZACION_PICOS_MAXIMOS_2</strong></th>  
+                                            <th><strong>FLAG_V</strong></th>  
+                                            <th><strong>SITIOS</strong></th>  
+                                            <th><strong>SITE_FLOATING_MERCADO</strong></th>  
+                                            <th><strong>LINK_FLOATING_2023_MBPS</strong></th>  
+                                            <th><strong>FLAG_FLOATING_2023_MBPS</strong></th>  
+                                            <th><strong>PRIORIDAD_TAC_FLOATING_2023_MBPS</strong></th>  
+                                            <th><strong>SALUD_FLOATING_2023_MBPS</strong></th>  
+                                            <th><strong>PUNTO_AFECTACION_FLOATING_2023_MBPS</strong></th>  
+                                            <th><strong>SITE_FLOATING_MUNICIPIO</strong></th>  
+                                            <th><strong>LINK_FLOATING_2024_MBPS</strong></th>  
+                                            <th><strong>FLAG_FLOATING_2024_MBPS</strong></th>  
+                                            <th><strong>PRIORIDAD_TAC_FLOATING_2024_MBPS</strong></th>  
+                                            <th><strong>SALUD_FLOATING_2024_MBPS</strong></th>  
+                                            <th><strong>PUNTO_DE_AFECTACION_FLOATING_2024_MBPS</strong></th> 
+                                        </tr>
+                                    </thead>
+                                    {% else %}
+                                <div><h1>No Existen Sitios Registrados</h1></div>
+                                {% endif %}
+                                <tbody>
+                                    {% for s in entity %}
+                                    <tr>
+                                        <td>{{s.AGGREGATOR}}</td>  
+                                        <td>{{s.SITE_1}}</td>  
+                                        <td>{{s.SITE_2}}</td>  
+                                        <td>{{s.SITE_3}}</td>  
+                                        <td>{{s.SITE_4}}</td>  
+                                        <td>{{s.SITE_5}}</td>  
+                                        <td>{{s.SITE_6}}</td>  
+                                        <td>{{s.SITE_7}}</td>  
+                                        <td>{{s.SITE_8}}</td>  
+                                        <td>{{s.SITE_9}}</td>  
+                                        <td>{{s.SITE_10}}</td>  
+                                        <td>{{s.SITE_ID}}</td>  
+                                        <td>{{s.ATTID}}</td>  
+                                        <td>{{s.LINK}}</td>  
+                                        <td>{{s.TX_ACTUAL}}</td>  
+                                        <td>{{s.SITIOS_QUE_CARGA}}</td>  
+                                        <td>{{s.TECNOLOGIA_ACTUAL}}</td>  
+                                        <td>{{s.CAPACIDAD_MBPS}}</td>  
+                                        <td>{{s.CONFIGURACION}}</td>  
+                                        <td>{{s.ANCHO_DE_BANDA}}</td>  
+                                        <td>{{s.TX_A}}</td>  
+                                        <td>{{s.TX_B}}</td>  
+                                        <td>{{s.UTILIZACION_MBPS_1}}</td>  
+                                        <td>{{s.PORCENTAJE_UTILIZACION_PICOS_MAXIMOS}}</td>  
+                                        <td>{{s.FLAG_H}}</td>  
+                                        <td>{{s.UTILIZACION_MBPS_2}}</td>  
+                                        <td>{{s.PORCENTAJE_UTILIZACION_PICOS_MAXIMOS_2}}</td>  
+                                        <td>{{s.FLAG_V}}</td>  
+                                        <td>{{s.SITIOS}}</td>  
+                                        <td>{{s.SITE_FLOATING_MERCADO}}</td>  
+                                        <td>{{s.LINK_FLOATING_2023_MBPS}}</td>  
+                                        <td>{{s.FLAG_FLOATING_2023_MBPS}}</td>  
+                                        <td>{{s.PRIORIDAD_TAC_FLOATING_2023_MBPS}}</td>  
+                                        <td>{{s.SALUD_FLOATING_2023_MBPS}}</td>  
+                                        <td>{{s.PUNTO_AFECTACION_FLOATING_2023_MBPS}}</td>  
+                                        <td>{{s.SITE_FLOATING_MUNICIPIO}}</td>  
+                                        <td>{{s.LINK_FLOATING_2024_MBPS}}</td>  
+                                        <td>{{s.FLAG_FLOATING_2024_MBPS}}</td>  
+                                        <td>{{s.PRIORIDAD_TAC_FLOATING_2024_MBPS}}</td>  
+                                        <td>{{s.SALUD_FLOATING_2024_MBPS}}</td>  
+                                        <td>{{s.PUNTO_DE_AFECTACION_FLOATING_2024_MBPS}}</td> 
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+				{% include 'sitios/paginator.html'%}
+			</div>
+        </div>
+    <script src="/static/js/jquery.min.js"></script>
+   
+        <!-- End::app-content -->
+{% endblock content %}
+{% block javascripts %}
+{% endblock javascripts %}
