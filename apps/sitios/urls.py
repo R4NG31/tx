@@ -54,8 +54,8 @@ urlpatterns = [
     path('cargarCapacidadManual/', views.cargarCapacidadManual, name='cargarCapacidadManual'),
     path('cargarFiltroCapacidadManual/', views.cargarFiltroCapacidadManual, name='cargarFiltroCapacidadManual'),
     path('listarCapacidadManual/', views.listarCapacidadManual, name='listarCapacidadManual'),
-    # path('cargarNOC/', views.cargarNOC, name='cargarNOC'),
-    # path('cargarBaseSinTx/', views.cargarFiltroBaseSinTx, name='cargarBaseSinTx'),
+    
+    path('cargarBaseSinTx/', views.cargarBaseSinTx, name='cargarBaseSinTx'),
+    path('cargarFiltroBaseSinTx/', views.cargarFiltroBaseSinTx, name='cargarFiltroBaseSinTx'),
+    path('listarBaseSinTx/', views.listarBaseSinTx, name='listarBaseSinTx'),
 ]
-#ver especificamente a que tipo de tx transporte
-#ept = sitios al aire

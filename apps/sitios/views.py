@@ -88,11 +88,13 @@ def cargarFiltroSitios(request):
         df.to_sql(FiltroSitiosTotales._meta.db_table, if_exists='replace', con=engine,index=False)
     return render(request, "sitios/cargarSitios.html")
 
+#----------------------      FIBRA OPTICA      ---------------------------#
+
 def cargarFO(request):
     engine = create_engine(conexion(),echo=False)
     if request.method == "POST":
         upload_file = request.FILES['file']
-        df = pd.read_excel(upload_file, engine='openpyxl', header=1)
+        df = pd.read_excel(upload_file, engine='openpyxl', header=0)
         df = df.replace(np.nan,' ')
         df.columns = df.columns.str.strip()
         df.rename(columns=nomColsFO, inplace=True)
@@ -108,15 +110,15 @@ def cargarFiltroFO(request):
  
     if request.method == 'POST':
         upload_file = request.FILES['file']
-        df = pd.read_excel(upload_file, engine='openpyxl', usecols=cols, header=1)
+        df = pd.read_excel(upload_file, engine='openpyxl', usecols=cols, header=0)
         df.columns = df.columns.str.strip()
         df = df.replace(np.nan,' ')
-        df.rename(columns=nomColsFO,inplace=True)
+        df.rename(columns=nomColsFiltroFO,inplace=True)
         for name in df.columns:
              df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
              df[name] = df[name].str.upper()
         df_alta_activo = df['CONTROL'] !='BAJA'
-        df_vacio_id = df['ID_ATT_F'] = ' '
+        #df_vacio_id = df['ID_ATT_F'] = ' '
         df = df[df_alta_activo]
         df.to_sql(FiltroFibraOptica._meta.db_table, if_exists='replace', con=engine,index=False)    
     return render(request, "sitios/cargarFiltroFO.html")
@@ -138,11 +140,12 @@ def listarFO(request):
 
     return render(request, "sitios/listarFO.html",data)
 
+#----------------------      AGREGADORES       ---------------------------#
 def cargarAGG(request):
     engine = create_engine(conexion(),echo=False)
     if request.method == 'POST':
         upload_file = request.FILES['file']
-        df = pd.read_excel(upload_file, engine='openpyxl',header=1)
+        df = pd.read_excel(upload_file, engine='openpyxl',header=0)
         df = df.replace(np.nan,' ')
         df.columns = df.columns.str.strip() 
         df.rename(columns=nomColsAgg, inplace=True)
@@ -166,9 +169,10 @@ def cargarFiltroAGG(request):
              df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
              df[name] = df[name].str.upper()
         
-        control = df['CONTROL'] != 'BAJA'
+        control_b = df['CONTROL'] != 'BAJA'
+        control_i = df['CONTROL'] != 'IMPLEMENTACION'
         proyecto = df['PROYECTO'] != '-'
-        df = df[control & proyecto]
+        df = df[control_b & control_i & proyecto]
         engine = create_engine(conexion(),echo=False)
         df.to_sql(Filtro_AGG._meta.db_table, if_exists='replace', con=engine,index=False)
 
@@ -190,7 +194,7 @@ def listarAGG(request):
     data = {'entity':agredaor,'paginator': paginator }
 
     return render(request, "sitios/listarAGG.html",data)
-#----------------------  PROYECCION   ---------------------------#
+#----------------------      PROYECCION        ---------------------------#
 def cargarProyeccion(request):
     engine = create_engine(conexion(),echo=False)
     if request.method == 'POST':
@@ -239,7 +243,7 @@ def listarProyeccion(request):
 
     return render(request, "sitios/listarProyeccion.html",data)
 
-#---------------------- MIGRACION   ---------------------------#
+#----------------------      MIGRACION         ---------------------------#
 def cargarMigracion(request):
     if request.method == 'POST':
         upload_file = request.FILES['file']
@@ -289,8 +293,7 @@ def listarMigracion(request):
 
     return render(request, "sitios/listarMigracion.html",data)
 
-
-#---------------------- MICROONDAS   ---------------------------#
+#----------------------     MICROONDAS        ---------------------------#
 
 def cargarMicroondas(request):
     if request.method == 'POST':
@@ -310,7 +313,7 @@ def cargarFiltroMicroondas(request):
     if request.method == 'POST':
         upload_file = request.FILES['file']
             
-        df = pd.read_excel(upload_file, engine='openpyxl',header=1)
+        df = pd.read_excel(upload_file, engine='openpyxl',header=0)
         df = df.replace(np.nan,' ')
         df.rename(columns=nomColsMW,inplace=True)   
         for name in df.columns:
@@ -321,7 +324,7 @@ def cargarFiltroMicroondas(request):
         df = df[control_b & control_r]
 
         engine = create_engine(conexion(),echo=False)
-        df.to_sql(MW._meta.db_table, if_exists='replace', con=engine,index=False)
+        df.to_sql(FiltroMW._meta.db_table, if_exists='replace', con=engine,index=False)
 
     return render(request, "sitios/cargarFiltroMicroondas.html")
 
@@ -342,7 +345,7 @@ def listarMicroondas(request):
 
     return render(request, "sitios/listarMicroondas.html",data)
 
-#---------------------- CARRIER   ---------------------------#
+#----------------------     CARRIER          ---------------------------#
 def cargarCarrier(request):
     if request.method == 'POST':
         upload_file = request.FILES['file']
@@ -356,8 +359,6 @@ def cargarCarrier(request):
         df.to_sql(Carrier._meta.db_table, if_exists='replace', con=engine,index=False)
 
     return render(request, "sitios/cargarCarrier.html")
-
-
 
 def cargarFiltroCarrier(request):
     if request.method == 'POST':
@@ -393,7 +394,7 @@ def listarCarrier(request):
 
     return render(request, "sitios/listarCarrier.html",data)
 
-#---------------------- PON   ---------------------------#
+#----------------------      PON             ---------------------------#
 
 def cargarPon(request):
     if request.method == 'POST':
@@ -426,7 +427,7 @@ def listarPon(request):
 
     return render(request, "sitios/listarPon.html",data)
 
-#--------------------------------- PANDA ---------------------------------#
+#---------------------       PANDA           ----------------------------#
 def cargarPanda(request):
     if request.method == 'POST':
         upload_file = request.FILES['file']
@@ -458,6 +459,7 @@ def listarPanda(request):
 
     return render(request, "sitios/listarPanda.html",data)
    
+#----------------------      TELLUS           ---------------------------#   
 def cargarTellus(request):
     if request.method == 'POST':
         upload_file = request.FILES['file']
@@ -489,6 +491,7 @@ def listarTellus(request):
 
     return render(request, "sitios/listarTellus.html",data)
 
+#----------------------     SEMAFOROS     ---------------------------#
 def cargarSemaforos(request):
     if request.method == 'POST':
         upload_file = request.FILES['file']
@@ -521,6 +524,9 @@ def listarSemaforos(request):
 
     return render(request, "sitios/listarSemaforos.html",data)
  
+ #----------------------       CAPACIDAD MANUAL         ---------------------------#
+
+#----------------------     CAPACIDAD MANUAL     ---------------------------#
 def cargarCapacidadManual(request):
     if request.method == 'POST':
         upload_file = request.FILES['file']
@@ -566,117 +572,62 @@ def listarCapacidadManual(request):
     data = {'entity':semaforos,'paginator': paginator }
 
     return render(request, "sitios/listarCapacidadManual.html",data)
-# def cargarBaseSinTx(request):
-#     if request.method == 'POST':
-#         upload_file = request.FILES['file']
+
+#----------------------     BASE SIN TX      ---------------------------#
+def cargarBaseSinTx(request):
+    if request.method == 'POST':
+        upload_file = request.FILES['file']
             
-#         df = pd.read_excel(upload_file, engine='openpyxl',header=0)
-#         df = df.replace(np.nan,' ')
+        df = pd.read_excel(upload_file, engine='openpyxl',header=0)
+        df = df.replace(np.nan,' ')
 
-#         for name in df.columns:
-#             df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
-#             df[name] = df[name].str.upper()
-#         df.rename(
-#             columns={
-#                     'ID_ATT':'ID_ATT',	
-#                     'TX':'TX',	
-#                     'TX Grupos Manual':'TX_GRUPOS_MANUAL',	
-#                     'TX Detalle Manual':'TX_DETALLE_MANUAL',	
-#                     'Control':'CONTROL',	
-#                     'Fecha':'FECHA',	
-#                     'POC':'POC',	
-#                     'Observaciones':'OBSERVACIONES',	
-#                     'ID':'TRACKER',	
-#                     'AT&T ID':'ATT_ID',	
-#                     'Nombre':'NOMBRE',	
-#                     'Latitud':'LATITUD',	
-#                     'Longitud':'LONGITUD',	
-#                     'Estado':'ESTADO',	
-#                     'Municipio':'MUNICIPIO',	
-#                     'Mercado':'MERCADO',	
-#                     'Region_Celular':'REGION_CELULAR',	
-#                     'Region':'REGION',	
-#                     'Vendor':'VENDOR',	
-#                     'Cobertura':'COBERTURA',	
-#                     'Tipo':'TIPO',	
-#                     'Proyecto':'PROYECTO',	
-#                     'Clasificacion':'CLASIFICACION',	
-#                     'Control de cambios RAN':'CONTROL_CAMBIOS_RAN',	
-#                     'Base Origen \nTX':'BASE_ORIGEN_TX',	
-#                     'Grupos \nMedio TX ':'GRUPOS_MEDIO_TX',	
-#                     'TX Detalle':'TX_DETALLE',	
-#                     'Base Origen \nTX.1':'BASE_ORIGEN_TX_1',	
-#                     'Grupos \nMedio TX .1':'GRUPOS_MEDIO_TX_1',	
-#                     'TX Detalle.1':'TX_DETALLE_1',	
-#                     'Capacidad':'CAPACIDAD',	
-#                     'Control.1':'CONTROL_1',	
-#                     'Control de cambios RAN.1':'CONTROL_CAMBIOS_RAN_1',	
-#                     'Base Origen \nTX.2':'BASE_ORIGEN_TX_2',	
-#                     'Grupos \nMedio TX .2':'GRUPOS_MEDIO_TX_2',	
-#                     'TX Detalle.2':'TX_DETALLE_2',	
-#                     'Panda':'PANDA',	
-#                     'Status':'STATUS',	
-#                     'TX TYPE':'TX_TYPE',	
-#                     'Real Migracion':'REAL_MIGRACION',	
-#                     '#':'NUMERO'} ,inplace=True)
+        df.rename(columns=nomColsBaseSinTx ,inplace=True)
+        for name in df.columns:
+            df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
+            df[name] = df[name].str.upper()
     
-#         control_b = df['CONTROL'] != 'BAJA'
-#         control_r = df['CONTROL'] != 'REVISAR'
-#         df = df[control_b & control_r]
-#         engine = create_engine(conexion(),echo=False)
-#         df.to_sql(BaseSinTX._meta.db_table,if_exists='replace',con=engine,index=False)
-#     return render(request, "sitios/cargarBaseSinTx.html")
+        engine = create_engine(conexion(),echo=False)
+        df.to_sql(BaseSinTX._meta.db_table,if_exists='replace',con=engine,index=False)
+    return render(request, "sitios/cargarBaseSinTx.html")
 
-# def cargarFiltroBaseSinTx(request):
-#     cols = [0,1,2,3,4,5,6,7]
+def cargarFiltroBaseSinTx(request):
+    cols = [0,1,2,3,4,5,6,7]
     
-#     if request.method == 'POST':
-#         upload_file = request.FILES['file']
+    if request.method == 'POST':
+        upload_file = request.FILES['file']
             
-#         df = pd.read_excel(upload_file, engine='openpyxl', usecols= cols,header=0)
-#         df = df.replace(np.nan,' ')
+        df = pd.read_excel(upload_file, engine='openpyxl', usecols= cols,header=1)
+        df = df.replace(np.nan,' ')
 
-#         for name in df.columns:
-#             df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
-#             df[name] = df[name].str.upper()
-#         df.rename(
-#             columns={
-#                     'ID_ATT':'ID_ATT',	
-#                     'TX':'TX',	
-#                     'TX Grupos Manual':'TX_GRUPOS_MANUAL',	
-#                     'TX Detalle Manual':'TX_DETALLE_MANUAL',	
-#                     'Control':'CONTROL',	
-#                     'Fecha':'FECHA',	
-#                     'POC':'POC',	
-#                     'Observaciones':'OBSERVACIONES',	
-#                     } ,inplace=True)
+        df.rename(columns=nomColsFiltroBaseSinTx ,inplace=True)
+        for name in df.columns:
+            df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
+            df[name] = df[name].str.upper()
     
-#         control_b = df['CONTROL'] != 'BAJA'
-#         control_r = df['CONTROL'] != 'REVISAR'
-#         df = df[control_b & control_r]
-#         engine = create_engine(conexion(),echo=False)
+        control_b = df['CONTROL'] != 'BAJA'
+        control_r = df['CONTROL'] != 'REVISAR'
+        df = df[control_b & control_r]
+        engine = create_engine(conexion(),echo=False)
         
-#         df.to_sql(BaseFiltroSinTX._meta.db_table,if_exists='replace',con=engine,index=False)
-#     return render(request, "sitios/cargarBaseSinTx.html")
+        df.to_sql(BaseFiltroSinTX._meta.db_table,if_exists='replace',con=engine,index=False)
+    return render(request, "sitios/cargarFiltroBaseSinTx.html")
 
+def listarBaseSinTx(request):
+    busqueda = request.POST.get("buscar")
+    basesintx = CapacidadManual.objects.all()
+    # if busqueda:
+    #     basesintx = FibraOptica.objects.filter(
+    #         Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
 
+    page = request.GET.get('page',1)
+    try:
+        paginator = Paginator(basesintx,15)
+        basesintx = paginator.page(page)
+    except:
+        raise Http404
+    data = {'entity':basesintx,'paginator': paginator }
 
-# def listarFO(request):
-#     busqueda = request.POST.get("buscar")
-#     sitios = Origen_FO.objects.all()
-#     if busqueda:
-#         sitios = Origen_FO.objects.filter(
-#             Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
-
-#     page = request.GET.get('page',1)
-#     try:
-#         paginator = Paginator(sitios,5)
-#         sitios = paginator.page(page)
-#     except:
-#         raise Http404
-#     data = {'entity':sitios,'paginator': paginator }
-
-#     return render(request, "sitios/listarFO.html",data)
+    return render(request, "sitios/listarBaseSinTX.html",data)
 
 
 
