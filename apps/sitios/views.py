@@ -10,11 +10,33 @@ from django.views.generic import TemplateView,ListView
 from django.core.paginator import Paginator
 from django.http import Http404
 from apps.sitios.dicColumns import *
+import folium
+from folium.plugins import FastMarkerCluster
 
 class Home(TemplateView):
     template_name= 'index.html'
 
 #----------------------  SITIOS   ---------------------------#
+
+def mapas(request):
+    sitios = SitiosTotales.objects.all()
+    m = folium.Map(location=[23.634501,-102.552784],zoom_start=5)
+    latitud = [s.LATITUD for s in sitios]
+    longitud = [s.LONGITUD for s in sitios]
+
+    FastMarkerCluster(data=list(zip(latitud,longitud))).add_to(m)
+
+    context = {'map': m._repr_html_()}  
+    return render(request, 'sitios/mapas.html',context)
+
+def reportes(request):
+    fibra = FiltroFibraOptica.objects.all()
+    f_fo = FiltroFibraOptica.objects.values("TX").filter(TX="FO").count()
+  
+    print(f_fo)
+    data = {'fo':f_fo}
+    return render(request, 'sitios/reportes.html', data)
+
 def listarSitios(request):
     busqueda = request.POST.get("buscar")
     sitios = SitiosTotales.objects.all()
@@ -74,19 +96,19 @@ def cargarFiltroSitios(request):
     engine = create_engine(conexion(),echo=False)
     if request.method == 'POST':
         upload_file = request.FILES['file']
-        df = pd.read_excel(upload_file, engine='openpyxl', usecols=cols, header=0)
-        df = df.replace('-',' ')
+        df = pd.read_excel(upload_file, engine='openpyxl', usecols=cols, header=1)
         df.columns = df.columns.str.strip()
         df.rename(columns=nomColsFiltroSitios, inplace=True)
         for name in df.columns:
              df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
              df[name] = df[name].str.upper()
-        df_filtro_c = df['CLASIFICACION'] != 'Alpha'
+        df_filtro_s = df['ATT_ID_S'] != '-'
+        df_filtro_c = df['CLASIFICACION'] != 'ALPHA'
         df_filtro_t = df['TECNOLOGIA'] != '-'
-        df= df[df_filtro_c & df_filtro_t]
+        df= df[df_filtro_s & df_filtro_c & df_filtro_t]
         
         df.to_sql(FiltroSitiosTotales._meta.db_table, if_exists='replace', con=engine,index=False)
-    return render(request, "sitios/cargarSitios.html")
+    return render(request, "sitios/cargarFiltroSitios.html")
 
 #----------------------      FIBRA OPTICA      ---------------------------#
 

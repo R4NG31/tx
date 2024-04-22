@@ -5,9 +5,7 @@
     <div class="content-body">
         <div class="container-fluid">
             <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
-                <div class="ms-md-1 ms-0">
-                
-                </div>
+                <div class="ms-md-1 ms-0"></div>
             </div>    
             <div class="row">
                 <div class="col-xl-12">
@@ -23,17 +21,12 @@
                                 <a href="{% url 'listarSitios' %}">
                                 <button class="btn btn-secondary-light btn-wav">Listar Sitios</button>
                                 </a>
-                                <a href="{% url 'cargarSitios' %}">
-                                <button class="btn btn-secondary-light btn-wav">Cargar Sitios</button>
-                                </a>
                                 <button class="btn btn-secondary-light btn-wav">Crear Sitios</button>
                                 <button class="btn btn-secondary-light btn-wav">Exportar CSV</button>
                                 <a href="{% url 'mapas' %}">
                                     <button class="btn btn-secondary-light btn-wav">Mapas</button>
                                 </a>
-                                <a href="{% url 'reportes' %}">
                                 <button class="btn btn-secondary-light btn-wav">Reportes</button>
-                                </a>
                                 <div class="d-flex" role="search">
                                     <input class="form-control me-2" type="search" placeholder="Search"
                                         aria-label="Search">
@@ -42,31 +35,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="card custom-card">
-                                            <div class="card-header">
-                                                <div class="card-title">
-                                                    Cargar Archivo
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <form data-single="true" method="post" action="{% url 'cargarSitios' %}" class="dropzone">
-                                                  {% csrf_token %}
-                                                </form>
-                                            </div>
-                                        </div>
+                      
+                        <div class="row">
+                           
+                            <div class="col-xl-6">
+                                <div class="card custom-card">
+                                    <div class="card-header">
+                                        <div class="card-title">Chartjs Bar Chart</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="myChart" class="chartjs-chart"></canvas>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
-                    </div>
                 </div>
-            </div>
-          
         </div>
     </div>
 </body>

@@ -6,7 +6,7 @@
         series: [{
             name: 'Website Blog',
             type: 'column',
-            data: [440, 505, 414, 671, 227, 413, 201, 352, 752, 320, 257, 160]
+            data: data
         }, {
             name: 'Social Media',
             type: 'line',

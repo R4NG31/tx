@@ -234,7 +234,7 @@ class FiltroFibraOptica(models.Model):
     STATUS = models.TextField(max_length = 50, blank=False, null = False)	
 
     class Meta:
-        db_table = "tb1_FibraOptica"
+        db_table = "tb1_fibraoptica"
 
 class AGG(models.Model):
     ID_ATT = models.TextField(primary_key=True, max_length = 50, blank=False, null = False)		

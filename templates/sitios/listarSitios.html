@@ -1,417 +1,405 @@
 {% extends "layout/base.html" %}
 {% block content %}
-        <div class="main-content app-content">
+        <div class="content-body">
             <div class="container-fluid">
                 <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
-                    <div class="ms-md-1 ms-0"></div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card">
-                                <div class="card-body p-0 product-checkout">
-                                    <ul class="nav nav-tabs tab-style-2 d-sm-flex d-block border-bottom " id="myTab1" role="tablist">
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link active" id="order-tab" data-bs-toggle="tab"
-                                                data-bs-target="#order-tab-pane" type="button" role="tab"
-                                                aria-controls="order-tab" aria-selected="true"><i
-                                                    class="ri-truck-line me-2 align-middle"></i>
-                                                    <a href="{% url 'listarSitios' %}">Listar Sitios Totales</a></button>
-
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="confirmed-tab" data-bs-toggle="tab"
-                                                data-bs-target="#confirm-tab-pane" type="button" role="tab"
-                                                aria-controls="confirmed-tab" aria-selected="false"><i
-                                                    class="ri-user-3-line me-2 align-middle"></i>Crear Sitios</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="shipped-tab" data-bs-toggle="tab"
-                                                data-bs-target="#shipped-tab-pane" type="button" role="tab"
-                                                aria-controls="shipped-tab" aria-selected="false"><i
-                                                    class="ri-bank-card-line me-2 align-middle"></i>Editar Sitios</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="delivered-tab" data-bs-toggle="tab"
-                                                data-bs-target="#delivery-tab-pane" type="button" role="tab"
-                                                aria-controls="delivered-tab" aria-selected="false"><i
-                                                    class="ri-checkbox-circle-line me-2 align-middle"></i>Mapas</button>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content" id="myTabContent">
-                                        <div class="tab-pane fade show active border-0 p-0" id="order-tab-pane" role="tabpanel"
-                                            aria-labelledby="order-tab-pane" tabindex="0">
-                                            <div class="col-xl-12">
-                                                <div class="card custom-card">
-                                                    <div class="card-header justify-content-between">
-                                                        <div class="card-title">Sitios Totales</div>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <div class="table-responsive">
-                                                            {%if entity %}
-                                                            <table class="table text-nowrap table-bordered">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th><strong>TRACKER</strong></th>
-                                                                        <th><strong>S_ATT_ID</strong></th>
-                                                                        <th><strong>NOMBRE</strong></th>
-                                                                        <th><strong>ID_LITE</strong></th>
-                                                                        <th><strong>ID_ROJO</strong></th>
-                                                                        <th><strong>ID_NARANJA</strong></th>
-                                                                        <th><strong>IDEN</strong></th>
-                                                                        <th><strong>LATITUD</strong></th>
-                                                                        <th><strong>LONGITUD</strong></th>
-                                                                        <th><strong>ESTADO</strong></th>
-                                                                        <th><strong>MUNICIPIO</strong></th>
-                                                                        <th><strong>MERCADO</strong></th>
-                                                                        <th><strong>REGION_CELULAR</strong></th>
-                                                                        <th><strong>REGION</strong></th>
-                                                                        <th><strong>VENDOR</strong></th>
-                                                                        <th><strong>COBERTURA</strong></th>
-                                                                        <th><strong>TIPO</strong></th>
-                                                                        <th><strong>PROYECTO</strong></th>
-                                                                        <th><strong>CLASIFICACION</strong></th>
-                                                                        <th><strong>TECNOLOGIA</strong></th>
-                                                                        <th><strong>CONFIGURACION_3G</strong></th>
-                                                                        <th><strong>CONFIGURACION_4G</strong></th>
-                                                                        <th><strong>CONFIGURACION_5G</strong></th>
-                                                                        <th><strong>IOT</strong></th>
-                                                                        <th><strong>thD</strong></th>
-                                                                        <th><strong>TRAFICO_3G_LTE_5G</strong></th>
-                                                                        <th><strong>TRAFICO_3G</strong></th>
-                                                                        <th><strong>TRAFICO_4G</strong></th>
-                                                                        <th><strong>TRAFICO_5G</strong></th>
-                                                                        <th><strong>SL</strong></th>
-                                                                        <th><strong>REUBICACION</strong></th>
-                                                                        <th><strong>NOTAS</strong></th>
-                                                                        <th><strong>COMENTARIO_OPERACIONES</strong></th>
-                                                                        <th><strong>PLAN</strong></th>
-                                                                        <th><strong>ENE_3G_B5_850</strong></th>
-                                                                        <th><strong>ENE_3G_B2_PCS</strong></th>
-                                                                        <th><strong>ENE_3G_B4_AWS</strong></th>
-                                                                        <th><strong>ENE_LTE_B26_800</strong></th>
-                                                                        <th><strong>ENE_LTE_B5_850</strong></th>
-                                                                        <th><strong>ENE_LTE_B2_PCS</strong></th>
-                                                                        <th><strong>ENE_LTE_B4_AWS</strong></th>
-                                                                        <th><strong>ENE_LTE_B7_2600</strong></th>
-                                                                        <th><strong>ENE_LTE_B38_2600</strong></th>
-                                                                        <th><strong>ENE_5G_B7_2600</strong></th>
-                                                                        <th><strong>ENE_5G_B38_2600</strong></th>
-                                                                        <th><strong>ENE_COMENTARIO_OPERACIONES</strong></th>
-                                                                        <th><strong>ENE_PLAN</strong></th>
-                                                                        <th><strong>FEB_3G_B5_850</strong></th>
-                                                                        <th><strong>FEB_3G_B2_PCS</strong></th>
-                                                                        <th><strong>FEB_3G_B4_AWS</strong></th>
-                                                                        <th><strong>FEB_LTE_B26_800</strong></th>
-                                                                        <th><strong>FEB_LTE_B5_850</strong></th>
-                                                                        <th><strong>FEB_LTE_B2_PCS</strong></th>
-                                                                        <th><strong>FEB_LTE_B4_AWS</strong></th>
-                                                                        <th><strong>FEB_LTE_B7_2600</strong></th>
-                                                                        <th><strong>FEB_LTE_B38_2600</strong></th>
-                                                                        <th><strong>FEB_5G_B7_2600</strong></th>
-                                                                        <th><strong>FEB_5G_B38_2600</strong></th>
-                                                                        <th><strong>FEB_COMENTARIO_OPERACIONES</strong></th>
-                                                                        <th><strong>FEB_PLAN</strong></th>
-                                                                        <th><strong>MAR_3G_B5_850</strong></th>
-                                                                        <th><strong>MAR_3G_B2_PCS</strong></th>
-                                                                        <th><strong>MAR_3G_B4_AWS</strong></th>
-                                                                        <th><strong>MAR_LTE_B26_800</strong></th>
-                                                                        <th><strong>MAR_LTE_B5_850</strong></th>
-                                                                        <th><strong>MAR_LTE_B2_PCS</strong></th>
-                                                                        <th><strong>MAR_LTE_B4_AWS</strong></th>
-                                                                        <th><strong>MAR_LTE_B7_2600</strong></th>
-                                                                        <th><strong>MAR_LTE_B38_2600</strong></th>
-                                                                        <th><strong>MAR_5G_B7_2600</strong></th>
-                                                                        <th><strong>MAR_5G_B38_2600</strong></th>
-                                                                        <th><strong>MAR_COMENTARIO_OPERACIONES</strong></th>
-                                                                        <th><strong>MAR_PLAN</strong></th>
-                                                                        <th><strong>ABR_3G_B5_850</strong></th>
-                                                                        <th><strong>ABR_3G_B2_PCS</strong></th>
-                                                                        <th><strong>ABR_3G_B4_AWS</strong></th>
-                                                                        <th><strong>ABR_LTE_B26_800</strong></th>
-                                                                        <th><strong>ABR_LTE_B5_850</strong></th>
-                                                                        <th><strong>ABR_LTE_B2_PCS</strong></th>
-                                                                        <th><strong>ABR_LTE_B4_AWS</strong></th>
-                                                                        <th><strong>ABR_LTE_B7_2600</strong></th>
-                                                                        <th><strong>ABR_LTE_B38_2600</strong></th>
-                                                                        <th><strong>ABR_5G_B7_2600</strong></th>
-                                                                        <th><strong>ABR_5G_B38_2600</strong></th>
-                                                                        <th><strong>ABR_COMENTARIO_OPERACIONES</strong></th>
-                                                                        <th><strong>ABR_PLAN</strong></th>
-                                                                        <th><strong>MAY_3G_B5_850</strong></th>
-                                                                        <th><strong>MAY_3G_B2_PCS</strong></th>
-                                                                        <th><strong>MAY_3G_B4_AWS</strong></th>
-                                                                        <th><strong>MAY_LTE_B26_800</strong></th>
-                                                                        <th><strong>MAY_LTE_B5_850</strong></th>
-                                                                        <th><strong>MAY_LTE_B2_PCS</strong></th>
-                                                                        <th><strong>MAY_LTE_B4_AWS</strong></th>
-                                                                        <th><strong>MAY_LTE_B7_2600</strong></th>
-                                                                        <th><strong>MAY_LTE_B38_2600</strong></th>
-                                                                        <th><strong>MAY_5G_B7_2600</strong></th>
-                                                                        <th><strong>MAY_5G_B38_2600</strong></th>
-                                                                        <th><strong>MAY_COMENTARIO_OPERACIONES</strong></th>
-                                                                        <th><strong>MAY_PLAN</strong></th>
-                                                                        <th><strong>JUN_3G_B5_850</strong></th>
-                                                                        <th><strong>JUN_3G_B2_PCS</strong></th>
-                                                                        <th><strong>JUN_3G_B4_AWS</strong></th>
-                                                                        <th><strong>JUN_LTE_B26_800</strong></th>
-                                                                        <th><strong>JUN_LTE_B5_850</strong></th>
-                                                                        <th><strong>JUN_LTE_B2_PCS</strong></th>
-                                                                        <th><strong>JUN_LTE_B4_AWS</strong></th>
-                                                                        <th><strong>JUN_LTE_B7_2600</strong></th>
-                                                                        <th><strong>JUN_LTE_B38_2600</strong></th>
-                                                                        <th><strong>JUN_5G_B7_2600</strong></th>
-                                                                        <th><strong>JUN_5G_B38_2600</strong></th>
-                                                                        <th><strong>JUN_COMENTARIO_OPERACIONES</strong></th>
-                                                                        <th><strong>JUN_PLAN</strong></th>
-                                                                        <th><strong>JUL_3G_B5_850</strong></th>
-                                                                        <th><strong>JUL_3G_B2_PCS</strong></th>
-                                                                        <th><strong>JUL_3G_B4_AWS</strong></th>
-                                                                        <th><strong>JUL_LTE_B26_800</strong></th>
-                                                                        <th><strong>JUL_LTE_B5_850</strong></th>
-                                                                        <th><strong>JUL_LTE_B2_PCS</strong></th>
-                                                                        <th><strong>JUL_LTE_B4_AWS</strong></th>
-                                                                        <th><strong>JUL_LTE_B7_2600</strong></th>
-                                                                        <th><strong>JUL_LTE_B38_2600</strong></th>
-                                                                        <th><strong>JUL_5G_B7_2600</strong></th>
-                                                                        <th><strong>JUL_5G_B38_2600</strong></th>
-                                                                        <th><strong>JUL_COMENTARIO_OPERACIONES</strong></th>
-                                                                        <th><strong>JUL_PLAN</strong></th>
-                                                                        <th><strong>AGO_3G_B5_850</strong></th>
-                                                                        <th><strong>AGO_3G_B2_PCS</strong></th>
-                                                                        <th><strong>AGO_3G_B4_AWS</strong></th>
-                                                                        <th><strong>AGO_LTE_B26_800</strong></th>
-                                                                        <th><strong>AGO_LTE_B5_850</strong></th>
-                                                                        <th><strong>AGO_LTE_B2_PCS</strong></th>
-                                                                        <th><strong>AGO_LTE_B4_AWS</strong></th>
-                                                                        <th><strong>B7_2600.14</strong></th>
-                                                                        <th><strong>AGO_LTE_B38_2600</strong></th>
-                                                                        <th><strong>AGO_LTE_B42_3500</strong></th>
-                                                                        <th><strong>AGO_5G_B7_2600</strong></th>
-                                                                        <th><strong>AGO_5G_B38_2600</strong></th>
-                                                                        <th><strong>AGO_COMENTARIO_OPERACIONES</strong></th>
-                                                                        <th><strong>AGO_PLAN</strong></th>
-                                                                        <th><strong>SEP_3G_B5_850</strong></th>
-                                                                        <th><strong>SEP_3G_B2_PCS</strong></th>
-                                                                        <th><strong>SEP_3G_B4_AWS</strong></th>
-                                                                        <th><strong>SEP_LTE_B26_800</strong></th>
-                                                                        <th><strong>SEP_LTE_B5_850</strong></th>
-                                                                        <th><strong>SEP_LTE_B2_PCS</strong></th>
-                                                                        <th><strong>SEP_LTE_B4_AWS</strong></th>
-                                                                        <th><strong>SEP_LTE_B7_2600</strong></th>
-                                                                        <th><strong>SEP_LTE_B38_2600</strong></th>
-                                                                        <th><strong>SEP_LTE_B42_3500</strong></th>
-                                                                        <th><strong>SEP_5G_B7_2600</strong></th>
-                                                                        <th><strong>SEP_5G_B38_2600</strong></th>
-                                                                        <th><strong>SEP_COMENTARIO_OPERACIONES</strong></th>
-                                                                        <th><strong>SEP_PLAN</strong></th>
-                                                                        <th><strong>OCT_3G_B5_850</strong></th>
-                                                                        <th><strong>OCT_3G_B2_PCS</strong></th>
-                                                                        <th><strong>OCT_3G_B4_AWS</strong></th>
-                                                                        <th><strong>OCT_LTE_B26_800</strong></th>
-                                                                        <th><strong>OCT_LTE_B5_850</strong></th>
-                                                                        <th><strong>OCT_LTE_B2_PCS</strong></th>
-                                                                        <th><strong>OCT_LTE_B4_AWS</strong></th>
-                                                                        <th><strong>OCT_LTE_B7_2600</strong></th>
-                                                                        <th><strong>OCT_LTE_B38_2600</strong></th>
-                                                                        <th><strong>OCT_LTE_B42_3500</strong></th>
-                                                                        <th><strong>OCT_5G_B7_2600</strong></th>
-                                                                        <th><strong>OCT_5G_B38_2600</strong></th>
-                                
-                                                                    </tr>
-                                                                </thead>
-                                                                {% else %}
-                                                            <div><h1>No Existen Sitios Registrados</h1></div>
-                                                            {% endif %}
-                                                            <tbody>
-                                                                {% for s in entity %}
-                                                                <tr>
-                                                                    <td>{{s.TRACKER}}</td>
-                                                                    <td>{{s.S_ATT_ID}}</td>
-                                                                    <td>{{s.NOMBRE}}</td>
-                                                                    <td>{{s.ID_LITE}}</td>
-                                                                    <td>{{s.ID_ROJO}}</td>
-                                                                    <td>{{s.ID_NARANJA}}</td>
-                                                                    <td>{{s.IDEN}}</td>
-                                                                    <td>{{s.LATITUD}}</td>
-                                                                    <td>{{s.LONGITUD}}</td>
-                                                                    <td>{{s.ESTADO}}</td>
-                                                                    <td>{{s.MUNICIPIO}}</td>
-                                                                    <td>{{s.MERCADO}}</td>
-                                                                    <td>{{s.REGION_CELULAR}}</td>
-                                                                    <td>{{s.REGION}}</td>
-                                                                    <td>{{s.VENDOR}}</td>
-                                                                    <td>{{s.COBERTURA}}</td>
-                                                                    <td>{{s.TIPO}}</td>
-                                                                    <td>{{s.PROYECTO}}</td>
-                                                                    <td>{{s.CLASIFICACION}}</td>
-                                                                    <td>{{s.TECNOLOGIA}}</td>
-                                                                    <td>{{s.CONFIGURACION_3G}}</td>
-                                                                    <td>{{s.CONFIGURACION_4G}}</td>
-                                                                    <td>{{s.CONFIGURACION_5G}}</td>
-                                                                    <td>{{s.IOT}}</td>
-                                                                    <td>{{s.TDD}}</td>
-                                                                    <td>{{s.TRAFICO_3G_LTE_5G}}</td>
-                                                                    <td>{{s.TRAFICO_3G}}</td>
-                                                                    <td>{{s.TRAFICO_4G}}</td>
-                                                                    <td>{{s.TRAFICO_5G}}</td>
-                                                                    <td>{{s.SL}}</td>
-                                                                    <td>{{s.REUBICACION}}</td>
-                                                                    <td>{{s.NOTAS}}</td>
-                                                                    <td>{{s.COMENTARIO_OPERACIONES}}</td>
-                                                                    <td>{{s.PLAN}}</td>
-                                                                    <td>{{s.ENE_3G_B5_850}}</td>
-                                                                    <td>{{s.ENE_3G_B2_PCS}}</td>
-                                                                    <td>{{s.ENE_3G_B4_AWS}}</td>
-                                                                    <td>{{s.ENE_LTE_B26_800}}</td>
-                                                                    <td>{{s.ENE_LTE_B5_850}}</td>
-                                                                    <td>{{s.ENE_LTE_B2_PCS}}</td>
-                                                                    <td>{{s.ENE_LTE_B4_AWS}}</td>
-                                                                    <td>{{s.ENE_LTE_B7_2600}}</td>
-                                                                    <td>{{s.ENE_LTE_B38_2600}}</td>
-                                                                    <td>{{s.ENE_5G_B7_2600}}</td>
-                                                                    <td>{{s.ENE_5G_B38_2600}}</td>
-                                                                    <td>{{s.ENE_COMENTARIO_OPERACIONES}}</td>
-                                                                    <td>{{s.ENE_PLAN}}</td>
-                                                                    <td>{{s.FEB_3G_B5_850}}</td>
-                                                                    <td>{{s.FEB_3G_B2_PCS}}</td>
-                                                                    <td>{{s.FEB_3G_B4_AWS}}</td>
-                                                                    <td>{{s.FEB_LTE_B26_800}}</td>
-                                                                    <td>{{s.FEB_LTE_B5_850}}</td>
-                                                                    <td>{{s.FEB_LTE_B2_PCS}}</td>
-                                                                    <td>{{s.FEB_LTE_B4_AWS}}</td>
-                                                                    <td>{{s.FEB_LTE_B7_2600}}</td>
-                                                                    <td>{{s.FEB_LTE_B38_2600}}</td>
-                                                                    <td>{{s.FEB_5G_B7_2600}}</td>
-                                                                    <td>{{s.FEB_5G_B38_2600}}</td>
-                                                                    <td>{{s.FEB_COMENTARIO_OPERACIONES}}</td>
-                                                                    <td>{{s.FEB_PLAN}}</td>
-                                                                    <td>{{s.MAR_3G_B5_850}}</td>
-                                                                    <td>{{s.MAR_3G_B2_PCS}}</td>
-                                                                    <td>{{s.MAR_3G_B4_AWS}}</td>
-                                                                    <td>{{s.MAR_LTE_B26_800}}</td>
-                                                                    <td>{{s.MAR_LTE_B5_850}}</td>
-                                                                    <td>{{s.MAR_LTE_B2_PCS}}</td>
-                                                                    <td>{{s.MAR_LTE_B4_AWS}}</td>
-                                                                    <td>{{s.MAR_LTE_B7_2600}}</td>
-                                                                    <td>{{s.MAR_LTE_B38_2600}}</td>
-                                                                    <td>{{s.MAR_5G_B7_2600}}</td>
-                                                                    <td>{{s.MAR_5G_B38_2600}}</td>
-                                                                    <td>{{s.MAR_COMENTARIO_OPERACIONES}}</td>
-                                                                    <td>{{s.MAR_PLAN}}</td>
-                                                                    <td>{{s.ABR_3G_B5_850}}</td>
-                                                                    <td>{{s.ABR_3G_B2_PCS}}</td>
-                                                                    <td>{{s.ABR_3G_B4_AWS}}</td>
-                                                                    <td>{{s.ABR_LTE_B26_800}}</td>
-                                                                    <td>{{s.ABR_LTE_B5_850}}</td>
-                                                                    <td>{{s.ABR_LTE_B2_PCS}}</td>
-                                                                    <td>{{s.ABR_LTE_B4_AWS}}</td>
-                                                                    <td>{{s.ABR_LTE_B7_2600}}</td>
-                                                                    <td>{{s.ABR_LTE_B38_2600}}</td>
-                                                                    <td>{{s.ABR_5G_B7_2600}}</td>
-                                                                    <td>{{s.ABR_5G_B38_2600}}</td>
-                                                                    <td>{{s.ABR_COMENTARIO_OPERACIONES}}</td>
-                                                                    <td>{{s.ABR_PLAN}}</td>
-                                                                    <td>{{s.MAY_3G_B5_850}}</td>
-                                                                    <td>{{s.MAY_3G_B2_PCS}}</td>
-                                                                    <td>{{s.MAY_3G_B4_AWS}}</td>
-                                                                    <td>{{s.MAY_LTE_B26_800}}</td>
-                                                                    <td>{{s.MAY_LTE_B5_850}}</td>
-                                                                    <td>{{s.MAY_LTE_B2_PCS}}</td>
-                                                                    <td>{{s.MAY_LTE_B4_AWS}}</td>
-                                                                    <td>{{s.MAY_LTE_B7_2600}}</td>
-                                                                    <td>{{s.MAY_LTE_B38_2600}}</td>
-                                                                    <td>{{s.MAY_5G_B7_2600}}</td>
-                                                                    <td>{{s.MAY_5G_B38_2600}}</td>
-                                                                    <td>{{s.MAY_COMENTARIO_OPERACIONES}}</td>
-                                                                    <td>{{s.MAY_PLAN}}</td>
-                                                                    <td>{{s.JUN_3G_B5_850}}</td>
-                                                                    <td>{{s.JUN_3G_B2_PCS}}</td>
-                                                                    <td>{{s.JUN_3G_B4_AWS}}</td>
-                                                                    <td>{{s.JUN_LTE_B26_800}}</td>
-                                                                    <td>{{s.JUN_LTE_B5_850}}</td>
-                                                                    <td>{{s.JUN_LTE_B2_PCS}}</td>
-                                                                    <td>{{s.JUN_LTE_B4_AWS}}</td>
-                                                                    <td>{{s.JUN_LTE_B7_2600}}</td>
-                                                                    <td>{{s.JUN_LTE_B38_2600}}</td>
-                                                                    <td>{{s.JUN_5G_B7_2600}}</td>
-                                                                    <td>{{s.JUN_5G_B38_2600}}</td>
-                                                                    <td>{{s.JUN_COMENTARIO_OPERACIONES}}</td>
-                                                                    <td>{{s.JUN_PLAN}}</td>
-                                                                    <td>{{s.JUL_3G_B5_850}}</td>
-                                                                    <td>{{s.JUL_3G_B2_PCS}}</td>
-                                                                    <td>{{s.JUL_3G_B4_AWS}}</td>
-                                                                    <td>{{s.JUL_LTE_B26_800}}</td>
-                                                                    <td>{{s.JUL_LTE_B5_850}}</td>
-                                                                    <td>{{s.JUL_LTE_B2_PCS}}</td>
-                                                                    <td>{{s.JUL_LTE_B4_AWS}}</td>
-                                                                    <td>{{s.JUL_LTE_B7_2600}}</td>
-                                                                    <td>{{s.JUL_LTE_B38_2600}}</td>
-                                                                    <td>{{s.JUL_5G_B7_2600}}</td>
-                                                                    <td>{{s.JUL_5G_B38_2600}}</td>
-                                                                    <td>{{s.JUL_COMENTARIO_OPERACIONES}}</td>
-                                                                    <td>{{s.JUL_PLAN}}</td>
-                                                                    <td>{{s.AGO_3G_B5_850}}</td>
-                                                                    <td>{{s.AGO_3G_B2_PCS}}</td>
-                                                                    <td>{{s.AGO_3G_B4_AWS}}</td>
-                                                                    <td>{{s.AGO_LTE_B26_800}}</td>
-                                                                    <td>{{s.AGO_LTE_B5_850}}</td>
-                                                                    <td>{{s.AGO_LTE_B2_PCS}}</td>
-                                                                    <td>{{s.AGO_LTE_B4_AWS}}</td>
-                                                                    <td>{{s.B7_2600.14}}</td>
-                                                                    <td>{{s.AGO_LTE_B38_2600}}</td>
-                                                                    <td>{{s.AGO_LTE_B42_3500}}</td>
-                                                                    <td>{{s.AGO_5G_B7_2600}}</td>
-                                                                    <td>{{s.AGO_5G_B38_2600}}</td>
-                                                                    <td>{{s.AGO_COMENTARIO_OPERACIONES}}</td>
-                                                                    <td>{{s.AGO_PLAN}}</td>
-                                                                    <td>{{s.SEP_3G_B5_850}}</td>
-                                                                    <td>{{s.SEP_3G_B2_PCS}}</td>
-                                                                    <td>{{s.SEP_3G_B4_AWS}}</td>
-                                                                    <td>{{s.SEP_LTE_B26_800}}</td>
-                                                                    <td>{{s.SEP_LTE_B5_850}}</td>
-                                                                    <td>{{s.SEP_LTE_B2_PCS}}</td>
-                                                                    <td>{{s.SEP_LTE_B4_AWS}}</td>
-                                                                    <td>{{s.SEP_LTE_B7_2600}}</td>
-                                                                    <td>{{s.SEP_LTE_B38_2600}}</td>
-                                                                    <td>{{s.SEP_LTE_B42_3500}}</td>
-                                                                    <td>{{s.SEP_5G_B7_2600}}</td>
-                                                                    <td>{{s.SEP_5G_B38_2600}}</td>
-                                                                    <td>{{s.SEP_COMENTARIO_OPERACIONES}}</td>
-                                                                    <td>{{s.SEP_PLAN}}</td>
-                                                                    <td>{{s.OCT_3G_B5_850}}</td>
-                                                                    <td>{{s.OCT_3G_B2_PCS}}</td>
-                                                                    <td>{{s.OCT_3G_B4_AWS}}</td>
-                                                                    <td>{{s.OCT_LTE_B26_800}}</td>
-                                                                    <td>{{s.OCT_LTE_B5_850}}</td>
-                                                                    <td>{{s.OCT_LTE_B2_PCS}}</td>
-                                                                    <td>{{s.OCT_LTE_B4_AWS}}</td>
-                                                                    <td>{{s.OCT_LTE_B7_2600}}</td>
-                                                                    <td>{{s.OCT_LTE_B38_2600}}</td>
-                                                                    <td>{{s.OCT_LTE_B42_3500}}</td>
-                                                                    <td>{{s.OCT_5G_B7_2600}}</td>
-                                                                    <td>{{s.OCT_5G_B38_2600}}</td>
-                                                                </tr>
-                                                                {% endfor %}
-                                                            </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="ms-md-1 ms-0">
+                    
+                    </div>
+                </div>    
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card custom-card">
+                            <div class="card-header d-flex align-items-center justify-content-between flex-wrap gap-3">
+                                <div class="card-title">
+                                    Sitios Totales<span class="badge bg-light text-default rounded ms-1 fs-12 align-middle"></span>
                                 </div>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <a href="{% url 'index' %}">
+                                        <button class="btn btn-secondary-light btn-wav">Inicio</button>
+                                    </a>
+                                    <a href="{% url 'listarSitios' %}">
+                                    <button class="btn btn-secondary-light btn-wav">Listar Sitios</button>
+                                    </a>
+                                    <a href="{% url 'cargarSitios' %}">
+                                    <button class="btn btn-secondary-light btn-wav">Cargar Sitios</button>
+                                    </a>
+                                    <button class="btn btn-secondary-light btn-wav">Crear Sitios</button>
+                                    <button class="btn btn-secondary-light btn-wav">Exportar CSV</button>
+                                    <a href="{% url 'mapas' %}">
+                                        <button class="btn btn-secondary-light btn-wav">Mapas</button>
+                                    </a>
+                                    <a href="{% url 'reportes' %}">
+                                    <button class="btn btn-secondary-light btn-wav">Reportes</button>
+                                    </a>
+                                    <div class="d-flex" role="search">
+                                        <input class="form-control me-2" type="search" placeholder="Search"
+                                            aria-label="Search">
+                                        <button class="btn btn-secondary-light btn-wav"
+                                            type="submit">Search</button>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    {%if entity %}
+                                    <table class="table text-nowrap table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th><strong>TRACKER</strong></th>
+                                                <th><strong>S_ATT_ID</strong></th>
+                                                <th><strong>NOMBRE</strong></th>
+                                                <th><strong>ID_LITE</strong></th>
+                                                <th><strong>ID_ROJO</strong></th>
+                                                <th><strong>ID_NARANJA</strong></th>
+                                                <th><strong>IDEN</strong></th>
+                                                <th><strong>LATITUD</strong></th>
+                                                <th><strong>LONGITUD</strong></th>
+                                                <th><strong>ESTADO</strong></th>
+                                                <th><strong>MUNICIPIO</strong></th>
+                                                <th><strong>MERCADO</strong></th>
+                                                <th><strong>REGION_CELULAR</strong></th>
+                                                <th><strong>REGION</strong></th>
+                                                <th><strong>VENDOR</strong></th>
+                                                <th><strong>COBERTURA</strong></th>
+                                                <th><strong>TIPO</strong></th>
+                                                <th><strong>PROYECTO</strong></th>
+                                                <th><strong>CLASIFICACION</strong></th>
+                                                <th><strong>TECNOLOGIA</strong></th>
+                                                <th><strong>CONFIGURACION_3G</strong></th>
+                                                <th><strong>CONFIGURACION_4G</strong></th>
+                                                <th><strong>CONFIGURACION_5G</strong></th>
+                                                <th><strong>IOT</strong></th>
+                                                <th><strong>thD</strong></th>
+                                                <th><strong>TRAFICO_3G_LTE_5G</strong></th>
+                                                <th><strong>TRAFICO_3G</strong></th>
+                                                <th><strong>TRAFICO_4G</strong></th>
+                                                <th><strong>TRAFICO_5G</strong></th>
+                                                <th><strong>SL</strong></th>
+                                                <th><strong>REUBICACION</strong></th>
+                                                <th><strong>NOTAS</strong></th>
+                                                <th><strong>COMENTARIO_OPERACIONES</strong></th>
+                                                <th><strong>PLAN</strong></th>
+                                                <th><strong>ENE_3G_B5_850</strong></th>
+                                                <th><strong>ENE_3G_B2_PCS</strong></th>
+                                                <th><strong>ENE_3G_B4_AWS</strong></th>
+                                                <th><strong>ENE_LTE_B26_800</strong></th>
+                                                <th><strong>ENE_LTE_B5_850</strong></th>
+                                                <th><strong>ENE_LTE_B2_PCS</strong></th>
+                                                <th><strong>ENE_LTE_B4_AWS</strong></th>
+                                                <th><strong>ENE_LTE_B7_2600</strong></th>
+                                                <th><strong>ENE_LTE_B38_2600</strong></th>
+                                                <th><strong>ENE_5G_B7_2600</strong></th>
+                                                <th><strong>ENE_5G_B38_2600</strong></th>
+                                                <th><strong>ENE_COMENTARIO_OPERACIONES</strong></th>
+                                                <th><strong>ENE_PLAN</strong></th>
+                                                <th><strong>FEB_3G_B5_850</strong></th>
+                                                <th><strong>FEB_3G_B2_PCS</strong></th>
+                                                <th><strong>FEB_3G_B4_AWS</strong></th>
+                                                <th><strong>FEB_LTE_B26_800</strong></th>
+                                                <th><strong>FEB_LTE_B5_850</strong></th>
+                                                <th><strong>FEB_LTE_B2_PCS</strong></th>
+                                                <th><strong>FEB_LTE_B4_AWS</strong></th>
+                                                <th><strong>FEB_LTE_B7_2600</strong></th>
+                                                <th><strong>FEB_LTE_B38_2600</strong></th>
+                                                <th><strong>FEB_5G_B7_2600</strong></th>
+                                                <th><strong>FEB_5G_B38_2600</strong></th>
+                                                <th><strong>FEB_COMENTARIO_OPERACIONES</strong></th>
+                                                <th><strong>FEB_PLAN</strong></th>
+                                                <th><strong>MAR_3G_B5_850</strong></th>
+                                                <th><strong>MAR_3G_B2_PCS</strong></th>
+                                                <th><strong>MAR_3G_B4_AWS</strong></th>
+                                                <th><strong>MAR_LTE_B26_800</strong></th>
+                                                <th><strong>MAR_LTE_B5_850</strong></th>
+                                                <th><strong>MAR_LTE_B2_PCS</strong></th>
+                                                <th><strong>MAR_LTE_B4_AWS</strong></th>
+                                                <th><strong>MAR_LTE_B7_2600</strong></th>
+                                                <th><strong>MAR_LTE_B38_2600</strong></th>
+                                                <th><strong>MAR_5G_B7_2600</strong></th>
+                                                <th><strong>MAR_5G_B38_2600</strong></th>
+                                                <th><strong>MAR_COMENTARIO_OPERACIONES</strong></th>
+                                                <th><strong>MAR_PLAN</strong></th>
+                                                <th><strong>ABR_3G_B5_850</strong></th>
+                                                <th><strong>ABR_3G_B2_PCS</strong></th>
+                                                <th><strong>ABR_3G_B4_AWS</strong></th>
+                                                <th><strong>ABR_LTE_B26_800</strong></th>
+                                                <th><strong>ABR_LTE_B5_850</strong></th>
+                                                <th><strong>ABR_LTE_B2_PCS</strong></th>
+                                                <th><strong>ABR_LTE_B4_AWS</strong></th>
+                                                <th><strong>ABR_LTE_B7_2600</strong></th>
+                                                <th><strong>ABR_LTE_B38_2600</strong></th>
+                                                <th><strong>ABR_5G_B7_2600</strong></th>
+                                                <th><strong>ABR_5G_B38_2600</strong></th>
+                                                <th><strong>ABR_COMENTARIO_OPERACIONES</strong></th>
+                                                <th><strong>ABR_PLAN</strong></th>
+                                                <th><strong>MAY_3G_B5_850</strong></th>
+                                                <th><strong>MAY_3G_B2_PCS</strong></th>
+                                                <th><strong>MAY_3G_B4_AWS</strong></th>
+                                                <th><strong>MAY_LTE_B26_800</strong></th>
+                                                <th><strong>MAY_LTE_B5_850</strong></th>
+                                                <th><strong>MAY_LTE_B2_PCS</strong></th>
+                                                <th><strong>MAY_LTE_B4_AWS</strong></th>
+                                                <th><strong>MAY_LTE_B7_2600</strong></th>
+                                                <th><strong>MAY_LTE_B38_2600</strong></th>
+                                                <th><strong>MAY_5G_B7_2600</strong></th>
+                                                <th><strong>MAY_5G_B38_2600</strong></th>
+                                                <th><strong>MAY_COMENTARIO_OPERACIONES</strong></th>
+                                                <th><strong>MAY_PLAN</strong></th>
+                                                <th><strong>JUN_3G_B5_850</strong></th>
+                                                <th><strong>JUN_3G_B2_PCS</strong></th>
+                                                <th><strong>JUN_3G_B4_AWS</strong></th>
+                                                <th><strong>JUN_LTE_B26_800</strong></th>
+                                                <th><strong>JUN_LTE_B5_850</strong></th>
+                                                <th><strong>JUN_LTE_B2_PCS</strong></th>
+                                                <th><strong>JUN_LTE_B4_AWS</strong></th>
+                                                <th><strong>JUN_LTE_B7_2600</strong></th>
+                                                <th><strong>JUN_LTE_B38_2600</strong></th>
+                                                <th><strong>JUN_5G_B7_2600</strong></th>
+                                                <th><strong>JUN_5G_B38_2600</strong></th>
+                                                <th><strong>JUN_COMENTARIO_OPERACIONES</strong></th>
+                                                <th><strong>JUN_PLAN</strong></th>
+                                                <th><strong>JUL_3G_B5_850</strong></th>
+                                                <th><strong>JUL_3G_B2_PCS</strong></th>
+                                                <th><strong>JUL_3G_B4_AWS</strong></th>
+                                                <th><strong>JUL_LTE_B26_800</strong></th>
+                                                <th><strong>JUL_LTE_B5_850</strong></th>
+                                                <th><strong>JUL_LTE_B2_PCS</strong></th>
+                                                <th><strong>JUL_LTE_B4_AWS</strong></th>
+                                                <th><strong>JUL_LTE_B7_2600</strong></th>
+                                                <th><strong>JUL_LTE_B38_2600</strong></th>
+                                                <th><strong>JUL_5G_B7_2600</strong></th>
+                                                <th><strong>JUL_5G_B38_2600</strong></th>
+                                                <th><strong>JUL_COMENTARIO_OPERACIONES</strong></th>
+                                                <th><strong>JUL_PLAN</strong></th>
+                                                <th><strong>AGO_3G_B5_850</strong></th>
+                                                <th><strong>AGO_3G_B2_PCS</strong></th>
+                                                <th><strong>AGO_3G_B4_AWS</strong></th>
+                                                <th><strong>AGO_LTE_B26_800</strong></th>
+                                                <th><strong>AGO_LTE_B5_850</strong></th>
+                                                <th><strong>AGO_LTE_B2_PCS</strong></th>
+                                                <th><strong>AGO_LTE_B4_AWS</strong></th>
+                                                <th><strong>B7_2600.14</strong></th>
+                                                <th><strong>AGO_LTE_B38_2600</strong></th>
+                                                <th><strong>AGO_LTE_B42_3500</strong></th>
+                                                <th><strong>AGO_5G_B7_2600</strong></th>
+                                                <th><strong>AGO_5G_B38_2600</strong></th>
+                                                <th><strong>AGO_COMENTARIO_OPERACIONES</strong></th>
+                                                <th><strong>AGO_PLAN</strong></th>
+                                                <th><strong>SEP_3G_B5_850</strong></th>
+                                                <th><strong>SEP_3G_B2_PCS</strong></th>
+                                                <th><strong>SEP_3G_B4_AWS</strong></th>
+                                                <th><strong>SEP_LTE_B26_800</strong></th>
+                                                <th><strong>SEP_LTE_B5_850</strong></th>
+                                                <th><strong>SEP_LTE_B2_PCS</strong></th>
+                                                <th><strong>SEP_LTE_B4_AWS</strong></th>
+                                                <th><strong>SEP_LTE_B7_2600</strong></th>
+                                                <th><strong>SEP_LTE_B38_2600</strong></th>
+                                                <th><strong>SEP_LTE_B42_3500</strong></th>
+                                                <th><strong>SEP_5G_B7_2600</strong></th>
+                                                <th><strong>SEP_5G_B38_2600</strong></th>
+                                                <th><strong>SEP_COMENTARIO_OPERACIONES</strong></th>
+                                                <th><strong>SEP_PLAN</strong></th>
+                                                <th><strong>OCT_3G_B5_850</strong></th>
+                                                <th><strong>OCT_3G_B2_PCS</strong></th>
+                                                <th><strong>OCT_3G_B4_AWS</strong></th>
+                                                <th><strong>OCT_LTE_B26_800</strong></th>
+                                                <th><strong>OCT_LTE_B5_850</strong></th>
+                                                <th><strong>OCT_LTE_B2_PCS</strong></th>
+                                                <th><strong>OCT_LTE_B4_AWS</strong></th>
+                                                <th><strong>OCT_LTE_B7_2600</strong></th>
+                                                <th><strong>OCT_LTE_B38_2600</strong></th>
+                                                <th><strong>OCT_LTE_B42_3500</strong></th>
+                                                <th><strong>OCT_5G_B7_2600</strong></th>
+                                                <th><strong>OCT_5G_B38_2600</strong></th>
+        
+                                            </tr>
+                                        </thead>
+                                        {% else %}
+                                    <div><h1>No Existen Sitios Registrados</h1></div>
+                                    {% endif %}
+                                    <tbody>
+                                        {% for s in entity %}
+                                        <tr>
+                                            <td>{{s.TRACKER}}</td>
+                                            <td>{{s.S_ATT_ID}}</td>
+                                            <td>{{s.NOMBRE}}</td>
+                                            <td>{{s.ID_LITE}}</td>
+                                            <td>{{s.ID_ROJO}}</td>
+                                            <td>{{s.ID_NARANJA}}</td>
+                                            <td>{{s.IDEN}}</td>
+                                            <td>{{s.LATITUD}}</td>
+                                            <td>{{s.LONGITUD}}</td>
+                                            <td>{{s.ESTADO}}</td>
+                                            <td>{{s.MUNICIPIO}}</td>
+                                            <td>{{s.MERCADO}}</td>
+                                            <td>{{s.REGION_CELULAR}}</td>
+                                            <td>{{s.REGION}}</td>
+                                            <td>{{s.VENDOR}}</td>
+                                            <td>{{s.COBERTURA}}</td>
+                                            <td>{{s.TIPO}}</td>
+                                            <td>{{s.PROYECTO}}</td>
+                                            <td>{{s.CLASIFICACION}}</td>
+                                            <td>{{s.TECNOLOGIA}}</td>
+                                            <td>{{s.CONFIGURACION_3G}}</td>
+                                            <td>{{s.CONFIGURACION_4G}}</td>
+                                            <td>{{s.CONFIGURACION_5G}}</td>
+                                            <td>{{s.IOT}}</td>
+                                            <td>{{s.TDD}}</td>
+                                            <td>{{s.TRAFICO_3G_LTE_5G}}</td>
+                                            <td>{{s.TRAFICO_3G}}</td>
+                                            <td>{{s.TRAFICO_4G}}</td>
+                                            <td>{{s.TRAFICO_5G}}</td>
+                                            <td>{{s.SL}}</td>
+                                            <td>{{s.REUBICACION}}</td>
+                                            <td>{{s.NOTAS}}</td>
+                                            <td>{{s.COMENTARIO_OPERACIONES}}</td>
+                                            <td>{{s.PLAN}}</td>
+                                            <td>{{s.ENE_3G_B5_850}}</td>
+                                            <td>{{s.ENE_3G_B2_PCS}}</td>
+                                            <td>{{s.ENE_3G_B4_AWS}}</td>
+                                            <td>{{s.ENE_LTE_B26_800}}</td>
+                                            <td>{{s.ENE_LTE_B5_850}}</td>
+                                            <td>{{s.ENE_LTE_B2_PCS}}</td>
+                                            <td>{{s.ENE_LTE_B4_AWS}}</td>
+                                            <td>{{s.ENE_LTE_B7_2600}}</td>
+                                            <td>{{s.ENE_LTE_B38_2600}}</td>
+                                            <td>{{s.ENE_5G_B7_2600}}</td>
+                                            <td>{{s.ENE_5G_B38_2600}}</td>
+                                            <td>{{s.ENE_COMENTARIO_OPERACIONES}}</td>
+                                            <td>{{s.ENE_PLAN}}</td>
+                                            <td>{{s.FEB_3G_B5_850}}</td>
+                                            <td>{{s.FEB_3G_B2_PCS}}</td>
+                                            <td>{{s.FEB_3G_B4_AWS}}</td>
+                                            <td>{{s.FEB_LTE_B26_800}}</td>
+                                            <td>{{s.FEB_LTE_B5_850}}</td>
+                                            <td>{{s.FEB_LTE_B2_PCS}}</td>
+                                            <td>{{s.FEB_LTE_B4_AWS}}</td>
+                                            <td>{{s.FEB_LTE_B7_2600}}</td>
+                                            <td>{{s.FEB_LTE_B38_2600}}</td>
+                                            <td>{{s.FEB_5G_B7_2600}}</td>
+                                            <td>{{s.FEB_5G_B38_2600}}</td>
+                                            <td>{{s.FEB_COMENTARIO_OPERACIONES}}</td>
+                                            <td>{{s.FEB_PLAN}}</td>
+                                            <td>{{s.MAR_3G_B5_850}}</td>
+                                            <td>{{s.MAR_3G_B2_PCS}}</td>
+                                            <td>{{s.MAR_3G_B4_AWS}}</td>
+                                            <td>{{s.MAR_LTE_B26_800}}</td>
+                                            <td>{{s.MAR_LTE_B5_850}}</td>
+                                            <td>{{s.MAR_LTE_B2_PCS}}</td>
+                                            <td>{{s.MAR_LTE_B4_AWS}}</td>
+                                            <td>{{s.MAR_LTE_B7_2600}}</td>
+                                            <td>{{s.MAR_LTE_B38_2600}}</td>
+                                            <td>{{s.MAR_5G_B7_2600}}</td>
+                                            <td>{{s.MAR_5G_B38_2600}}</td>
+                                            <td>{{s.MAR_COMENTARIO_OPERACIONES}}</td>
+                                            <td>{{s.MAR_PLAN}}</td>
+                                            <td>{{s.ABR_3G_B5_850}}</td>
+                                            <td>{{s.ABR_3G_B2_PCS}}</td>
+                                            <td>{{s.ABR_3G_B4_AWS}}</td>
+                                            <td>{{s.ABR_LTE_B26_800}}</td>
+                                            <td>{{s.ABR_LTE_B5_850}}</td>
+                                            <td>{{s.ABR_LTE_B2_PCS}}</td>
+                                            <td>{{s.ABR_LTE_B4_AWS}}</td>
+                                            <td>{{s.ABR_LTE_B7_2600}}</td>
+                                            <td>{{s.ABR_LTE_B38_2600}}</td>
+                                            <td>{{s.ABR_5G_B7_2600}}</td>
+                                            <td>{{s.ABR_5G_B38_2600}}</td>
+                                            <td>{{s.ABR_COMENTARIO_OPERACIONES}}</td>
+                                            <td>{{s.ABR_PLAN}}</td>
+                                            <td>{{s.MAY_3G_B5_850}}</td>
+                                            <td>{{s.MAY_3G_B2_PCS}}</td>
+                                            <td>{{s.MAY_3G_B4_AWS}}</td>
+                                            <td>{{s.MAY_LTE_B26_800}}</td>
+                                            <td>{{s.MAY_LTE_B5_850}}</td>
+                                            <td>{{s.MAY_LTE_B2_PCS}}</td>
+                                            <td>{{s.MAY_LTE_B4_AWS}}</td>
+                                            <td>{{s.MAY_LTE_B7_2600}}</td>
+                                            <td>{{s.MAY_LTE_B38_2600}}</td>
+                                            <td>{{s.MAY_5G_B7_2600}}</td>
+                                            <td>{{s.MAY_5G_B38_2600}}</td>
+                                            <td>{{s.MAY_COMENTARIO_OPERACIONES}}</td>
+                                            <td>{{s.MAY_PLAN}}</td>
+                                            <td>{{s.JUN_3G_B5_850}}</td>
+                                            <td>{{s.JUN_3G_B2_PCS}}</td>
+                                            <td>{{s.JUN_3G_B4_AWS}}</td>
+                                            <td>{{s.JUN_LTE_B26_800}}</td>
+                                            <td>{{s.JUN_LTE_B5_850}}</td>
+                                            <td>{{s.JUN_LTE_B2_PCS}}</td>
+                                            <td>{{s.JUN_LTE_B4_AWS}}</td>
+                                            <td>{{s.JUN_LTE_B7_2600}}</td>
+                                            <td>{{s.JUN_LTE_B38_2600}}</td>
+                                            <td>{{s.JUN_5G_B7_2600}}</td>
+                                            <td>{{s.JUN_5G_B38_2600}}</td>
+                                            <td>{{s.JUN_COMENTARIO_OPERACIONES}}</td>
+                                            <td>{{s.JUN_PLAN}}</td>
+                                            <td>{{s.JUL_3G_B5_850}}</td>
+                                            <td>{{s.JUL_3G_B2_PCS}}</td>
+                                            <td>{{s.JUL_3G_B4_AWS}}</td>
+                                            <td>{{s.JUL_LTE_B26_800}}</td>
+                                            <td>{{s.JUL_LTE_B5_850}}</td>
+                                            <td>{{s.JUL_LTE_B2_PCS}}</td>
+                                            <td>{{s.JUL_LTE_B4_AWS}}</td>
+                                            <td>{{s.JUL_LTE_B7_2600}}</td>
+                                            <td>{{s.JUL_LTE_B38_2600}}</td>
+                                            <td>{{s.JUL_5G_B7_2600}}</td>
+                                            <td>{{s.JUL_5G_B38_2600}}</td>
+                                            <td>{{s.JUL_COMENTARIO_OPERACIONES}}</td>
+                                            <td>{{s.JUL_PLAN}}</td>
+                                            <td>{{s.AGO_3G_B5_850}}</td>
+                                            <td>{{s.AGO_3G_B2_PCS}}</td>
+                                            <td>{{s.AGO_3G_B4_AWS}}</td>
+                                            <td>{{s.AGO_LTE_B26_800}}</td>
+                                            <td>{{s.AGO_LTE_B5_850}}</td>
+                                            <td>{{s.AGO_LTE_B2_PCS}}</td>
+                                            <td>{{s.AGO_LTE_B4_AWS}}</td>
+                                            <td>{{s.B7_2600.14}}</td>
+                                            <td>{{s.AGO_LTE_B38_2600}}</td>
+                                            <td>{{s.AGO_LTE_B42_3500}}</td>
+                                            <td>{{s.AGO_5G_B7_2600}}</td>
+                                            <td>{{s.AGO_5G_B38_2600}}</td>
+                                            <td>{{s.AGO_COMENTARIO_OPERACIONES}}</td>
+                                            <td>{{s.AGO_PLAN}}</td>
+                                            <td>{{s.SEP_3G_B5_850}}</td>
+                                            <td>{{s.SEP_3G_B2_PCS}}</td>
+                                            <td>{{s.SEP_3G_B4_AWS}}</td>
+                                            <td>{{s.SEP_LTE_B26_800}}</td>
+                                            <td>{{s.SEP_LTE_B5_850}}</td>
+                                            <td>{{s.SEP_LTE_B2_PCS}}</td>
+                                            <td>{{s.SEP_LTE_B4_AWS}}</td>
+                                            <td>{{s.SEP_LTE_B7_2600}}</td>
+                                            <td>{{s.SEP_LTE_B38_2600}}</td>
+                                            <td>{{s.SEP_LTE_B42_3500}}</td>
+                                            <td>{{s.SEP_5G_B7_2600}}</td>
+                                            <td>{{s.SEP_5G_B38_2600}}</td>
+                                            <td>{{s.SEP_COMENTARIO_OPERACIONES}}</td>
+                                            <td>{{s.SEP_PLAN}}</td>
+                                            <td>{{s.OCT_3G_B5_850}}</td>
+                                            <td>{{s.OCT_3G_B2_PCS}}</td>
+                                            <td>{{s.OCT_3G_B4_AWS}}</td>
+                                            <td>{{s.OCT_LTE_B26_800}}</td>
+                                            <td>{{s.OCT_LTE_B5_850}}</td>
+                                            <td>{{s.OCT_LTE_B2_PCS}}</td>
+                                            <td>{{s.OCT_LTE_B4_AWS}}</td>
+                                            <td>{{s.OCT_LTE_B7_2600}}</td>
+                                            <td>{{s.OCT_LTE_B38_2600}}</td>
+                                            <td>{{s.OCT_LTE_B42_3500}}</td>
+                                            <td>{{s.OCT_5G_B7_2600}}</td>
+                                            <td>{{s.OCT_5G_B38_2600}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div>
+                                {% include 'sitios/paginator.html'%}
                             </div>
                         </div>
                     </div>
-                    <!--End::row-1 -->
                 </div>
-             
+              
             </div>
-            <div>
-				{% include 'sitios/paginator.html'%}
-			</div>
         </div>
     <script src="/static/js/jquery.min.js"></script>
    

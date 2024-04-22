@@ -8,6 +8,8 @@ urlpatterns = [
     path('cargarFiltroSitios/', views.cargarFiltroSitios, name='cargarFiltroSitios'),
     path('listarSitios/', views.listarSitios, name='listarSitios'),
     path('crearSitios/', views.crearSitios, name='crearSitios'),
+    path('mapas/', views.mapas, name='mapas'),
+    path('reportes/', views.reportes, name='reportes'),
     path('editarSitios/<str:S_ATT_ID>', views.editarSitios, name='editarSitios'),
     
     path('cargarFO/', views.cargarFO, name='cargarFO'),
