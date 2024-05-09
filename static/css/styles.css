@@ -1,68 +1,4 @@
-/*------------------------------------------------------------------
-[Master Stylesheet]
 
-Project                            :   YNEX - HTML5 Bootstrap Admin Template
-Create Date                        :   
-Author & Copyright Ownership       :   Spruko Technologies Private Limited 
-Author URL                         :   https://themeforest.net/user/spruko
-Support	                           :   https://support.spruko.com/
-License Details                    :   https://spruko.com/licenses-details
-------------------------------------------------------------------*/
-/* Table Of Content 
-variables
-switcher
-accordion
-alerts
-badge
-buttons
-cards
-dropdown
-forms
-input_group
-list_group
-modals
-navbar
-navs_tabs
-pagination
-popovers
-progress
-tables
-toast
-tooltips
-authentication
-custom
-dashboard_styles
-error
-header
-image
-plugins
-widgets
-sign-up
-closed_menu
-detached_menu
-double_menu
-horizontal
-icon_click
-icon_hover
-icon_overlay
-icontext
-menu_click
-menu_hover
-vertical
-chat
-ecommerce
-file-manager
-landing
-mail
-task
-avatars
-background
-border
-opacity
-typography
-*/
-/* FONT */
-/* inter */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 /* Montserrat */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap");
@@ -143,23 +79,7 @@ typography
   --black-9:	rgba(0,0,0, 0.9);
 }
 
-/*Font Family*/
-/*Font Size*/
-/*Font Weight*/
-/*Body & Text colors*/
-/*Default Background Color*/
-/*Border Color*/
-/*Border Radius*/
-/*Box Shadow*/
-/* Header Variables */
-/*Menu Variables*/
-/*Color Variables*/
-/* social icons colors */
-/*gradient variables*/
-/*gray set*/
-/*white set*/
-/*black set*/
-/* dark mode */
+
 [data-theme-mode=dark] {
   --body-bg-rgb:	26, 28, 30;
   --body-bg-rgb2:	37, 39, 41;

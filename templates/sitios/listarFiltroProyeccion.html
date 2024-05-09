@@ -12,21 +12,21 @@
                 <div class="card custom-card">
                     <div class="card-header d-flex align-items-center justify-content-between flex-wrap gap-3">
                         <div class="card-title">
-                            Fibra Optica<span class="badge bg-light text-default rounded ms-1 fs-12 align-middle"></span>
+                            Proyección<span class="badge bg-light text-default rounded ms-1 fs-12 align-middle"></span>
                         </div>
                         <div class="d-flex flex-wrap gap-2">
                             <a href="{% url 'index' %}">
                                 <button class="btn btn-secondary-light btn-wav">Inicio</button>
                             </a>
-                            <a href="{% url 'listarFiltroFO' %}">
-                            <button class="btn btn-secondary-light btn-wav">Listar Fibra Óptica</button>
+                            <a href="{% url 'listarFiltroProyeccion' %}">
+                            <button class="btn btn-secondary-light btn-wav">Listar Proyección</button>
                             </a>
-                            <a href="{% url 'cargarFiltroFO' %}"> 
-                            <button class="btn btn-secondary-light btn-wav">Cargar Fibra Optica</button>
+                            <a href="{% url 'cargarFiltroProyeccion' %}"> 
+                            <button class="btn btn-secondary-light btn-wav">Cargar Proyección</button>
                             </a> 
                             
                             <a href="{% url 'crearSitios' %}">
-                               <button class="btn btn-secondary-light btn-wav">Crear Fibra Optica</button>
+                               <button class="btn btn-secondary-light btn-wav">Crear Proyección</button>
                             </a>
                             <button class="btn btn-secondary-light btn-wav">Exportar CSV</button>
                             <a href="{% url 'mapas' %}">
@@ -49,39 +49,33 @@
                             {%if entity %}
                             <table   class="table text-nowrap table-bordered">
                                 <tr>
-                                    <th><strong>ATT ID</strong></th>  	
-                                    <th><strong>TX</strong></th>  	  	
-                                    <th><strong>GRUPOS</strong></th>  	  	
-                                    <th><strong>DETALLE</strong></th>  	  	
-                                    <th><strong>CONTROL</strong></th>  	  	
-                                    <th><strong>FECHA</strong></th>  	  	
-                                    <th><strong>POC</strong></th>  		 	
-                                    <th><strong>AÑO</strong></th>  		 	
-                                    <th><strong>PROYECTO</strong></th>  	  	
-                                    <th><strong>TOPOLOGIA</strong></th>  	  	
-                                    <th><strong>SEGMENTO_IPBH</strong></th>  	  	
-                                    <th><strong>STATUS</strong></th>  	  
-                                    <th><strong>ACTIONS</strong></th>  	  
+                                    <th><strong>ID ATT</strong></th>  
+                                    <th><strong>TX</strong></th>  
+                                    <th><strong>GRUPOS</strong></th>  
+                                    <th><strong>DETALLE</strong></th>  
+                                    <th><strong>CONTROL</strong></th>  
+                                    <th><strong>FECHA</strong></th>  
+                                    <th><strong>PROYECTO</strong></th>  
+                                    <th><strong>TOPOLOGIA</strong></th>  
+                                    <th><strong>STATUS</strong></th>  
+                                    <th><strong>ACTIONS</strong></th>  
       
                                 </tr>
                                 {% else %}
                             <div><h1>No Existen Sitios Registrados</h1></div>
                             {% endif %}
                             <tbody>
-                                {% for f in entity %}
+                                {% for p in entity %}
                                 <tr>
-                                    <td>{{f.ID_ATT_F}}</td>  	
-                                    <td>{{f.TX}}</td>  	  	
-                                    <td>{{f.TX_GRUPOS}}</td>  	  	
-                                    <td>{{f.TX_DETALLE}}</td>  	  	
-                                    <td>{{f.CONTROL}}</td>  	  	
-                                    <td>{{f.FECHA}}</td>  	  	
-                                    <td>{{f.POC}}</td>  		 	
-                                    <td>{{f.AÑO}}</td>  		 	
-                                    <td>{{f.PROYECTO}}</td>  	  	
-                                    <td>{{f.TOPOLOGIA}}</td>  	  	
-                                    <td>{{f.SEGMENTO_IPBH}}</td>  	  	
-                                    <td>{{f.STATUS}}</td>  	  
+                                    <td>{{p.ID_ATT_P}}</td>  	
+                                    <td>{{p.TX}}</td>  	  	
+                                    <td>{{p.TX_GRUPOS_PROYECCION}}</td>  	  	
+                                    <td>{{p.TX_DETALLE_PROYECCION}}</td>  	  	
+                                    <td>{{p.CONTROL}}</td>  	  	
+                                    <td>{{p.FECHA}}</td>  	  	
+                                    <td>{{p.PROYECTO}}</td>  	  	
+                                    <td>{{p.TOPOLOGIA}}</td>  	  	
+                                    <td>{{p.STATUS}}</td>  	  
                                     <td>
                                         <div class="hstack gap-2 fs-15">
                                             <a href="javascript:void(0);" class="btn btn-teal-light btn-wave"><i class="bx bx-show"></i></a>

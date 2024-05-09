@@ -12,21 +12,21 @@
                 <div class="card custom-card">
                     <div class="card-header d-flex align-items-center justify-content-between flex-wrap gap-3">
                         <div class="card-title">
-                            Fibra Optica<span class="badge bg-light text-default rounded ms-1 fs-12 align-middle"></span>
+                            Agregadores<span class="badge bg-light text-default rounded ms-1 fs-12 align-middle"></span>
                         </div>
                         <div class="d-flex flex-wrap gap-2">
                             <a href="{% url 'index' %}">
                                 <button class="btn btn-secondary-light btn-wav">Inicio</button>
                             </a>
-                            <a href="{% url 'listarFiltroFO' %}">
-                            <button class="btn btn-secondary-light btn-wav">Listar Fibra Óptica</button>
+                            <a href="{% url 'listarFiltroAGG' %}">
+                            <button class="btn btn-secondary-light btn-wav">Listar Agregadores</button>
                             </a>
-                            <a href="{% url 'cargarFiltroFO' %}"> 
-                            <button class="btn btn-secondary-light btn-wav">Cargar Fibra Optica</button>
+                            <a href="{% url 'cargarFiltroAGG' %}"> 
+                            <button class="btn btn-secondary-light btn-wav">Cargar Agregadores</button>
                             </a> 
                             
-                            <a href="{% url 'crearSitios' %}">
-                               <button class="btn btn-secondary-light btn-wav">Crear Fibra Optica</button>
+                            <a href="{% url 'cargarAGG' %}">
+                               <button class="btn btn-secondary-light btn-wav">Crear Agregadores</button>
                             </a>
                             <button class="btn btn-secondary-light btn-wav">Exportar CSV</button>
                             <a href="{% url 'mapas' %}">
@@ -48,51 +48,54 @@
                         <div id="table-scroll" class="table-responsive">
                             {%if entity %}
                             <table   class="table text-nowrap table-bordered">
+                            <thead>
                                 <tr>
-                                    <th><strong>ATT ID</strong></th>  	
-                                    <th><strong>TX</strong></th>  	  	
-                                    <th><strong>GRUPOS</strong></th>  	  	
-                                    <th><strong>DETALLE</strong></th>  	  	
-                                    <th><strong>CONTROL</strong></th>  	  	
-                                    <th><strong>FECHA</strong></th>  	  	
-                                    <th><strong>POC</strong></th>  		 	
-                                    <th><strong>AÑO</strong></th>  		 	
-                                    <th><strong>PROYECTO</strong></th>  	  	
-                                    <th><strong>TOPOLOGIA</strong></th>  	  	
-                                    <th><strong>SEGMENTO_IPBH</strong></th>  	  	
-                                    <th><strong>STATUS</strong></th>  	  
-                                    <th><strong>ACTIONS</strong></th>  	  
-      
+                                    <th><strong>ID ATT </strong></th>  		
+                                    <th><strong>TX</strong></th>  	
+                                    <th><strong>GRUPOS</strong></th>  	
+                                    <th><strong>DETALLE</strong></th>  	
+                                    <th><strong>CONTROL</strong></th>  	
+                                    <th><strong>FECHA</strong></th>  	
+                                    <th><strong>POC</strong></th>	 	
+                                    <th><strong>MERCADO_FO</strong></th>  	
+                                    <th><strong>AÑO</strong></th>	 	
+                                    <th><strong>PROYECTO</strong></th>  	
+                                    <th><strong>TOPOLOGIA</strong></th>  	
+                                    <th><strong>SEGMENTO_IPBH</strong></th>  	
+                                    <th><strong>STATUS</strong></th>  	
+                                    <th><strong>ACTIONS</strong></th>  	
                                 </tr>
-                                {% else %}
+                            </thead>
+                            {% else %}
                             <div><h1>No Existen Sitios Registrados</h1></div>
                             {% endif %}
                             <tbody>
-                                {% for f in entity %}
+                                {% for a in entity %}
                                 <tr>
-                                    <td>{{f.ID_ATT_F}}</td>  	
-                                    <td>{{f.TX}}</td>  	  	
-                                    <td>{{f.TX_GRUPOS}}</td>  	  	
-                                    <td>{{f.TX_DETALLE}}</td>  	  	
-                                    <td>{{f.CONTROL}}</td>  	  	
-                                    <td>{{f.FECHA}}</td>  	  	
-                                    <td>{{f.POC}}</td>  		 	
-                                    <td>{{f.AÑO}}</td>  		 	
-                                    <td>{{f.PROYECTO}}</td>  	  	
-                                    <td>{{f.TOPOLOGIA}}</td>  	  	
-                                    <td>{{f.SEGMENTO_IPBH}}</td>  	  	
-                                    <td>{{f.STATUS}}</td>  	  
+                                    <td>{{a.ATT_ID_A}}</td>  		
+                                    <td>{{a.TX}}</td>  	
+                                    <td>{{a.TX_GRUPOS_AGG}}</td>  	
+                                    <td>{{a.TX_DETALLE_AGG}}</td>  	
+                                    <td>{{a.CONTROL}}</td>  	
+                                    <td>{{a.FECHA}}</td>  	
+                                    <td>{{a.POC}}</td>	 	
+                                    <td>{{a.MERCADO_FO}}</td>  	
+                                    <td>{{a.AÑO}}</td>	 	
+                                    <td>{{a.PROYECTO}}</td>  	
+                                    <td>{{a.TOPOLOGIA}}</td>  	
+                                    <td>{{a.SEGMENTO_IPBH}}</td>  	
+                                    <td>{{a.TX_FO}}</td>  
                                     <td>
                                         <div class="hstack gap-2 fs-15">
                                             <a href="javascript:void(0);" class="btn btn-teal-light btn-wave"><i class="bx bx-show"></i></a>
                                             <a href="{% url 'crearSitios'%}" class="btn btn-secondary-light btn-wave"><i class="bx bx-plus"></i></a>
                                             <a href="javascript:void(0);" class="btn btn-orange-light btn-wave"><i class="bx bx-pencil"></i></a>
                                         </div>
-                                    </td>
+                                    </td>	
                                 </tr>
                                 {% endfor %}
                             </tbody>
-                            </table>
+                        </table>
                         </div>
                     </div>
                     <div>

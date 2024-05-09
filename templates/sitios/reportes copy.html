@@ -41,40 +41,37 @@
                                     <div class="card-title">Chartjs Line Chart</div>
                                 </div>
                                 <div class="card-body">
-                                   <div id="myChart">
+                                   <div>
+                                         <canvas id="myChart" width="50" height="50"></canvas>
                                    </div>
                                 </div>
                              </div>
                            </div>        
 
                           
-                           <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+                          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                           
                           <script>
-                           var options = {
-                                        chart: {
-                                            type: 'bar'
-                                        },
-                                        series: [{
-                                            name: 'FO, asdasd',
-                                            data: {{fo_tx|safe}}
-                                        },
-                                        {
-                                            name: 'ipbh',
-                                            data: {{fo_txdetalle|safe}},
-                                        },
-                                        {
-                                            name: 'Mercado',
-                                            data: {{fo_mercado|safe}},
-                                        }],
-                                        xaxis: {
-                                            categories: ['FO','IPBH','Mercado']
-                                        }
-                                        }
-
-                                        var chart = new ApexCharts(document.querySelector('#myChart'), options);
-
-                                        chart.render();
+                            const ctx = document.getElementById('myChart');
+                          
+                            new Chart(ctx, {
+                              type: 'bar',
+                              data: {
+                                labels: [{% for f in fo_titulo %} '{{f}}', {% endfor %}],
+                                datasets: [{
+                                  label: '# Fobra Optica',
+                                  data: [{% for n in fo_c %} '{{n}}', {% endfor %}],
+                                  borderWidth: 1
+                                }]
+                              },
+                              options: {
+                                scales: {
+                                  y: {
+                                    beginAtZero: true
+                                  }
+                                }
+                              }
+                            });
                           </script>
                 </div>
         </div>

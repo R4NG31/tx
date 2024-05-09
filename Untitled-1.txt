@@ -4,3 +4,5 @@ empaquetar contenedor
 
 podman save localhost/txserver0.0 -o  tx.tar.gz
 sudo podman load -i tx.tar.gz
+git branch -M main    
+git push -u origin main  

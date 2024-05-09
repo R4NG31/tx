@@ -4,7 +4,7 @@
     /* line&column chart */
     var options = {
         series: [{
-            name: 'Website Blog',
+            name: 'TX',
             type: 'column',
             data: data
         }, {

@@ -14,19 +14,19 @@ urlpatterns = [
     
     path('cargarFO/', views.cargarFO, name='cargarFO'),
     path('cargarFiltroFO/', views.cargarFiltroFO, name='cargarFiltroFO'),
-    path('listarFO/', views.listarFO, name='listarFO'),
+    path('listarFiltroFO/', views.listarFiltroFO, name='listarFiltroFO'),
     
-    path('listarAGG/', views.listarAGG, name='listarAGG'),
+    path('listarFiltroAGG/', views.listarFiltroAGG, name='listarFiltroAGG'),
     path('cargarAGG/', views.cargarAGG, name='cargarAGG'),
     path('cargarFiltroAGG/', views.cargarFiltroAGG, name='cargarFiltroAGG'),
    
     path('cargarProyeccion/', views.cargarProyeccion, name='cargarProyeccion'),
     path('cargarFiltroProyeccion/', views.cargarFiltroProyeccion, name='cargarFiltroProyeccion'),
-    path('listarProyeccion/', views.listarProyeccion, name='listarProyeccion'),
+    path('listarFiltroProyeccion/', views.listarFiltroProyeccion, name='listarFiltroProyeccion'),
 
     path('cargarMigracion/', views.cargarMigracion, name='cargarMigracion'),
     path('cargarFiltroMigracion/', views.cargarFiltroMigracion, name='cargarFiltroMigracion'),
-    path('listarMigracion/', views.listarMigracion, name='listarMigracion'),
+    path('listarFiltroMigracion/', views.listarFiltroMigracion, name='listarFiltroMigracion'),
 
 
     path('cargarMicroondas/', views.cargarMicroondas, name='cargarMicroondas'),

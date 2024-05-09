@@ -1,1015 +1,532 @@
 {% extends "layout/base.html" %}
 {% block content %}
 <div class="content-body">
-  <div class="container-fluid">
-
-    <div class="row">
-      <div class="col-xl-12 col-xxl-12">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title">Agregar Sitio</h2>
-          </div>
-          <div class="card-body">
-            <div class="basic-form">
-              <form class="d-flex align-items-center" novalidate="">
-                {% csrf_token %}
-                <div class="row">
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">TRACKER</label>
-                    <div>{{sitios_form.TRACKER}}</div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ATT ID</label>
-                    <div>{{sitios_form.S_ATT_ID}}</div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">NOMBRE</label>
-                    <div>
-                      {{sitios_form.NOMBRE}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ID LITE</label>
-                    <div>
-                      {{sitios_form.ID_LITE}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ID ROJO</label>
-                    <div>
-                      {{sitios_form.ID_ROJO}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ID NARANJA</label>
-                    <div>
-                      {{sitios_form.ID_NARANJA}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">IDEN</label>
-                    <div>
-                      {{sitios_form.IDEN}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">LATITUD</label>
-                    <div>
-                      {{sitios_form.LATITUD}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">LONGITUD</label>
-                    <div>
-                      {{sitios_form.LONGITUD}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ESTADO</label>
-                    <div>
-                      {{sitios_form.ESTADO}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MUNICIPIO</label>
-                    <div>
-                      {{sitios_form.MUNICIPIO}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MERCADO</label>
-                    <div>
-                      {{sitios_form.MERCADO}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">REGION CELULAR</label>
-                    <div>
-                      {{sitios_form.REGION_CELULAR}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">VENDOR</label>
-                    <div>
-                      {{sitios_form.VENDOR}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">COBERTURA</label>
-                    <div>
-                      {{sitios_form.COBERTURA}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">TIPO</label>
-                    <div>
-                      {{sitios_form.TIPO}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">PROYECTO</label>
-                    <div>
-                      {{sitios_form.PROYECTO}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">CLASIFICACION</label>
-                    <div>
-                      {{sitios_form.CLASIFICACION}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">TECNOLOGIA</label>
-                    <div>
-                      {{sitios_form.TECNOLOGIA}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">CONFIGURACION 3G</label>
-                    <div>
-                      {{sitios_form.CONFIGURACION_3G}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">CONFIGURACION 4G</label>
-                    <div>
-                      {{sitios_form.CONFIGURACION_4G}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">CONFIGURACION 5G</label>
-                    <div>
-                      {{sitios_form.CONFIGURACION_5G}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">IOT</label>
-                    <div>
-                      {{sitios_form.IOT}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">TDD</label>
-                    <div>
-                      {{sitios_form.TDD}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">TRAFICO 3G LTE 5G</label>
-                    <div>
-                      {{sitios_form.TRAFICO_3G_LTE_5G}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">TRAFICO 3G</label>
-                    <div>
-                      {{sitios_form.TRAFICO_3G}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">TRAFICO 4G</label>
-                    <div>
-                      {{sitios_form.TRAFICO_4G}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">TRAFICO 5G</label>
-                    <div>
-                      {{sitios_form.TRAFICO_5G}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SL</label>
-                    <div>
-                      {{sitios_form.SL}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">REUBICACION</label>
-                    <div>
-                      {{sitios_form.REUBICACION}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">COMENTARIO OPERACIONES</label>
-                    <div>
-                      {{sitios_form.COMENTARIO_OPERACIONES}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">PLAN</label>
-                    <div>
-                      {{sitios_form.PLAN}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ENE_3G_B5_850</label>
-                    <div>
-                      {{sitios_form.ENE_3G_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ENE_3G_B2_PCS</label>
-                    <div>
-                      {{sitios_form.ENE_3G_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ENE_3G_B4_AWS</label>
-                    <div>
-                      {{sitios_form.ENE_3G_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ENE_LTE_B26_800</label>
-                    <div>
-                      {{sitios_form.ENE_LTE_B26_800}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ENE_LTE_B5_850</label>
-                    <div>
-                      {{sitios_form.ENE_LTE_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ENE_LTE_B2_PCS</label>
-                    <div>
-                      {{sitios_form.ENE_LTE_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ENE_LTE_B4_AWS</label>
-                    <div>
-                      {{sitios_form.ENE_LTE_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ENE_LTE_B7_2600</label>
-                    <div>
-                      {{sitios_form.ENE_LTE_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ENE_LTE_B38_2600</label>
-                    <div>
-                      {{sitios_form.ENE_LTE_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ENE_5G_B7_2600</label>
-                    <div>
-                      {{sitios_form.ENE_5G_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ENE_5G_B38_2600</label>
-                    <div>
-                      {{sitios_form.ENE_5G_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ENE_COMENTARIO_OPERACIONES</label>
-                    <div>
-                      {{sitios_form.ENE_COMENTARIO_OPERACIONES}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ENE_PLAN</label>
-                    <div>
-                      {{sitios_form.ENE_PLAN}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">FEB_3G_B5_850</label>
-                    <div>
-                      {{sitios_form.FEB_3G_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">FEB_3G_B2_PCS</label>
-                    <div>
-                      {{sitios_form.FEB_3G_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">FEB_3G_B4_AWS</label>
-                    <div>
-                      {{sitios_form.FEB_3G_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">FEB_LTE_B26_800</label>
-                    <div>
-                      {{sitios_form.FEB_LTE_B26_800}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">FEB_LTE_B5_850</label>
-                    <div>
-                      {{sitios_form.FEB_LTE_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">FEB_LTE_B2_PCS</label>
-                    <div>
-                      {{sitios_form.FEB_LTE_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">FEB_LTE_B4_AWS</label>
-                    <div>
-                      {{sitios_form.FEB_LTE_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">FEB_LTE_B7_2600</label>
-                    <div>
-                      {{sitios_form.FEB_LTE_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">FEB_LTE_B38_2600</label>
-                    <div>
-                      {{sitios_form.FEB_LTE_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">FEB_5G_B7_2600</label>
-                    <div>
-                      {{sitios_form.FEB_5G_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">FEB_5G_B38_2600</label>
-                    <div>
-                      {{sitios_form.FEB_5G_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">FEB_COMENTARIO_OPERACIONES</label>
-                    <div>
-                      {{sitios_form.FEB_COMENTARIO_OPERACIONES}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">FEB_PLAN</label>
-                    <div>
-                      {{sitios_form.FEB_PLAN}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_3G_B5_850</label>
-                    <div>
-                      {{sitios_form.MAR_3G_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_3G_B2_PCS</label>
-                    <div>
-                      {{sitios_form.MAR_3G_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_3G_B4_AWS</label>
-                    <div>
-                      {{sitios_form.MAR_3G_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_LTE_B26_800</label>
-                    <div>
-                      {{sitios_form.MAR_LTE_B26_800}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_LTE_B5_850</label>
-                    <div>
-                      {{sitios_form.MAR_LTE_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_LTE_B2_PCS</label>
-                    <div>
-                      {{sitios_form.MAR_LTE_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_LTE_B4_AWS</label>
-                    <div>
-                      {{sitios_form.MAR_LTE_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_LTE_B7_2600</label>
-                    <div>
-                      {{sitios_form.MAR_LTE_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_LTE_B38_2600</label>
-                    <div>
-                      {{sitios_form.MAR_LTE_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_5G_B7_2600</label>
-                    <div>
-                      {{sitios_form.MAR_5G_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_5G_B38_2600</label>
-                    <div>
-                      {{sitios_form.MAR_5G_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_5G_B7_2600</label>
-                    <div>
-                      {{sitios_form.MAR_5G_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_COMENTARIO_OPERACIONES</label>
-                    <div>
-                      {{sitios_form.MAR_COMENTARIO_OPERACIONES}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_PLAN</label>
-                    <div>
-                      {{sitios_form.MAR_PLAN}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ABR_3G_B5_850</label>
-                    <div>
-                      {{sitios_form.ABR_3G_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ABR_3G_B2_PCS</label>
-                    <div>
-                      {{sitios_form.ABR_3G_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ABR_3G_B4_AWS</label>
-                    <div>
-                      {{sitios_form.ABR_3G_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAR_5G_B7_2600</label>
-                    <div>
-                      {{sitios_form.MAR_5G_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ABR_LTE_B26_800</label>
-                    <div>
-                      {{sitios_form.ABR_LTE_B26_800}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ABR_LTE_B5_850</label>
-                    <div>
-                      {{sitios_form.ABR_LTE_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ABR_LTE_B2_PCS</label>
-                    <div>
-                      {{sitios_form.ABR_LTE_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ABR_LTE_B4_AWS</label>
-                    <div>
-                      {{sitios_form.ABR_LTE_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ABR_LTE_B7_2600</label>
-                    <div>
-                      {{sitios_form.ABR_LTE_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ABR_LTE_B38_2600</label>
-                    <div>
-                      {{sitios_form.ABR_LTE_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ABR_5G_B7_2600</label>
-                    <div>
-                      {{sitios_form.ABR_5G_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ABR_5G_B38_2600</label>
-                    <div>
-                      {{sitios_form.ABR_5G_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ABR_COMENTARIO_OPERACIONES</label>
-                    <div>
-                      {{sitios_form.ABR_COMENTARIO_OPERACIONES}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">ABR_PLAN</label>
-                    <div>
-                      {{sitios_form.ABR_PLAN}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAY_3G_B5_850</label>
-                    <div>
-                      {{sitios_form.MAY_3G_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAY_3G_B2_PCS</label>
-                    <div>
-                      {{sitios_form.MAY_3G_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAY_3G_B4_AWS</label>
-                    <div>
-                      {{sitios_form.MAY_3G_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAY_LTE_B26_800</label>
-                    <div>
-                      {{sitios_form.MAY_LTE_B26_800}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAY_LTE_B5_850</label>
-                    <div>
-                      {{sitios_form.MAY_LTE_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAY_LTE_B2_PCS</label>
-                    <div>
-                      {{sitios_form.MAY_LTE_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAY_LTE_B4_AWS</label>
-                    <div>
-                      {{sitios_form.MAY_LTE_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAY_LTE_B7_2600</label>
-                    <div>
-                      {{sitios_form.MAY_LTE_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAY_LTE_B38_2600</label>
-                    <div>
-                      {{sitios_form.MAY_LTE_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAY_5G_B7_2600</label>
-                    <div>
-                      {{sitios_form.MAY_5G_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAY_5G_B38_2600</label>
-                    <div>
-                      {{sitios_form.MAY_5G_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAY_COMENTARIO_OPERACIONES</label>
-                    <div>
-                      {{sitios_form.MAY_COMENTARIO_OPERACIONES}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">MAY_PLAN</label>
-                    <div>
-                      {{sitios_form.MAY_PLAN}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUN_3G_B5_850</label>
-                    <div>
-                      {{sitios_form.JUN_3G_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUN_3G_B2_PCS</label>
-                    <div>
-                      {{sitios_form.JUN_3G_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUN_3G_B4_AWS</label>
-                    <div>
-                      {{sitios_form.JUN_3G_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUN_LTE_B26_800</label>
-                    <div>
-                      {{sitios_form.JUN_LTE_B26_800}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUN_LTE_B5_850</label>
-                    <div>
-                      {{sitios_form.JUN_LTE_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUN_LTE_B2_PCS</label>
-                    <div>
-                      {{sitios_form.JUN_LTE_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUN_LTE_B4_AWS</label>
-                    <div>
-                      {{sitios_form.JUN_LTE_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUN_LTE_B7_2600</label>
-                    <div>
-                      {{sitios_form.JUN_LTE_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUN_LTE_B38_2600</label>
-                    <div>
-                      {{sitios_form.JUN_LTE_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUN_5G_B7_2600</label>
-                    <div>
-                      {{sitios_form.JUN_5G_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUN_5G_B38_2600</label>
-                    <div>
-                      {{sitios_form.JUN_5G_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUN_COMENTARIO_OPERACIONES</label>
-                    <div>
-                      {{sitios_form.JUN_COMENTARIO_OPERACIONES}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUN_PLAN</label>
-                    <div>
-                      {{sitios_form.JUN_PLAN}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUL_3G_B5_850</label>
-                    <div>
-                      {{sitios_form.JUL_3G_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUL_3G_B2_PCS</label>
-                    <div>
-                      {{sitios_form.JUL_3G_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUL_3G_B4_AWS</label>
-                    <div>
-                      {{sitios_form.JUL_3G_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUL_LTE_B26_800</label>
-                    <div>
-                      {{sitios_form.JUL_LTE_B26_800}}
-                    </div>
-                  </div>
-
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUL_LTE_B5_850</label>
-                    <div>
-                      {{sitios_form.JUL_LTE_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUL_LTE_B2_PCS</label>
-                    <div>
-                      {{sitios_form.JUL_LTE_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUL_LTE_B4_AWS</label>
-                    <div>
-                      {{sitios_form.JUL_LTE_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUL_LTE_B7_2600</label>
-                    <div>
-                      {{sitios_form.JUL_LTE_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUL_LTE_B38_2600</label>
-                    <div>
-                      {{sitios_form.JUL_LTE_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUL_5G_B7_2600</label>
-                    <div>
-                      {{sitios_form.JUL_5G_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUL_5G_B38_2600</label>
-                    <div>
-                      {{sitios_form.JUL_5G_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUL_COMENTARIO_OPERACIONES</label>
-                    <div>
-                      {{sitios_form.JUL_COMENTARIO_OPERACIONES}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">JUL_PLAN</label>
-                    <div>
-                      {{sitios_form.JUL_PLAN}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_3G_B5_850</label>
-                    <div>
-                      {{sitios_form.AGO_3G_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_3G_B2_PCS</label>
-                    <div>
-                      {{sitios_form.AGO_3G_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_3G_B4_AWS</label>
-                    <div>
-                      {{sitios_form.AGO_3G_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_LTE_B26_800</label>
-                    <div>
-                      {{sitios_form.AGO_LTE_B26_800}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_LTE_B5_850</label>
-                    <div>
-                      {{sitios_form.AGO_LTE_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_LTE_B2_PCS</label>
-                    <div>
-                      {{sitios_form.AGO_LTE_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_LTE_B4_AWS</label>
-                    <div>
-                      {{sitios_form.AGO_LTE_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_LTE_B7_2600</label>
-                    <div>
-                      {{sitios_form.AGO_LTE_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_LTE_B38_2600</label>
-                    <div>
-                      {{sitios_form.AGO_LTE_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_LTE_B42_3500</label>
-                    <div>
-                      {{sitios_form.AGO_LTE_B42_3500}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_5G_B7_2600</label>
-                    <div>
-                      {{sitios_form.AGO_5G_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_5G_B38_2600</label>
-                    <div>
-                      {{sitios_form.AGO_5G_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_COMENTARIO_OPERACIONES</label>
-                    <div>
-                      {{sitios_form.AGO_COMENTARIO_OPERACIONES}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">AGO_PLAN</label>
-                    <div>
-                      {{sitios_form.AGO_PLAN}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_3G_B5_850</label>
-                    <div>
-                      {{sitios_form.SEP_3G_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_3G_B2_PCS</label>
-                    <div>
-                      {{sitios_form.SEP_3G_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_3G_B4_AWS</label>
-                    <div>
-                      {{sitios_form.SEP_3G_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_LTE_B26_800</label>
-                    <div>
-                      {{sitios_form.SEP_LTE_B26_800}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_LTE_B5_850</label>
-                    <div>
-                      {{sitios_form.SEP_LTE_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_LTE_B2_PCS</label>
-                    <div>
-                      {{sitios_form.SEP_LTE_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_LTE_B4_AWS</label>
-                    <div>
-                      {{sitios_form.SEP_LTE_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_LTE_B7_2600</label>
-                    <div>
-                      {{sitios_form.SEP_LTE_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_LTE_B38_2600</label>
-                    <div>
-                      {{sitios_form.SEP_LTE_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_LTE_B42_3500</label>
-                    <div>
-                      {{sitios_form.SEP_LTE_B42_3500}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_5G_B7_2600</label>
-                    <div>
-                      {{sitios_form.SEP_5G_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_5G_B38_2600</label>
-                    <div>
-                      {{sitios_form.SEP_5G_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_COMENTARIO_OPERACIONES</label>
-                    <div>
-                      {{sitios_form.SEP_COMENTARIO_OPERACIONES}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">SEP_PLAN</label>
-                    <div>
-                      {{sitios_form.SEP_PLAN}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">OCT_3G_B5_850</label>
-                    <div>
-                      {{sitios_form.OCT_3G_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">OCT_3G_B2_PCS</label>
-                    <div>
-                      {{sitios_form.OCT_3G_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">OCT_3G_B4_AWS</label>
-                    <div>
-                      {{sitios_form.OCT_3G_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">OCT_LTE_B26_800</label>
-                    <div>
-                      {{sitios_form.OCT_LTE_B26_800}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">OCT_LTE_B5_850</label>
-                    <div>
-                      {{sitios_form.OCT_LTE_B5_850}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">OCT_LTE_B2_PCS</label>
-                    <div>
-                      {{sitios_form.OCT_LTE_B2_PCS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">OCT_LTE_B4_AWS</label>
-                    <div>
-                      {{sitios_form.OCT_LTE_B4_AWS}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">OCT_LTE_B7_2600</label>
-                    <div>
-                      {{sitios_form.OCT_LTE_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">OCT_LTE_B38_2600</label>
-                    <div>
-                      {{sitios_form.OCT_LTE_B38_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">OCT_LTE_B42_3500</label>
-                    <div>
-                      {{sitios_form.OCT_LTE_B42_3500}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">OCT_5G_B7_2600</label>
-                    <div>
-                      {{sitios_form.OCT_5G_B7_2600}}
-                    </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <label for="firstName" class="form-label">OCT_5G_B38_2600</label>
-                    <div>
-                      {{sitios_form.OCT_5G_B38_2600}}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </form>
+    <div class="container-fluid">
+        <!-- Page Header -->
+        <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+            <h1 class="page-title fw-semibold fs-18 mb-0">Crear Sitio</h1>
+            <div class="ms-md-1 ms-0">
+                <nav>
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="javascript:void(0);"></a></li>
+                        <li class="breadcrumb-item active" aria-current="page"></li>
+                    </ol>
+                </nav>
             </div>
-          
-          </div>
         </div>
-      </div>
+        <!-- Page Header Close -->
+
+        <!-- Start::row-1 -->
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active border-0 p-0" id="order-tab-pane" role="tabpanel"
+                aria-labelledby="order-tab-pane" tabindex="0">
+                <div class="p-4">
+                    <div class="fs-15 fw-semibold d-sm-flex d-block align-items-center justify-content-between mb-3">
+                        <div class="mt-sm-0 mt-2">
+                            <button type="button" class="btn btn-primary btn-sm"  data-bs-toggle="modal" data-bs-target="#modal-new-address"><i class="ri-add-line me-1 align-middle fs-14 fw-semibold d-inline-block"></i>Add New Address</button>
+                            <div class="modal fade"  id="modal-new-address" tabindex="-1" aria-labelledby="modal-new-address" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="staticBackdropLabel">Crear Sitio
+                                            </h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row gy-3">
+                                                <div class="col-xl-3">
+                                                    <label for="fullname-new" class="form-label">TRACKER</label>
+                                                    <input type="text" class="form-control" id="fullname-new" placeholder="TRACKER">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="fullname-new" class="form-label">ATT ID</label>
+                                                    <input type="text" class="form-control" id="fullname-new" placeholder="ATT ID">
+                                                </div>
+                                           
+                                                <div class="col-xl-3">
+                                                    <label for="fullname-new" class="form-label">NOMBRE</label>
+                                                    <input type="text" class="form-control" id="phonenumber-new" placeholder="LATITUD">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="address-new" class="form-label">IDE LITE</label>
+                                                    <input type="text" class="form-control" id="address-new" placeholder="IDE LITE">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <div class="row">
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">IDE ROJO</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="IDE LITE">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">IDE NARANJA</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="IDE NARANJA">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">IDEN</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="IDEN">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">LATITUD</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="LATITUD">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <div class="row">
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">LONGITUD</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="LONGITUD">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">ESTADO</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="ESTADO">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">MUNICIPIO</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="MUNICIPIO">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">MERCADO</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="MERCADO">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <div class="row">
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">REGION CELULAR</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="REGION CELULAR">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">REGION</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="REGION">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">VENDOR</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="VENDOR">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">COBERTURA</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="COBERTURA">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <div class="row">
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">TIPO</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="TIPO">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">PROYECTO</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="PROYECTO">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">CLASIFICACION</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="CLASIFICACION">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">TECNOLOGIA</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="TECNOLOGIA">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <div class="row">
+                                                        <div class="col-xl-4">
+                                                            <label for="address-new" class="form-label">CONFIGURACION 3G</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="CONFIGURACION 3G">
+                                                        </div>
+                                                        <div class="col-xl-5">
+                                                            <label for="address-new" class="form-label">CONFIGURACION 4G</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="CONFIGURACION 4G">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">CONFIGURACION 5G</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="CONFIGURACION 5G">
+                                                        </div>
+                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <div class="row">
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">IOT</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="IOT">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">THD</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="THD">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">TRAFICO 3G LTE 5G</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="TRAFICO 3G LTE 5G">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">TRAFICO 3G</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="TRAFICO 3G">
+                                                        </div>
+                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <div class="row">
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">TRAFICO 4G</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="TRAFICO 4G">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">TRAFICO 5G</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="TRAFICO 5G">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">SL</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="SL">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">REUBICACION</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="REUBICACION">
+                                                        </div>
+                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <div class="row">
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">NOTAS</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="NOTAS">
+                                                        </div>
+                                                        <div class="col-xl-6">
+                                                            <label for="address-new" class="form-label">COMENTARIOS OPERACIONES</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="COMENTARIOS OPERACIONES">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">TRAFICO 3G LTE 5G</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="TRAFICO 3G LTE 5G">
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <div class="row">
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">IOT</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="IOT">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">THD</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="THD">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">TRAFICO 3G LTE 5G</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="TRAFICO 3G LTE 5G">
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label for="address-new" class="form-label">TRAFICO 3G</label>
+                                                            <input type="text" class="form-control" id="address-new" placeholder="TRAFICO 3G">
+                                                        </div>
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-success">Save
+                                                Address</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade border-0 p-0" id="confirm-tab-pane"
+                role="tabpanel" aria-labelledby="confirm-tab-pane" tabindex="0">
+                <div class="p-4">
+                    <p class="mb-1 fw-semibold text-muted op-5 fs-20">02</p>
+                    <div class="fs-15 fw-semibold d-sm-flex d-block align-items-center justify-content-between mb-3">
+                        <div>Nuevo Sitio :</div>
+                    </div>
+                    <div class="row gy-4">
+                        <div class="col-xl-6">
+                            <label for="firstname-personal" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstname-personal" placeholder="First Name" value="Json">
+                        </div>
+                        <div class="col-xl-6">
+                            <label for="lastname-personal" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastname-personal" placeholder="Last Name" value="Taylor">
+                        </div>
+                        <div class="col-xl-6">
+                            <label for="email-personal" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email-personal" placeholder="xyz@example.com" value="">
+                        </div>
+                        <div class="col-xl-6">
+                            <label for="phoneno-personal" class="form-label">Phone no</label>
+                            <input type="text" class="form-control" id="phoneno-personal" placeholder="(555)-555-1234" value="">
+                        </div>
+                        <div class="col-xxl-2">
+                            <label for="pincode-personal" class="form-label">Pincode</label>
+                            <input type="text" class="form-control" id="pincode-personal" placeholder="200017" value="">
+                        </div>
+                        <div class="col-xxl-4">
+                            <label for="choices-single-default" class="form-label">City</label>
+                            <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+                                <option value="Choice 1">Georgetown</option>
+                                <option value="Choice 2">Alexandria</option>
+                                <option value="Choice 3">Rockville</option>
+                                <option value="Choice 4">Frederick</option>
+                            </select>
+                        </div>
+                        <div class="col-xxl-4">
+                            <label for="choices-single-default1" class="form-label">State</label>
+                            <select class="form-control" data-trigger id="choices-single-default1">
+                                <option value="Choice 1">Washington,D.C</option>
+                                <option value="Choice 2">California</option>
+                                <option value="Choice 3">Texas</option>
+                                <option value="Choice 4">Alaska</option>
+                            </select>
+                        </div>
+                        <div class="col-xxl-2">
+                            <label for="country-personal" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="country-personal" placeholder="Country" value="USA">
+                        </div>
+                        <div class="col-xl-12">
+                            <label for="text-area" class="form-label">Address</label>
+                            <textarea class="form-control" id="text-area" rows="4"></textarea>
+                            <div class="form-check mt-1">
+                                <input class="form-check-input form-checked-outline form-checked-success" type="checkbox" value="" id="invalidCheck1" required checked>
+                                <label class="form-check-label text-success fs-12" for="invalidCheck1">
+                                    Same as Shipping Address Address ?
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card custom-card">
+                    <div class="card-body add-products p-0">
+                        <div class="p-4">
+                            <div class="row gx-5">
+                                <div class="col-xxl-6 col-xl-12 col-lg-12 col-md-6">
+                                    <div class="card custom-card shadow-none mb-0 border-0">
+                                        <div class="card-body p-0">
+                                            <div class="row gy-4">
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">TRACKER</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="TRACKER">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">ATT ID</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ATT ID">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">NOMBRE</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="NOMBRE">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">IDE LITE</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="IDE LITE">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">IDE ROJO</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="IDE ROJO">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">IDE NARANJA</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="IDE NARANJA">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">IDEN</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="IDEN">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">LATITUD</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="LATITUD">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">LONGITUD</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="LONGITUD">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">ESTADO</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ESTADO">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">MUNICIPIO</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="MUNICIPIO">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">MERCADO</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="MERCADO">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">REGION CELULAR</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="REGION CELULAR">
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <label for="product-name-add" class="form-label">CLASIFICACION</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="CLASIFICACION">
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <label for="product-name-add" class="form-label">TECNOLOGIA</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="TECNOLOGIA">
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <label for="product-name-add" class="form-label">CONFIGURACION 3G</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="CONFIGURACION 3G">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">THD</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="THD">
+                                                </div>
+                                                <div class="col-xl-5">
+                                                    <label for="product-name-add" class="form-label">TRAFICO 3G LTE 5G</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="TRAFICO 3G LTE 5G">
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <label for="product-name-add" class="form-label">TRAFICO 3G</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="TRAFICO 3G">
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <label for="product-name-add" class="form-label">NOTAS</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="NOTAS">
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <label for="product-name-add" class="form-label">COMENTARIO OPERACIONES</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="COMENTARIO OPERACIONES">
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <label for="product-name-add" class="form-label">PLAN</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="PLAN">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">ENE LTE B5 850</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ENE LTE B5 850">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">ENE LTE B2 PCS</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ENE LTE B2 PCS">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">ENE LTE B4 AWS</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ENE LTE B4 AWS">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">ENE LTE B7 2600</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ENE LTE B7 2600">
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <div class="col-xxl-6 col-xl-12 col-lg-12 col-md-6">
+                                    <div class="card custom-card shadow-none mb-0 border-0">
+                                        <div class="card-body p-0">
+                                            <div class="row gy-4">
+                                                
+                                                
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">VENDOR</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="VENDOR">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">COBERTURA</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="COBERTURA">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">TIPO</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="TIPO">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">PROYECTO</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="PROYECTO">
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <label for="product-name-add" class="form-label">CONFIGURACION 4G</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="CONFIGURACION 4G">
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <label for="product-name-add" class="form-label">CONFIGURACION 5G</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="CONFIGURACION 5G">
+                                                </div>
+                                                <div class="col-xl-2">
+                                                    <label for="product-name-add" class="form-label">IOT</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="IOT">
+                                                </div>
+                                              
+                                               
+                                                <div class="col-xl-4">
+                                                    <label for="product-name-add" class="form-label">TRAFICO 4G</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="TRAFICO 4G">
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <label for="product-name-add" class="form-label">TRAFICO 5G</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="TRAFICO 5G">
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <label for="product-name-add" class="form-label">SL</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="SL">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">REUBICACION</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="REUBICACION">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">ENE 3G B5 850</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ENE 3G B5 850">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">ENE 3G B2 PCS</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ENE 3G B2 PCS">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">ENE 3G B4 AWS</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ENE 3G B4 AWS">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">ENE LTE B26 800</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ENE LTE B26 800">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">ENE LTE B38 2600</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ENE LTE B38 2600">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">ENE 5G B7 2600</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ENE 5G B7 2600">
+                                                </div>
+                                                <div class="col-xl-3">
+                                                    <label for="product-name-add" class="form-label">ENE 5G B38 2600</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ENE 5G B38 2600">
+                                                </div>
+                                                <div class="col-xl-5">
+                                                    <label for="product-name-add" class="form-label">ENE COMENTARIO OPERACIONES</label>
+                                                    <input type="text" class="form-control" id="product-name-add" placeholder="ENE COMENTARIO OPERACIONES">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-4 py-3 border-top border-block-start-dashed d-sm-flex justify-content-end">
+                            <button class="btn btn-primary-light m-1">Add Product<i class="bi bi-plus-lg ms-2"></i></button>
+                            <button class="btn btn-success-light m-1">Save Product<i class="bi bi-download ms-2"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End::row-1 -->
+
     </div>
+</div>
   </div>
 </div>
 

@@ -30,12 +30,25 @@ def mapas(request):
     return render(request, 'sitios/mapas.html',context)
 
 def reportes(request):
-    fibra = FiltroFibraOptica.objects.all()
-    f_fo = FiltroFibraOptica.objects.values("TX").filter(TX="FO").count()
-  
-    print(f_fo)
-    data = {'fo':f_fo}
-    return render(request, 'sitios/reportes.html', data)
+    fo_tx = FiltroFibraOptica.objects.filter(TX='FO').count()
+    fo_tx =int(fo_tx)
+    fo_txdetalle = FiltroFibraOptica.objects.filter(TX_DETALLE='IPBH').count()
+    fo_mercado = FiltroFibraOptica.objects.filter(MERCADO='AGUASCALIENTES').count()
+    
+    print(fo_tx)
+    print(fo_txdetalle)
+    print(fo_mercado)
+
+    fo_tx = [fo_tx]
+    fo_txdetalle = [fo_txdetalle]
+    fo_mercado = [fo_mercado]
+    
+    data = {'fo_tx':fo_tx,
+            'fo_txdetalle':fo_txdetalle,
+            'fo_mercado':fo_mercado,
+
+            }
+    return render(request, 'sitios/reportes.html',data)
 
 def listarSitios(request):
     busqueda = request.POST.get("buscar")
@@ -106,7 +119,6 @@ def cargarFiltroSitios(request):
         df_filtro_c = df['CLASIFICACION'] != 'ALPHA'
         df_filtro_t = df['TECNOLOGIA'] != '-'
         df= df[df_filtro_s & df_filtro_c & df_filtro_t]
-        
         df.to_sql(FiltroSitiosTotales._meta.db_table, if_exists='replace', con=engine,index=False)
     return render(request, "sitios/cargarFiltroSitios.html")
 
@@ -132,7 +144,7 @@ def cargarFiltroFO(request):
  
     if request.method == 'POST':
         upload_file = request.FILES['file']
-        df = pd.read_excel(upload_file, engine='openpyxl', usecols=cols, header=0)
+        df = pd.read_excel(upload_file, engine='openpyxl', usecols=cols, header=1)
         df.columns = df.columns.str.strip()
         df = df.replace(np.nan,' ')
         df.rename(columns=nomColsFiltroFO,inplace=True)
@@ -145,9 +157,9 @@ def cargarFiltroFO(request):
         df.to_sql(FiltroFibraOptica._meta.db_table, if_exists='replace', con=engine,index=False)    
     return render(request, "sitios/cargarFiltroFO.html")
 
-def listarFO(request):
+def listarFiltroFO(request):
     busqueda = request.POST.get("buscar")
-    fo = FibraOptica.objects.all()
+    fo = FiltroFibraOptica.objects.all()
     # if busqueda:
     #     fo = FibraOptica.objects.filter(
     #         Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
@@ -200,9 +212,9 @@ def cargarFiltroAGG(request):
 
     return render(request, "sitios/cargarFiltroAGG.html")
 
-def listarAGG(request):
+def listarFiltroAGG(request):
     busqueda = request.POST.get("buscar")
-    agredaor = AGG.objects.all()
+    agredaor = Filtro_AGG.objects.all()
     # if busqueda:
     #     agredaor = FibraOptica.objects.filter(
     #         Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
@@ -215,7 +227,7 @@ def listarAGG(request):
         raise Http404
     data = {'entity':agredaor,'paginator': paginator }
 
-    return render(request, "sitios/listarAGG.html",data)
+    return render(request, "sitios/listarFiltroAGG.html",data)
 #----------------------      PROYECCION        ---------------------------#
 def cargarProyeccion(request):
     engine = create_engine(conexion(),echo=False)
@@ -248,9 +260,9 @@ def cargarFiltroProyeccion(request):
 
     return render(request, "sitios/cargarFiltroProyeccion.html")
 
-def listarProyeccion(request):
+def listarFiltroProyeccion(request):
     busqueda = request.POST.get("buscar")
-    sitios = Proyeccion.objects.all()
+    sitios = FiltroProyeccion.objects.all()
     # if busqueda:
     #     sitios = FibraOptica.objects.filter(
     #         Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
@@ -263,7 +275,7 @@ def listarProyeccion(request):
         raise Http404
     data = {'entity':sitios,'paginator': paginator }
 
-    return render(request, "sitios/listarProyeccion.html",data)
+    return render(request, "sitios/listarFiltroProyeccion.html",data)
 
 #----------------------      MIGRACION         ---------------------------#
 def cargarMigracion(request):
@@ -298,9 +310,9 @@ def cargarFiltroMigracion(request):
 
     return render(request, "sitios/cargarFiltroMigracion.html")
 
-def listarMigracion(request):
+def listarFiltroMigracion(request):
     busqueda = request.POST.get("buscar")
-    migracion = Migracion.objects.all()
+    migracion = FiltroMigracion.objects.all()
     # if busqueda:
     #     migracion = FibraOptica.objects.filter(
     #         Q(ATTID__icontains = busqueda) | Q(ESTADO__icontains = busqueda)).distinct()
@@ -313,7 +325,7 @@ def listarMigracion(request):
         raise Http404
     data = {'entity':migracion,'paginator': paginator }
 
-    return render(request, "sitios/listarMigracion.html",data)
+    return render(request, "sitios/listarFiltroMigracion.html",data)
 
 #----------------------     MICROONDAS        ---------------------------#
 
@@ -417,7 +429,6 @@ def listarCarrier(request):
     return render(request, "sitios/listarCarrier.html",data)
 
 #----------------------      PON             ---------------------------#
-
 def cargarPon(request):
     if request.method == 'POST':
         upload_file = request.FILES['file']
@@ -459,6 +470,8 @@ def cargarPanda(request):
         for name in df.columns:
             df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
             df[name] = df[name].str.upper()
+        df_status_activo = df['STATUS'] !='CANCELED'
+        df = df[df_status_activo]
         engine = create_engine(conexion(),echo=False)
         df.to_sql(Panda._meta.db_table,if_exists='replace',con=engine,index=False)
 
@@ -618,9 +631,7 @@ def cargarFiltroBaseSinTx(request):
     if request.method == 'POST':
         upload_file = request.FILES['file']
             
-        df = pd.read_excel(upload_file, engine='openpyxl', usecols= cols,header=1)
-        df = df.replace(np.nan,' ')
-
+        df = pd.read_excel(upload_file, engine='openpyxl', usecols= cols,header=0)
         df.rename(columns=nomColsFiltroBaseSinTx ,inplace=True)
         for name in df.columns:
             df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))

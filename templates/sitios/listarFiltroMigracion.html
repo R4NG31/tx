@@ -12,21 +12,21 @@
                 <div class="card custom-card">
                     <div class="card-header d-flex align-items-center justify-content-between flex-wrap gap-3">
                         <div class="card-title">
-                            Fibra Optica<span class="badge bg-light text-default rounded ms-1 fs-12 align-middle"></span>
+                            Migración<span class="badge bg-light text-default rounded ms-1 fs-12 align-middle"></span>
                         </div>
                         <div class="d-flex flex-wrap gap-2">
                             <a href="{% url 'index' %}">
                                 <button class="btn btn-secondary-light btn-wav">Inicio</button>
                             </a>
-                            <a href="{% url 'listarFiltroFO' %}">
-                            <button class="btn btn-secondary-light btn-wav">Listar Fibra Óptica</button>
+                            <a href="{% url 'listarFiltroMigracion' %}">
+                            <button class="btn btn-secondary-light btn-wav">Listar Migración</button>
                             </a>
-                            <a href="{% url 'cargarFiltroFO' %}"> 
-                            <button class="btn btn-secondary-light btn-wav">Cargar Fibra Optica</button>
+                            <a href="{% url 'cargarFiltroMigracion' %}"> 
+                            <button class="btn btn-secondary-light btn-wav">Cargar Migración</button>
                             </a> 
                             
                             <a href="{% url 'crearSitios' %}">
-                               <button class="btn btn-secondary-light btn-wav">Crear Fibra Optica</button>
+                               <button class="btn btn-secondary-light btn-wav">Crear Migración</button>
                             </a>
                             <button class="btn btn-secondary-light btn-wav">Exportar CSV</button>
                             <a href="{% url 'mapas' %}">
@@ -48,40 +48,43 @@
                         <div id="table-scroll" class="table-responsive">
                             {%if entity %}
                             <table   class="table text-nowrap table-bordered">
-                                <tr>
-                                    <th><strong>ATT ID</strong></th>  	
-                                    <th><strong>TX</strong></th>  	  	
-                                    <th><strong>GRUPOS</strong></th>  	  	
-                                    <th><strong>DETALLE</strong></th>  	  	
-                                    <th><strong>CONTROL</strong></th>  	  	
-                                    <th><strong>FECHA</strong></th>  	  	
-                                    <th><strong>POC</strong></th>  		 	
-                                    <th><strong>AÑO</strong></th>  		 	
-                                    <th><strong>PROYECTO</strong></th>  	  	
-                                    <th><strong>TOPOLOGIA</strong></th>  	  	
-                                    <th><strong>SEGMENTO_IPBH</strong></th>  	  	
-                                    <th><strong>STATUS</strong></th>  	  
-                                    <th><strong>ACTIONS</strong></th>  	  
-      
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th><strong>ID ATT</strong></th>  
+                                        <th><strong>TX</strong></th>  
+                                        <th><strong>GRUPOS</strong></th>  
+                                        <th><strong>DETALLE</strong></th>  
+                                        <th><strong>CONTROL</strong></th>  
+                                        <th><strong>MARKET</strong></th>  
+                                        <th><strong>PROYECTO</strong></th>  
+                                        <th><strong>REAL_MIGRACION</strong></th>  
+                                        <th><strong>SCOPE</strong></th>  
+                                        <th><strong>STATUS</strong></th>  
+                                        <th><strong>TX_TYPE</strong></th>  
+                                        <th><strong>ACTIONS</strong></th> 
+
+                                    </tr>
+                                </thead>
                                 {% else %}
                             <div><h1>No Existen Sitios Registrados</h1></div>
                             {% endif %}
                             <tbody>
-                                {% for f in entity %}
+                                {% for m in entity %}
                                 <tr>
-                                    <td>{{f.ID_ATT_F}}</td>  	
-                                    <td>{{f.TX}}</td>  	  	
-                                    <td>{{f.TX_GRUPOS}}</td>  	  	
-                                    <td>{{f.TX_DETALLE}}</td>  	  	
-                                    <td>{{f.CONTROL}}</td>  	  	
-                                    <td>{{f.FECHA}}</td>  	  	
-                                    <td>{{f.POC}}</td>  		 	
-                                    <td>{{f.AÑO}}</td>  		 	
-                                    <td>{{f.PROYECTO}}</td>  	  	
-                                    <td>{{f.TOPOLOGIA}}</td>  	  	
-                                    <td>{{f.SEGMENTO_IPBH}}</td>  	  	
-                                    <td>{{f.STATUS}}</td>  	  
+                                    <tr>
+                                        <td>{{m.ID_ATT_M}}</td>  
+                                        <td>{{m.ORIGEN_TX}}</td>  
+                                        <td>{{m.TX_GRUPOS}}</td>  
+                                        <td>{{m.TX_DETALLE}}</td>  
+                                        <td>{{m.CONTROL}}</td>  
+                                        <td>{{m.MARKET}}</td>  
+                                        <td>{{m.PROYECTO}}</td>  
+                                        <td>{{m.REAL_MIGRACION}}</td>  
+                                        <td>{{m.SCOPE}}</td>  
+                                        <td>{{m.STATUS}}</td>  	
+                                        <td>{{m.TX_TYPE}}</td>  	
+                                  
+                                      
                                     <td>
                                         <div class="hstack gap-2 fs-15">
                                             <a href="javascript:void(0);" class="btn btn-teal-light btn-wave"><i class="bx bx-show"></i></a>

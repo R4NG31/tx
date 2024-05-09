@@ -1,0 +1,10 @@
+  new Chart(ctx, {
+                              type: 'bar',
+                              data: {
+                                labels: [{% for f in fo_titulo %} '{{f}}', {% endfor %}],
+                                datasets: [{
+                                  label: '# Fobra Optica',
+                                  data: [{% for n in fo_c %} '{{n}}', {% endfor %}],
+                                  borderWidth: 1
+                                }]
+                              },
